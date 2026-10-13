@@ -19,8 +19,8 @@ they are not production performance claims.
 
 | Project | Repository visibility | Implemented capabilities | Current delivery status |
 | --- | --- | --- | --- |
-| [01 â€” Task Execution Engine](https://github.com/texasbredmj/task-execution-engine) | Private; access required | CLI, strict requests, SQLite lifecycle/audit, bounded fixed commands, idempotency, approved formatting corrections, patch capture, independent verification | Published; [7/7 CI jobs passed](https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942) |
-| [02 â€” AI Tool Coordination Gateway](https://github.com/texasbredmj/ai-tool-coordination-gateway) | Public | Typed registry/discovery, four adapters, backend permissions, separate approval, concurrency/rate budgets, durable no-replay claims, independent receipt verification | Published; [7/7 CI jobs passed](https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323) |
+| [01 — Task Execution Engine](https://github.com/texasbredmj/task-execution-engine) | Private; access required | CLI, strict requests, SQLite lifecycle/audit, bounded fixed commands, idempotency, approved formatting corrections, patch capture, independent verification | Published; [7/7 CI jobs passed](https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942) |
+| [02 — AI Tool Coordination Gateway](https://github.com/texasbredmj/ai-tool-coordination-gateway) | Public | Typed registry/discovery, four adapters, backend permissions, separate approval, concurrency/rate budgets, durable no-replay claims, independent receipt verification | Published; [7/7 CI jobs passed](https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323) |
 
 [Machine-readable checkpoint evidence](evidence/phase1.json) records the exact published commits,
 workflow run URLs, all fourteen successful job conclusions, twelve evidence artifacts, and sampled remote JUnit results.
@@ -28,8 +28,8 @@ workflow run URLs, all fourteen successful job conclusions, twelve evidence arti
 ## Architecture
 
 ```text
-Goal â†’ input validation â†’ planning â†’ policy and authorization â†’ bounded execution
-     â†’ result collection â†’ independent verification â†’ report + audit + metrics
+Goal → input validation → planning → policy and authorization → bounded execution
+     → result collection → independent verification → report + audit + metrics
 ```
 
 The first project establishes deterministic task execution. The second exposes controlled tools
@@ -64,10 +64,10 @@ limitations. Local execution does not imply hostile-code containment or public-s
 
 | Phase | Projects | Status |
 | --- | --- | --- |
-| 1 â€” Foundations | 01 Task Execution Engine; 02 AI Tool Coordination Gateway | Published; remote CI verified on Windows/Linux, Python 3.11/3.12/3.14, plus Docker |
-| 2 â€” Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Planned; Phase 1 checkpoint passed, Project 03 may begin next |
-| 3 â€” Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Planned |
-| 4 â€” Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | Planned |
+| 1 — Foundations | 01 Task Execution Engine; 02 AI Tool Coordination Gateway | Published; remote CI verified on Windows/Linux, Python 3.11/3.12/3.14, plus Docker |
+| 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Planned; Phase 1 checkpoint passed, Project 03 may begin next |
+| 3 — Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Planned |
+| 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | Planned |
 
 Planned projects are not advertised as completed repositories. Benchmark numbers, cloud deployment,
 production usage, and remote CI success are reported only when supported by confirmed evidence.
