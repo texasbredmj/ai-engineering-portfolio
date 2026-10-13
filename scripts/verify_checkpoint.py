@@ -23,6 +23,33 @@ def main():
             assert ci["url"].startswith(project["repository_url"] + "/actions/runs/")
             assert project["published"] is True
     assert evidence["project03_allowed"] == evidence["checkpoint_complete"]
+    project03_path = root / "evidence/project03.json"
+    if project03_path.exists():
+        project = json.loads(project03_path.read_text(encoding="utf-8"))
+        assert project["name"] == "autonomous-workflow-orchestrator"
+        assert project["published"] and project["checkpoint_complete"]
+        assert re.fullmatch(r"[0-9a-f]{40}", project["published_sha"])
+        assert project["repository_url"] == "https://github.com/texasbredmj/autonomous-workflow-orchestrator"
+        ci = project["remote_ci"]
+        assert ci["head_sha"] == project["published_sha"]
+        assert ci["status"] == "completed" and ci["conclusion"] == "success"
+        assert len(ci["jobs"]) == 7 and all(j["conclusion"] == "success" for j in ci["jobs"])
+        assert ci["url"].startswith(project["repository_url"] + "/actions/runs/")
+        junit = ci["artifact_verification"]["junit"]
+        assert junit["tests"] == 16
+        assert all(junit[k] == 0 for k in ("failures", "errors", "skipped"))
+        scenarios = ci["artifact_verification"]["durability"]["scenarios"]
+        expected_scenarios = {
+            "worker_crash_after_commit", "bounded_retry_and_branch_skip",
+            "verification_failure_compensates", "cancel_after_reservation_compensates",
+            "unauthorized_then_rejected_approval", "durable_scheduled_start",
+            "retry_exhaustion_no_effect", "approval_timeout_no_effect",
+        }
+        assert {s["scenario"] for s in scenarios} == expected_scenarios
+        assert len(scenarios) == 8 and all(s["passed"] for s in scenarios)
+        crash = next(s for s in scenarios if s["scenario"] == "worker_crash_after_commit")
+        assert crash["worker_replaced"] and crash["reservation_count"] == 1
+        assert crash["activity_attempt"] >= 2
     print(json.dumps({"evidence_valid": True, "checkpoint_complete": evidence["checkpoint_complete"]}))
 
 

@@ -1,0 +1,152 @@
+{
+  "name": "autonomous-workflow-orchestrator",
+  "repository_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator",
+  "private": false,
+  "published": true,
+  "published_sha": "2adc05287b98bb4e6969af19124a99d8bfd73035",
+  "verified_at": "2026-10-13T20:59:13.700207+00:00",
+  "checkpoint_complete": true,
+  "local_verification": {
+    "windows": [
+      {
+        "tests": "16",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "41.377"
+      }
+    ],
+    "linux": [
+      {
+        "tests": "16",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0",
+        "time": "36.568"
+      }
+    ]
+  },
+  "remote_ci": {
+    "id": 38466787806,
+    "url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806",
+    "head_sha": "2adc05287b98bb4e6969af19124a99d8bfd73035",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 115535521948,
+        "name": "durability",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806/job/115535521948"
+      },
+      {
+        "id": 115535522037,
+        "name": "policy (windows-latest, 3.11)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806/job/115535522037"
+      },
+      {
+        "id": 115535522132,
+        "name": "policy (ubuntu-latest, 3.12)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806/job/115535522132"
+      },
+      {
+        "id": 115535522137,
+        "name": "policy (ubuntu-latest, 3.11)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806/job/115535522137"
+      },
+      {
+        "id": 115535522144,
+        "name": "policy (windows-latest, 3.14)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806/job/115535522144"
+      },
+      {
+        "id": 115535522187,
+        "name": "policy (ubuntu-latest, 3.14)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806/job/115535522187"
+      },
+      {
+        "id": 115535522305,
+        "name": "policy (windows-latest, 3.12)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806/job/115535522305"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11848778927,
+        "name": "durability-evidence",
+        "size_in_bytes": 43513,
+        "expired": false
+      }
+    ],
+    "artifact_sha256": "03626bd34cdd0a1272221bbea021a05e89057473d70ec2fcdccc7801a9cd2790",
+    "artifact_verification": {
+      "junit": {
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "durability": {
+        "verified_demo": true,
+        "scenarios": [
+          {
+            "scenario": "worker_crash_after_commit",
+            "passed": true,
+            "workflow_id": "acceptance-19f59f8a-f9e4-4afc-a0fd-a6b9ea9f7ad3",
+            "worker_replaced": true,
+            "reservation_count": 1,
+            "activity_attempt": 2
+          },
+          {
+            "scenario": "bounded_retry_and_branch_skip",
+            "passed": true,
+            "workflow_id": "acceptance-af7da68e-40fb-4def-9de5-b6119db03be1"
+          },
+          {
+            "scenario": "verification_failure_compensates",
+            "passed": true,
+            "workflow_id": "acceptance-9bcdfd04-d984-4e6c-b147-06357d349dd8"
+          },
+          {
+            "scenario": "cancel_after_reservation_compensates",
+            "passed": true,
+            "workflow_id": "acceptance-e355667e-5258-48dc-87ad-eaca89596a23"
+          },
+          {
+            "scenario": "unauthorized_then_rejected_approval",
+            "passed": true,
+            "workflow_id": "acceptance-27ca9444-37dd-49d4-b47d-c03fb8253bc6"
+          },
+          {
+            "scenario": "durable_scheduled_start",
+            "passed": true,
+            "workflow_id": "acceptance-41ea3987-ac3c-4217-8690-693d579e4afc"
+          },
+          {
+            "scenario": "retry_exhaustion_no_effect",
+            "passed": true,
+            "workflow_id": "acceptance-3cfe5d10-a9fe-42ba-bcb8-5435749d9de0"
+          },
+          {
+            "scenario": "approval_timeout_no_effect",
+            "passed": true,
+            "workflow_id": "acceptance-8aa2265e-f281-4596-9dd1-ce17fbd5dfab"
+          }
+        ],
+        "backend": "Temporal + PostgreSQL",
+        "real_worker_process_interruption": true
+      }
+    }
+  },
+  "limitations": [
+    "Policy matrix runs 14 unit tests per job; the durability job runs all 16 tests.",
+    "GitHub evidence artifact retention is 14 days; summarized results are preserved here.",
+    "Local Temporal fixtures do not establish production availability or external API exactly-once guarantees."
+  ]
+}

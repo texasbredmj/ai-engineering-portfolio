@@ -25,6 +25,26 @@ they are not production performance claims.
 [Machine-readable checkpoint evidence](evidence/phase1.json) records the exact published commits,
 workflow run URLs, all fourteen successful job conclusions, twelve evidence artifacts, and sampled remote JUnit results.
 
+## Project 03 delivery checkpoint
+
+[03 — Autonomous Workflow Orchestrator](https://github.com/texasbredmj/autonomous-workflow-orchestrator)
+is published as a public repository. [All seven remote CI jobs passed](https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806)
+against commit `2adc05287b98bb4e6969af19124a99d8bfd73035` on October 13, 2026.
+Six policy jobs cover Windows/Linux and Python 3.11/3.12/3.14. The durability job starts real
+Temporal and PostgreSQL services, runs all 16 tests with zero failures, errors, or skips, and builds
+the worker container. Downloaded evidence confirms all eight recovery/authorization scenarios,
+including a worker process crash after database commit: the replacement worker retries the activity
+and verifies exactly one reservation.
+
+Capabilities include durable scheduling, parallel activities, conditional branching, signed approvals,
+bounded retries, cancellation, compensation, and independent outcome verification. Local Windows and
+Linux suites also passed all 16 tests. These are controlled fixture results, not production availability
+or arbitrary external API exactly-once guarantees.
+
+[Project 03 evidence](evidence/project03.json) preserves the commit, job conclusions, artifact checksum,
+JUnit counts, and scenario results. Raw GitHub artifacts have a 14-day retention period.
+The publication checkpoint is complete; Project 04 remains planned.
+
 ## Architecture
 
 ```text
@@ -65,7 +85,7 @@ limitations. Local execution does not imply hostile-code containment or public-s
 | Phase | Projects | Status |
 | --- | --- | --- |
 | 1 — Foundations | 01 Task Execution Engine; 02 AI Tool Coordination Gateway | Published; remote CI verified on Windows/Linux, Python 3.11/3.12/3.14, plus Docker |
-| 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Planned; Phase 1 checkpoint passed, Project 03 may begin next |
+| 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Project 03 published with remote CI and recovery evidence verified; Project 04 planned |
 | 3 — Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Planned |
 | 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | Planned |
 
