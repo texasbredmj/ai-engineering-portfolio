@@ -1,5 +1,9 @@
 # AI Systems Engineering Lab
 
+**[Start Here — launch the guided demo in GitHub Codespaces](https://github.com/codespaces/new?repo=texasbredmj/ai-engineering-portfolio&ref=showcase%2Fcodespaces-verification)**
+
+[Startup, expected results, and verification instructions](docs/CODESPACES-VERIFICATION.md). Fresh environment verification is in progress; see the recorded results before treating this launch configuration as verified.
+
 An engineering portfolio focused on AI systems that complete authorized tasks, coordinate tools,
 recover from failures, and independently verify outcomes. Projects use deterministic baselines
 before introducing model-driven planning. Completion requires observable evidence rather than
