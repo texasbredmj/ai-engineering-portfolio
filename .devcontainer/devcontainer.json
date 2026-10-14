@@ -1,0 +1,16 @@
+{
+  "name": "Portfolio guided demo",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [18780],
+  "portsAttributes": {
+    "18780": {"label": "Relay guided demo", "onAutoForward": "notify", "protocol": "http"},
+    "15438": {"onAutoForward": "ignore"}
+  },
+  "otherPortsAttributes": {"onAutoForward": "ignore"},
+  "postCreateCommand": "python scripts/setup_codespaces.py",
+  "postStartCommand": "python scripts/setup_codespaces.py --start-only",
+  "remoteUser": "vscode"
+}
