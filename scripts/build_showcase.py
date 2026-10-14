@@ -47,6 +47,12 @@ docker compose up -d --build --wait
 <footer><span>AI SYSTEMS ENGINEERING LAB / 2026</span><a href="../docs/DEVELOPMENT-WORKFLOW.md">Development evidence workflow ↗</a><span>Live showcase · startup verified October 14, 2026</span></footer></body></html>'''
     # Package supporting evidence with the site so publishing site/ keeps links intact.
     html = html.replace('PROJECT_CARDS', '\n'.join(cards)).replace('href="../', 'href="')
+    # Pages serves Markdown as downloads with .nojekyll; open readable GitHub documents.
+    for folder in ('docs', 'resume'):
+        html = html.replace(
+            f'href="{folder}/',
+            f'href="https://github.com/texasbredmj/ai-engineering-portfolio/blob/showcase/codespaces-verification/{folder}/',
+        )
     (ROOT / 'site/index.html').write_text(html, encoding='utf-8')
     for folder in ('docs', 'evidence', 'resume'):
         shutil.copytree(ROOT / folder, ROOT / 'site' / folder, dirs_exist_ok=True)
