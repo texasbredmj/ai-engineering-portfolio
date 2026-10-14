@@ -1,0 +1,95 @@
+{
+  "checked_at": "2026-10-14T14:45:47.489889+00:00",
+  "environment": "codespaces",
+  "compose_project_name": "lab-ops08-clean",
+  "expected_app_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "app_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "portfolio_commit": "7693239abdf588717151e5f99867aed58a268615",
+  "compose_override_sha256": "208d6730b8ff4ea72a681ed09858ed50e6baff4555032a327d443b5bf16f8620",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "up",
+        "-d",
+        "--build",
+        "--wait"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "<app>/.venv/bin/python",
+        "scripts/test_local.py",
+        "-q",
+        "--junitxml=.gates/tests-codespaces.xml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/home/codespace/.python/current/bin/python",
+        "/workspaces/ai-engineering-portfolio/scripts/verify_codespaces_wheel.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "<app>/.venv/bin/python",
+        "scripts/demo.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "<app>/.venv/bin/python",
+        "scripts/verify_restart.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "docker",
+        "compose",
+        "--profile",
+        "verification",
+        "run",
+        "--build",
+        "--rm",
+        "browser"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "runtime_checks_passed": true,
+  "forwarded_browser_verified": false,
+  "limitations": [
+    "Forwarded URL and private port visibility require a separate browser check.",
+    "Fixture runtime; no live models or production identity."
+  ],
+  "tests": {
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "installed_wheel_tests": {
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "http_scenarios": 8,
+  "browser_scenarios": 8,
+  "restart_verified": true,
+  "artifacts": {
+    "tests-codespaces.xml": "bc054bad0cc7ae7535ac4850b3c48dbdbf65b9ac43dc71f830abf8c972aeb375",
+    "tests-linux.xml": "2a65823e81bc1437a4295809e387059ec6fe47a221f3b3ec4a537958508a79ce",
+    "dashboard-mobile.png": "bf0038d27bedfdeb27bf6ed32dafde2e4cd2c3591a078ac62dcf819eb1158bcd",
+    "restart-check.json": "0c84613be0d2e08b23f2eb2ae971b87e2082e60a530830863c320496ea563718",
+    "browser-check.json": "3efccba728882d953d1cb2c29854a35fee9dd103f36731ee647fe7518157a5a8",
+    "http-demo.json": "c5679b7bc82264f3af02bf4e20f5eb2cec75f058481581ced3bc134f2914a24b",
+    "dashboard-desktop.png": "4baab688c52ae130a7b3e900e2a71258ee58f3c91d40ee927de1c075171605dd"
+  }
+}

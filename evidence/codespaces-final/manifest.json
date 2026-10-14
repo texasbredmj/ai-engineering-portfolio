@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-10-14T14:49:03.064202+00:00",
+  "source_commit": "7693239abdf588717151e5f99867aed58a268615",
+  "application_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "fresh_codespace": true,
+  "clean_database_volume_absent_before_start": true,
+  "compose_project_name": "lab-ops08-clean",
+  "serialized_setup_exit": 0,
+  "full_verification_exit": 0,
+  "credential_file_mode": "0o600",
+  "roles_generated_inside_environment": true,
+  "distinct_roles": 3,
+  "forwarded_ui_passed": true,
+  "initial_failures": [
+    "Slim development image Yarn signing key failed; replaced with maintained universal image.",
+    "Agent started verification before post-create setup finished; container conflict fixed with shared file lock and waitFor postCreateCommand.",
+    "Docker Compose image identifier was not runnable; wheel runner now obtains the API container image reference."
+  ],
+  "remaining_check": "One final fresh unattended launch after the waitFor configuration change.",
+  "artifacts": {
+    "clean-start.json": "ae4982476c451a35069f04872a8a2d37fefa5f0ace3eff913c7ca2f8b7ac2211",
+    "verification.json": "63030c2e244d49bacf68836604ebd852d7c30fcbfeb97777b3d9fe4f8cfa5dc3",
+    "tests-codespaces.xml": "bc054bad0cc7ae7535ac4850b3c48dbdbf65b9ac43dc71f830abf8c972aeb375",
+    "tests-linux.xml": "2a65823e81bc1437a4295809e387059ec6fe47a221f3b3ec4a537958508a79ce",
+    "dashboard-mobile.png": "bf0038d27bedfdeb27bf6ed32dafde2e4cd2c3591a078ac62dcf819eb1158bcd",
+    "restart-check.json": "0c84613be0d2e08b23f2eb2ae971b87e2082e60a530830863c320496ea563718",
+    "forwarded-ui.json": "f1ce28e5faee0b5e27ee5eac379cf3c1bc5cfd127403b9c34c07a0521b66844d",
+    "browser-check.json": "3efccba728882d953d1cb2c29854a35fee9dd103f36731ee647fe7518157a5a8",
+    "http-demo.json": "c5679b7bc82264f3af02bf4e20f5eb2cec75f058481581ced3bc134f2914a24b",
+    "verification-wheel-reference-failed.json": "6dccefb06f8fe64dfac62bb053a028083f5f391f840877148f98f626a7e50092",
+    "dashboard-desktop.png": "4baab688c52ae130a7b3e900e2a71258ee58f3c91d40ee927de1c075171605dd"
+  }
+}
