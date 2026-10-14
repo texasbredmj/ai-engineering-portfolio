@@ -39,6 +39,29 @@ Separately open the private forwarded URL, log in, and verify a task/receipt the
 
 ## Network decision and boundaries
 
+### Unresolved automatic startup check
+
+The unattended launch of source `32848fad247a14d3de02ec0c82591dc02fca4f83` failed when `lab-ops08-postgres-1` exited with code 1. This is a recorded execution failure, not a configuration-only check. See [the failure record](../evidence/codespaces-final/unattended-startup-failed.json). The separately recorded clean-volume runtime tests passed; automatic startup remains unverified.
+
+The test Codespace `fictional-space-guacamole-xq9v76qqx7g2p6gr` was rebuilt with its lifecycle commands temporarily paused to allow diagnosis. Its original configuration is preserved in ignored `.demo/devcontainer-original.json`. Once its terminal reconnects, restore that test-only change and obtain the diagnostic capture fix:
+
+```sh
+cp .demo/devcontainer-original.json .devcontainer/devcontainer.json
+git pull --ff-only
+python scripts/setup_codespaces.py
+```
+
+If startup fails, inspect `.demo/postgres-startup.log` privately. For additional diagnosis, run these commands from `.demo/agent-operations-control-center`:
+
+```sh
+docker compose ps -a
+docker compose logs --no-color --tail 100 postgres
+docker info --format '{{.DockerRootDir}}'
+df -h
+```
+
+Do not print `.env`, run `docker compose config` into shared evidence, or remove database volumes. Preserve the actual database error before changing configuration. After fixing the observed cause, rerun `python scripts/verify_codespaces.py` from the portfolio root, then launch another fresh Codespace from the fixed commit without intervening in setup. Record successful post-create completion, the full runner result, and a private forwarded-URL task/receipt check before marking automatic startup verified.
+
 The initial slim development image could not install its Docker feature because its bundled Yarn repository signing key was unavailable. The launcher now uses the maintained standard Codespaces universal image and its `codespace` user. Its initial image download takes additional time. This image tag can change; the application itself is pinned, and recorded verification applies to the observed environment.
 
 An early verification command in this session overlapped post-create setup and caused a container-name conflict. The final workflow waits for post-create setup and serializes setup/verification with a Linux file lock. This failed attempt is separate from the recorded application passes.
