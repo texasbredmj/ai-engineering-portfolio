@@ -1,6 +1,6 @@
 {
   "name": "Portfolio guided demo",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "mcr.microsoft.com/devcontainers/universal:linux",
   "forwardPorts": [18780],
   "portsAttributes": {
     "18780": {"label": "Relay guided demo", "onAutoForward": "notify", "protocol": "http"},
@@ -9,6 +9,6 @@
   "otherPortsAttributes": {"onAutoForward": "ignore"},
   "postCreateCommand": "python scripts/setup_codespaces.py",
   "postStartCommand": "python scripts/setup_codespaces.py --start-only",
-  "remoteUser": "vscode"
+  "remoteUser": "codespace"
 }
 
