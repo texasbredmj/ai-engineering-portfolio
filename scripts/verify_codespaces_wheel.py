@@ -14,7 +14,11 @@ def main():
                                         cwd=APP, text=True).strip()
     if not postgres:
         raise SystemExit('PostgreSQL container is not running.')
-    image = subprocess.check_output(['docker', 'compose', 'images', '-q', 'api'],
+    api = subprocess.check_output(['docker', 'compose', 'ps', '-q', 'api'],
+                                  cwd=APP, text=True).strip()
+    if not api:
+        raise SystemExit('API container is not running.')
+    image = subprocess.check_output(['docker', 'inspect', '--format', '{{.Config.Image}}', api],
                                     cwd=APP, text=True).strip()
     if not image:
         raise SystemExit('API image has not been built.')
@@ -34,3 +38,4 @@ def main():
 
 if __name__ == '__main__':
     raise SystemExit(main())
+
