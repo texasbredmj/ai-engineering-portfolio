@@ -43,7 +43,28 @@ or arbitrary external API exactly-once guarantees.
 
 [Project 03 evidence](evidence/project03.json) preserves the commit, job conclusions, artifact checksum,
 JUnit counts, and scenario results. Raw GitHub artifacts have a 14-day retention period.
-The publication checkpoint is complete; Project 04 remains planned.
+Projects 03 and 04 are now published with verified remote CI. Phase 2 delivery is complete.
+
+## Project 04 delivery checkpoint
+
+[04 — Agent Evaluation Harness](https://github.com/texasbredmj/agent-evaluation-harness) is published
+as a public repository. [All seven remote CI jobs passed](https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891)
+against commit `2f6483442fda112a98e6e322d82f10c89838899d` on October 13, 2026.
+Six downloaded Windows/Linux × Python 3.11/3.12/3.14 artifacts each independently confirm 30 tests
+with zero failures, errors, or skips, a passing 14-case baseline across ten evaluation dimensions,
+and rejection of all four deliberately faulty candidates. The seventh job builds the container and
+runs the baseline with networking disabled. Suite and decision hashes match across all six artifacts.
+
+Capabilities include strict JSONL contracts, policy-controlled mock tools, independent outcome scoring,
+resource budgets, token/cost accounting, OpenTelemetry traces, and paired version regression gates.
+Recorded model decisions can be evaluated offline with explicit measurements and pricing. The baseline
+uses zero model tokens and two deliberately denied policy probes; those attempts are recorded and have
+no effects. These are controlled fixture results, not live model or production performance claims.
+
+[Project 04 evidence](evidence/project04.json) preserves the exact commit, all job conclusions, six
+artifact checksums, parsed JUnit counts, benchmark scores, and regression results. Local clean Windows
+and Linux installations also each passed 30 tests. Raw GitHub artifacts are retained for 14 days.
+**Phase 2 delivery is verified. Project 05 remains planned.**
 
 ## Architecture
 
@@ -60,7 +81,8 @@ resource budgets, and verification evidence remain central across the portfolio.
 ## Technology and demonstrations
 
 Phase 1 uses Python, Pydantic, Typer, SQLite, Ruff, Pytest, FastAPI, HTTPX, Uvicorn, Docker, and
-GitHub Actions. Local tests use fixtures and mocked upstream APIs; no paid cloud or model service
+GitHub Actions. Phase 2 adds Temporal, PostgreSQL, durable workflow recovery, JSONL evaluation, and
+OpenTelemetry traces. Local tests use fixtures and mocked upstream APIs; no paid cloud or model service
 is required.
 
 After cloning an accessible project, follow its README to create a virtual environment and install
@@ -85,7 +107,7 @@ limitations. Local execution does not imply hostile-code containment or public-s
 | Phase | Projects | Status |
 | --- | --- | --- |
 | 1 — Foundations | 01 Task Execution Engine; 02 AI Tool Coordination Gateway | Published; remote CI verified on Windows/Linux, Python 3.11/3.12/3.14, plus Docker |
-| 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Project 03 published with remote CI and recovery evidence verified; Project 04 planned |
+| 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Both published; remote CI, durability recovery, and evaluation regression evidence verified |
 | 3 — Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Planned |
 | 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | Planned |
 

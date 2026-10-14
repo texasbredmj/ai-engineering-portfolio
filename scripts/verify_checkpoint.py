@@ -50,6 +50,31 @@ def main():
         crash = next(s for s in scenarios if s["scenario"] == "worker_crash_after_commit")
         assert crash["worker_replaced"] and crash["reservation_count"] == 1
         assert crash["activity_attempt"] >= 2
+    project04_path = root / "evidence/project04.json"
+    if project04_path.exists():
+        project = json.loads(project04_path.read_text(encoding="utf-8"))
+        assert project["name"] == "agent-evaluation-harness"
+        assert project["published"] and project["checkpoint_complete"]
+        assert re.fullmatch(r"[0-9a-f]{40}", project["published_sha"])
+        assert project["repository_url"] == "https://github.com/texasbredmj/agent-evaluation-harness"
+        ci = project["remote_ci"]
+        assert ci["head_sha"] == project["published_sha"]
+        assert ci["status"] == "completed" and ci["conclusion"] == "success"
+        assert len(ci["jobs"]) == 7 and all(j["conclusion"] == "success" for j in ci["jobs"])
+        assert ci["url"].startswith(project["repository_url"] + "/actions/runs/")
+        samples = ci["artifact_verification"]
+        assert len(samples) == 6
+        for sample in samples:
+            junit = sample["junit"]
+            assert junit["tests"] == 30
+            assert all(junit[k] == 0 for k in ("failures", "errors", "skipped"))
+            benchmark = sample["benchmark"]
+            assert benchmark["case_count"] == 14 and benchmark["baseline_gate_passed"]
+            assert len(benchmark["metrics"]) == 10
+            assert all(v == 1.0 for v in benchmark["metrics"].values())
+            mutations = benchmark["regressions_rejected"]
+            assert len(mutations) == 4
+            assert all(not m["passed"] and m["regression_count"] > 0 for m in mutations)
     print(json.dumps({"evidence_valid": True, "checkpoint_complete": evidence["checkpoint_complete"]}))
 
 
