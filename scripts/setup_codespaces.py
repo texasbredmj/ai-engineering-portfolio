@@ -1,11 +1,14 @@
 """Prepare the pinned real application without printing generated credentials."""
 import argparse
 import fcntl
+import json
+import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 from contextlib import contextmanager
+from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT / '.demo' / 'agent-operations-control-center'
@@ -63,12 +66,27 @@ def setup():
             cwd=APP, capture_output=True, text=True,
         )
         diagnostic = ROOT / '.demo' / 'postgres-startup.log'
-        diagnostic.write_text(logs.stdout + logs.stderr, encoding='utf-8')
-        diagnostic.chmod(0o600)
+        try:
+            diagnostic.write_text(logs.stdout + logs.stderr, encoding='utf-8')
+            diagnostic.chmod(0o600)
+        except OSError as error:
+            print(f'Diagnostics could not be saved: {error.strerror}')
         print('Startup failed. Inspect .demo/postgres-startup.log privately; do not publish raw logs.')
         raise
     if not (APP / '.gates' / 'http-demo.json').exists():
         run(python, 'scripts/demo.py')
+    report = {
+        'checked_at': datetime.now(timezone.utc).isoformat(),
+        'environment': 'codespaces' if os.environ.get('CODESPACES') == 'true' else 'other',
+        'application_commit': actual,
+        'portfolio_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+        'mode': 'start-only' if args.start_only else 'create',
+        'setup_succeeded': True,
+        'workspace_free_bytes': shutil.disk_usage(ROOT).free,
+        'python_version': sys.version.split()[0],
+    }
+    destination = ROOT / '.demo' / ('startup-start.json' if args.start_only else 'startup-create.json')
+    destination.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     print('Application ready on port 18780. Use the Ports panel; keep visibility Private.')
     print('Generated credentials: .demo/agent-operations-control-center/.env (open privately).')
     print('Run python scripts/verify_codespaces.py for backend, restart and browser checks.')
