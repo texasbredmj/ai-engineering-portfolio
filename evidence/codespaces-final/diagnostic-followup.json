@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-14T17:52:04Z",
+  "codespace": "fictional-space-guacamole-xq9v76qqx7g2p6gr",
+  "source_commit": "32848fad247a14d3de02ec0c82591dc02fca4f83",
+  "diagnostic_only_config_change": "postCreateCommand and postStartCommand temporarily set to true; original retained in .demo/devcontainer-original.json",
+  "rebuild_requested": true,
+  "terminal_reconnected": false,
+  "postgres_logs_obtained": false,
+  "automatic_startup_verified": false,
+  "codespace_stopped": true,
+  "files_deleted": false,
+  "remaining_work": "Reconnect diagnostic Codespace, restore original devcontainer config, pull branch fix, reproduce startup and inspect persisted PostgreSQL log, fix observed root cause, rerun full verification and a fresh unattended launch."
+}

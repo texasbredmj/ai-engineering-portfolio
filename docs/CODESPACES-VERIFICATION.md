@@ -43,7 +43,7 @@ Separately open the private forwarded URL, log in, and verify a task/receipt the
 
 The unattended launch of source `32848fad247a14d3de02ec0c82591dc02fca4f83` failed when `lab-ops08-postgres-1` exited with code 1. This is a recorded execution failure, not a configuration-only check. See [the failure record](../evidence/codespaces-final/unattended-startup-failed.json). The separately recorded clean-volume runtime tests passed; automatic startup remains unverified.
 
-The test Codespace `fictional-space-guacamole-xq9v76qqx7g2p6gr` was rebuilt with its lifecycle commands temporarily paused to allow diagnosis. Its original configuration is preserved in ignored `.demo/devcontainer-original.json`. Once its terminal reconnects, restore that test-only change and obtain the diagnostic capture fix:
+The test Codespace `fictional-space-guacamole-xq9v76qqx7g2p6gr` had a diagnostic rebuild requested with its lifecycle commands temporarily paused. The browser did not reconnect to a terminal during the observed rebuild, and the test Codespace was stopped with its files preserved. Its original configuration is preserved in ignored `.demo/devcontainer-original.json`. Once its terminal reconnects, restore that test-only change and obtain the diagnostic capture fix:
 
 ```sh
 cp .demo/devcontainer-original.json .devcontainer/devcontainer.json
