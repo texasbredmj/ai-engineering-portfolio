@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-14",
+  "project": "ai-engineering-portfolio",
+  "title": "Evidence-backed portfolio foundation and first guided demo",
+  "problem": "Eight independently delivered projects needed an employer entry point with traceable claims and a reproducible walkthrough.",
+  "contribution": "Added an inventory tied to recorded commits and CI runs, a static showcase, a source-aligned walkthrough and explicit section gates.",
+  "ai_assistance": "Codex inspected repository files, authored the foundation and draft resume, and performed local validation. Personal authorship of the underlying projects remains for owner review.",
+  "commit": null,
+  "commit_note": "Use the Git commit that introduces this record; no self-referential commit hash is embedded.",
+  "checks": [
+    {"command": "python scripts/verify_checkpoint.py", "result": "passed", "evidence_path": "evidence/foundation-validation.json", "ci_url": null},
+    {"command": "python scripts/verify_foundation.py", "result": "eight project mappings and 25 local links passed", "evidence_path": "evidence/foundation-validation.json", "ci_url": null}
+  ],
+  "outcome": "Locally validated foundation with five real-application demo instructions and a resume draft.",
+  "tradeoffs": [
+    {"decision": "Use a buildless static showcase", "benefit": "Small dependency-free Pages-compatible output", "cost": "The working backend must run separately"},
+    {"decision": "Pin demo instructions to the recorded source commit", "benefit": "Instructions map to preserved CI evidence", "cost": "Future application changes require deliberate instruction and evidence updates"}
+  ],
+  "limitations": ["Docker engine was unavailable for a fresh backend run", "Automatic milestone capture and resume updates are not implemented", "No remote publication in this section"],
+  "review_status": "locally_verified; owner contribution review pending"
+}
