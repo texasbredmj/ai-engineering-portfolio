@@ -1,0 +1,10 @@
+{
+  "private_forwarded_port": 18780,
+  "database_port_forwarded": false,
+  "authenticated_operator_login": true,
+  "task_id": "22d117e2-13b2-4e49-84d2-a99aeb6f0aa0",
+  "state": "SUCCEEDED",
+  "expected_quantity": 2,
+  "observed_quantity": 2,
+  "independent_receipt": "e274f581-192f-4abb-91d2-9d23dc4294fe"
+}

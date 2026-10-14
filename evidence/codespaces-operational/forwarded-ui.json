@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-14T19:20:55.455086+00:00",
+  "private_forwarded_browser_verified": true,
+  "app_origin": "https://urban-space-train-49gw54996pj296r-18780.app.github.dev/",
+  "only_forwarded_port": 18780,
+  "port_visibility": "Private",
+  "role": "operator",
+  "task_title": "Automatic startup verification reservation",
+  "task_id": "6a08e7b2-cad6-4cac-9f80-fc127fd99e50",
+  "state": "SUCCEEDED",
+  "receipt": "f64ac01a-e0bc-4b03-8707-9ea9539e67cc",
+  "method": "independent ledger read",
+  "expected_quantity": 2,
+  "observed_quantity": 2,
+  "trace_id": "799ba3f065ce41ac9bb821fc98eac7ed",
+  "verification_span_passed": true
+}

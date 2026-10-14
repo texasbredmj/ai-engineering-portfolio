@@ -1,0 +1,21 @@
+{
+  "environment": "GitHub Codespaces",
+  "codespace": "bug-free-space-guide-94qjrv44w4q37pjr",
+  "source_commit": "334d5db52c9244a9ebfedf58888cd8a3a6d6f0d4",
+  "failed_at": "2026-10-14T19:03:24.265Z",
+  "unattended_startup_passed": false,
+  "errors": [
+    "container lab-ops08-postgres-1 exited (1)",
+    "OSError: [Errno 28] No space left on device while writing .demo/postgres-startup.log"
+  ],
+  "retained_postgres_log_bytes": 0,
+  "recovery_workspace": {
+    "size": "32G",
+    "available": "29G",
+    "used_percent": 3,
+    "inodes_used_percent": 2,
+    "demo_directory_size": "103M"
+  },
+  "interpretation": "Storage exhaustion was observed in the failed universal devcontainer. Recovery uses a different container and has available workspace storage; the original failing filesystem could not be inspected after recovery.",
+  "fix_under_test": "Smaller Ubuntu 24.04 development image with Python 3.12 and Docker-in-Docker 4.1.3; no universal image or inherited Yarn apt source. Preserve failure diagnostics without masking the original Compose error."
+}

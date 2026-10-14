@@ -1,0 +1,14 @@
+{
+  "environment": "GitHub Codespaces",
+  "codespace": "fictional-space-guacamole-xq9v76qqx7g2p6gr",
+  "source_commit": "32848fad247a14d3de02ec0c82591dc02fca4f83",
+  "application_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "observed_failure_at": "2026-10-14T14:59:20Z",
+  "fresh_unattended_startup_passed": false,
+  "failed_command": "docker compose up -d --build --wait",
+  "observed_error": "dependency failed to start: container lab-ops08-postgres-1 exited (1)",
+  "post_create_exit_code": 1,
+  "root_cause": "Not yet determined; PostgreSQL logs require the development container, while recovery mode has no Docker CLI.",
+  "follow_up": "Diagnostic rebuild with startup temporarily paused; original configuration preserved inside ignored .demo directory.",
+  "scope": "This failed unattended launch does not invalidate the separately recorded passing clean-volume runtime checks. It prevents claiming the automatic launcher is verified."
+}

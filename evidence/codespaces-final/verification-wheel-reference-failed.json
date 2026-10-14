@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-14T14:44:34.125636+00:00",
+  "environment": "codespaces",
+  "compose_project_name": "lab-ops08-clean",
+  "expected_app_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "app_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "portfolio_commit": "ffb6cf801cdc44867e086c678c3f19f9e12aa660",
+  "compose_override_sha256": "208d6730b8ff4ea72a681ed09858ed50e6baff4555032a327d443b5bf16f8620",
+  "commands": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "up",
+        "-d",
+        "--build",
+        "--wait"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "<app>/.venv/bin/python",
+        "scripts/test_local.py",
+        "-q",
+        "--junitxml=.gates/tests-codespaces.xml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/home/codespace/.python/current/bin/python",
+        "/workspaces/ai-engineering-portfolio/scripts/verify_codespaces_wheel.py"
+      ],
+      "exit_code": 125
+    }
+  ],
+  "runtime_checks_passed": false,
+  "forwarded_browser_verified": false,
+  "limitations": [
+    "Forwarded URL and private port visibility require a separate browser check.",
+    "Fixture runtime; no live models or production identity."
+  ],
+  "failure_type": "RuntimeError"
+}

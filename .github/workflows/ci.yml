@@ -12,3 +12,5 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/verify_checkpoint.py
+      - run: python scripts/build_showcase.py
+      - run: python scripts/verify_foundation.py
