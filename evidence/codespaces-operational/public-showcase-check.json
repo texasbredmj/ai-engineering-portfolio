@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-14T19:25:00Z",
+  "url": "https://texasbredmj.github.io/ai-engineering-portfolio/",
+  "published_from": "gh-pages",
+  "preview_commit": "e9389617fb8791a504e61b82e6582f2cb5677286",
+  "observed": {
+    "public_page_loaded": true,
+    "project_cards": 8,
+    "dashboard_image_loaded": true,
+    "horizontal_overflow": false,
+    "try_demo_anchor": "#demo",
+    "checklist_0_to_1_to_0": true,
+    "launch_button_repository": "texasbredmj/ai-engineering-portfolio",
+    "launch_button_branch": "showcase/codespaces-verification"
+  },
+  "scope": "Observed public preview browser checks. Final startup status publication is checked separately after deployment."
+}

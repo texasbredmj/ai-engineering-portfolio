@@ -4,6 +4,8 @@
 
 This launch link selects the verification branch and its **Portfolio guided demo** development container. GitHub sign-in is required; creation and image builds take additional time beyond the five-minute walkthrough. Codespaces usage is charged to the account shown on GitHub's creation screen, subject to its included allowance.
 
+**Verified October 14, 2026:** fresh unattended startup, both lifecycle hooks, the 35-test suite on host and installed wheel, eight HTTP scenarios, eight Chromium scenarios, restart preservation, and authenticated private forwarded-URL task/receipt/trace inspection passed at portfolio commit `90ae4dc4c640e4ea337c4612bf5f0ca3fb67bfd2`. [Raw reports and hashes](../evidence/codespaces-operational/manifest.json).
+
 ## Fresh startup
 
 1. Use the link above and create a fresh 2-core Codespace.
@@ -39,30 +41,17 @@ Separately open the private forwarded URL, log in, and verify a task/receipt the
 
 ## Network decision and boundaries
 
-### Unresolved automatic startup check
+### Automatic startup verified after storage fix
 
-The unattended launch of source `32848fad247a14d3de02ec0c82591dc02fca4f83` failed when `lab-ops08-postgres-1` exited with code 1. This is a recorded execution failure, not a configuration-only check. See [the failure record](../evidence/codespaces-final/unattended-startup-failed.json). The separately recorded clean-volume runtime tests passed; automatic startup remains unverified.
+Fresh universal-image launches failed when PostgreSQL exited with code 1. The latest attempt at source `334d5db52c9244a9ebfedf58888cd8a3a6d6f0d4` also reported `No space left on device` while retaining database diagnostics. Its recovery container had 29 GB free in the workspace; that does not measure the original failed development container. Failure records remain separate from the passing clean-volume runtime evidence.
 
-The test Codespace `fictional-space-guacamole-xq9v76qqx7g2p6gr` had a diagnostic rebuild requested with its lifecycle commands temporarily paused. The browser did not reconnect to a terminal during the observed rebuild, and the test Codespace was stopped with its files preserved. Its original configuration is preserved in ignored `.demo/devcontainer-original.json`. Once its terminal reconnects, restore that test-only change and obtain the diagnostic capture fix:
+The launcher uses the official small Ubuntu 24.04 development base, installs Python 3.12 from Ubuntu packages, and adds the official Docker-in-Docker feature pinned to 4.1.3. This avoids the universal image's storage footprint and the first Python image's inherited Yarn signing-key failure. A fresh 2-core, 8 GB RAM, 32 GB Codespace passed unattended startup at commit `90ae4dc4c640e4ea337c4612bf5f0ca3fb67bfd2`. The create hook started at 19:13:37 UTC, recorded the application ready at 19:15:08 UTC, and the start hook completed before configuration finished at 19:15:13 UTC. Both hooks succeeded before any manual setup command. The full verification runner and private forwarded-browser check then passed. The final manifest records available storage and versions. The base tag can change; evidence applies to the observed commit and environment.
 
-```sh
-cp .demo/devcontainer-original.json .devcontainer/devcontainer.json
-git pull --ff-only
-python scripts/setup_codespaces.py
-```
+Setup writes ignored `.demo/startup-create.json` only after services and the seeded HTTP demo succeed. Restart writes `.demo/startup-start.json`. These reports contain versions, commits and available workspace storage, with no credentials. They complement the creation log; they do not replace the full verification runner or private forwarded-browser check.
 
-If startup fails, inspect `.demo/postgres-startup.log` privately. For additional diagnosis, run these commands from `.demo/agent-operations-control-center`:
+If startup fails, inspect `.demo/postgres-startup.log` privately. From the application directory, use `docker compose ps -a`, `docker compose logs --no-color --tail 100 postgres`, `docker info --format '{{.DockerRootDir}}'`, and `df -h`. Do not print `.env`, publish resolved Compose configuration, or remove database volumes. Preserve the actual error before changing configuration. Diagnostic-only lifecycle pauses in the earlier test Codespace have been restored; the paused configuration is not shipped.
 
-```sh
-docker compose ps -a
-docker compose logs --no-color --tail 100 postgres
-docker info --format '{{.DockerRootDir}}'
-df -h
-```
-
-Do not print `.env`, run `docker compose config` into shared evidence, or remove database volumes. Preserve the actual database error before changing configuration. After fixing the observed cause, rerun `python scripts/verify_codespaces.py` from the portfolio root, then launch another fresh Codespace from the fixed commit without intervening in setup. Record successful post-create completion, the full runner result, and a private forwarded-URL task/receipt check before marking automatic startup verified.
-
-The initial slim development image could not install its Docker feature because its bundled Yarn repository signing key was unavailable. The launcher now uses the maintained standard Codespaces universal image and its `codespace` user. Its initial image download takes additional time. This image tag can change; the application itself is pinned, and recorded verification applies to the observed environment.
+To repeat verification in a new environment, run `python scripts/verify_codespaces.py` from the portfolio root and verify a task/receipt at its private forwarded URL before recording that environment as verified.
 
 An early verification command in this session overlapped post-create setup and caused a container-name conflict. The final workflow waits for post-create setup and serializes setup/verification with a Linux file lock. This failed attempt is separate from the recorded application passes.
 
@@ -79,4 +68,4 @@ docker compose down
 
 Then stop the Codespace from GitHub's Codespaces page. A full rebuild may clear nested Docker volumes. Do not delete an environment containing work you need to retain.
 
-GitHub Pages serves the static showcase; Codespaces runs this application. Static role tokens, deterministic database effects, and zero live model calls remain explicit limitations. Pages publication, resume attribution review, and the portfolio evidence-workflow gate are separate work.
+GitHub Pages serves the static showcase at https://texasbredmj.github.io/ai-engineering-portfolio/; Codespaces runs the application. Static role tokens, deterministic database effects, and zero live model calls remain explicit limitations. Resume attribution review and the portfolio evidence-workflow gate remain separate work.

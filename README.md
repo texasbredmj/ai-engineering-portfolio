@@ -1,10 +1,12 @@
 # AI Systems Engineering Lab
 
-**[Start Here — launch the guided demo in GitHub Codespaces](https://github.com/codespaces/new?repo=texasbredmj/ai-engineering-portfolio&ref=showcase%2Fcodespaces-verification)**
+**[Start Here — GitHub Project Showcase with a Guided Hands-On Demo](https://texasbredmj.github.io/ai-engineering-portfolio/)**
 
-Fresh Codespace application checks passed: 35 host tests, the same 35 tests against the installed wheel, eight HTTP scenarios, eight Chromium scenarios and restart preservation with zero duplicate effects. Authenticated task creation, receipt inspection, mismatch investigation and traces also passed through the private forwarded URL. **Automatic startup is not yet verified:** the latest fresh launch failed when PostgreSQL exited during initialization. [Failed launch record](evidence/codespaces-final/unattended-startup-failed.json).
+[Open in GitHub Codespaces](https://github.com/codespaces/new?repo=texasbredmj/ai-engineering-portfolio&ref=showcase%2Fcodespaces-verification)
 
-[Startup and five guided exercises](docs/CODESPACES-VERIFICATION.md) · [Raw execution evidence and hashes](evidence/codespaces-app-2026-10-14.json) · [Forwarded browser check](evidence/codespaces-forwarded-ui.json).
+**Fresh automatic startup and the working demo are verified as of October 14, 2026**, at portfolio commit `90ae4dc4c640e4ea337c4612bf5f0ca3fb67bfd2`. Both lifecycle hooks passed before any manual setup command. The same 35-test suite passed on the host and installed wheel; eight HTTP scenarios, eight Chromium scenarios and restart preservation passed with zero duplicate effects. Authenticated task creation, independent receipt inspection and traces passed through the private forwarded URL. The application uses deterministic fixtures with no live model calls or production identity.
+
+[Startup and five guided exercises](docs/CODESPACES-VERIFICATION.md) · [Raw execution evidence and hashes](evidence/codespaces-operational/manifest.json) · [Forwarded browser check](evidence/codespaces-operational/forwarded-ui.json). Earlier failed launch records are retained separately.
 
 An engineering portfolio focused on AI systems that complete authorized tasks, coordinate tools,
 recover from failures, and independently verify outcomes. Projects use deterministic baselines

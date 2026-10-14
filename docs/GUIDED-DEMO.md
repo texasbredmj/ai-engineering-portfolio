@@ -4,7 +4,7 @@ Use Agent Operations Control Center to create real fixture tasks and inspect the
 
 ## Start the application
 
-**Primary path: [Open in GitHub Codespaces](https://github.com/codespaces/new?repo=texasbredmj/ai-engineering-portfolio&ref=showcase%2Fcodespaces-verification).** Follow [Codespaces startup and verification](CODESPACES-VERIFICATION.md). Application checks passed in a fresh Codespace with a Codespaces-specific network override: 35 host tests, the same 35 tests against the installed wheel, eight HTTP scenarios, eight Chromium scenarios, restart preservation, and authenticated creation/receipt inspection through the private forwarded URL. Automatic portfolio-devcontainer startup is not verified: the latest fresh launch failed during PostgreSQL initialization; diagnosis is in progress.
+**Primary path: [Open in GitHub Codespaces](https://github.com/codespaces/new?repo=texasbredmj/ai-engineering-portfolio&ref=showcase%2Fcodespaces-verification).** Follow [Codespaces startup and verification](CODESPACES-VERIFICATION.md). Fresh unattended startup and both lifecycle hooks passed on October 14, 2026 at portfolio commit `90ae4dc4c640e4ea337c4612bf5f0ca3fb67bfd2`. The 35-test suite passed on the host and installed wheel, along with eight HTTP scenarios, eight Chromium scenarios, restart preservation with zero duplicate effects, and authenticated task/receipt/trace inspection through the private forwarded URL. [Raw reports and hashes](../evidence/codespaces-operational/manifest.json).
 
 The following commands are the original local startup alternative; the Codespaces setup applies its network override automatically.
 
