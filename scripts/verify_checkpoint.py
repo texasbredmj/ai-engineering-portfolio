@@ -115,6 +115,48 @@ def main():
         assert sample["observability"]["prometheus_queried"]
         assert sample["observability"]["grafana_provisioned_dashboard"]
         assert sample["observability"]["dashboard_panels"] == 5
+    project06_path = root / "evidence/project06.json"
+    if project06_path.exists():
+        project = json.loads(project06_path.read_text(encoding="utf-8"))
+        assert project["name"] == "multi-provider-model-gateway"
+        assert project["published"] and project["checkpoint_complete"]
+        assert re.fullmatch(r"[0-9a-f]{40}", project["published_sha"])
+        assert project["repository_url"] == "https://github.com/texasbredmj/multi-provider-model-gateway"
+        ci = project["remote_ci"]
+        assert ci["head_sha"] == project["published_sha"]
+        assert ci["status"] == "completed" and ci["conclusion"] == "success"
+        assert len(ci["jobs"]) == 7 and all(j["conclusion"] == "success" for j in ci["jobs"])
+        assert ci["url"].startswith(project["repository_url"] + "/actions/runs/")
+        sample = ci["artifact_verification"]
+        junit = sample["junit"]
+        assert junit["tests"] == 43
+        assert all(junit[k] == 0 for k in ("failures", "errors", "skipped"))
+        demo = sample["http_demo"]
+        assert demo["verified_demo"] and demo["scenario_count"] == 9 and demo["paid_api_calls"] == 0
+        expected = {"text", "structured", "tools", "fallback", "timeout", "unsupported",
+                    "budget", "stream", "partial-stream"}
+        assert len(demo["results"]) == 9 and {r["scenario"] for r in demo["results"]} == expected
+        assert all(r["passed"] for r in demo["results"])
+        by_name = {r["scenario"]: r for r in demo["results"]}
+        text = by_name["text"]["response"]
+        assert text["usage"] == {"input_tokens": 2, "output_tokens": 4}
+        assert text["accounted_nusd"] == 10000
+        fallback = by_name["fallback"]["response"]
+        assert fallback["model"] == "beta-text" and len(fallback["attempts"]) == 2
+        assert fallback["attempts"][0]["error"] == "rate_limited"
+        timeout = by_name["timeout"]["response"]
+        assert timeout["attempts"][0]["error"] == "timeout"
+        assert timeout["attempts"][0]["accounting"] == "unknown_usage_reserved_maximum"
+        for name, terminal in (("stream", "done"), ("partial-stream", "error")):
+            events = by_name[name]["events"]
+            assert events.count("event: delta") == 2 and "event: " + terminal in events
+            values = [json.loads(line[6:]) for line in events.splitlines() if line.startswith("data: ")]
+            final = values[-1]
+            assert final["state"] == ("SUCCEEDED" if terminal == "done" else "UNVERIFIED")
+            assert len(final["attempts"]) == 1
+        assert all(sample["restart"][key] for key in (
+            "gateway_restarted", "cached_response_preserved", "usage_unchanged_on_replay",
+            "redis_persisted_identity"))
     print(json.dumps({"evidence_valid": True, "checkpoint_complete": evidence["checkpoint_complete"]}))
 
 
