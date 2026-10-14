@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-14T19:20:55.455292+00:00",
+  "codespace": "urban-space-train-49gw54996pj296r",
+  "source_commit": "90ae4dc4c640e4ea337c4612bf5f0ca3fb67bfd2",
+  "application_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "fresh_unattended_startup_verified": true,
+  "manual_setup_commands_before_startup": false,
+  "runtime_checks_passed": true,
+  "private_forwarded_browser_verified": true,
+  "credential_file_mode": "0o600",
+  "docker_server_version": "29.9.0-1",
+  "workspace_free_bytes": 26348621824,
+  "artifacts": {
+    "verification.json": "6b79e71b357195c61650689d11c471d0b31f3e131069e414f600aaeb856a280e",
+    "tests-codespaces.xml": "96fc4e9ca43484be671aac923b33f2c90aeacc2782a1fac03af0bd0e457615d0",
+    "tests-linux.xml": "fd17bab05109a1929288b2ccdc0973ed28cadee98c092ccf54f15c41e660ab44",
+    "dashboard-mobile.png": "98dcaea65b3962cf1b93b86f6f09b9941f561246a65ec9bbb547263148bf6199",
+    "startup-create.json": "6680210ec58be4393cf3fb93c0ed5244067e8d4b1f93158dff36890a2d5c3e38",
+    "restart-check.json": "7527cbb46b15035ac8abeddb2d22944a9dbf35d18d67f171ff1884e0bb56140c",
+    "startup-start.json": "4101fa977062cb05549ace3e0d577fb44fd7ec744aecd8d9b4629806029128c2",
+    "lifecycle.txt": "2cfb2ae6b3dab52453682784538d635e84563b393e6a5eaa33ba2397dbb4b38d",
+    "forwarded-ui.json": "fa9bc5b1ad8e4a81b4e136578f55242c6f4b636d5f58e7db1a342f5850b59a35",
+    "browser-check.json": "3efccba728882d953d1cb2c29854a35fee9dd103f36731ee647fe7518157a5a8",
+    "http-demo.json": "cc5ae078644be9402e8ffe008eedecea1689c31974980a40bd372913833ee50e",
+    "dashboard-desktop.png": "a939081ebaa29083c569c389d7306cd316f71d5ad9fcea391ea20652c3d91471"
+  },
+  "limitations": [
+    "Deterministic fixture; no live model calls or production identity.",
+    "Host and installed-wheel runs execute the same 35-test suite.",
+    "Startup verification applies to the recorded commit and environment."
+  ]
+}
