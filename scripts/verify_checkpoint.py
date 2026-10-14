@@ -75,6 +75,46 @@ def main():
             mutations = benchmark["regressions_rejected"]
             assert len(mutations) == 4
             assert all(not m["passed"] and m["regression_count"] > 0 for m in mutations)
+    project05_path = root / "evidence/project05.json"
+    if project05_path.exists():
+        project = json.loads(project05_path.read_text(encoding="utf-8"))
+        assert project["name"] == "agent-failure-recovery-lab"
+        assert project["published"] and project["checkpoint_complete"]
+        assert re.fullmatch(r"[0-9a-f]{40}", project["published_sha"])
+        assert project["repository_url"] == "https://github.com/texasbredmj/agent-failure-recovery-lab"
+        ci = project["remote_ci"]
+        assert ci["head_sha"] == project["published_sha"]
+        assert ci["status"] == "completed" and ci["conclusion"] == "success"
+        assert len(ci["jobs"]) == 7 and all(j["conclusion"] == "success" for j in ci["jobs"])
+        assert ci["url"].startswith(project["repository_url"] + "/actions/runs/")
+        sample = ci["artifact_verification"]
+        junit = sample["junit"]
+        assert junit["tests"] == 25
+        assert all(junit[k] == 0 for k in ("failures", "errors", "skipped"))
+        fault_report = sample["fault_report"]
+        assert fault_report["verified_demo"] and fault_report["scenario_count"] == 10
+        results = fault_report["results"]
+        expected_scenarios = {"api_timeout", "http_failures", "rate_limit", "malformed_response",
+                              "temporary_outage", "worker_interruption", "delayed_response",
+                              "duplicate_delivery", "dependency_failure", "permanent_outage"}
+        assert len(results) == 10 and {r["scenario"] for r in results} == expected_scenarios
+        assert all(r["passed"] and 1 <= r["attempts"] <= 3 for r in results)
+        assert sum(r["outcome"] == "RECOVERED" for r in results) == 8
+        assert sum(r["outcome"] == "FAILED_SAFELY" for r in results) == 1
+        assert sum(r["outcome"] == "HUMAN_REQUIRED" for r in results) == 1
+        for result in results:
+            assert result["effect_count"] == (1 if result["outcome"] == "RECOVERED" else 0)
+        crash = next(r for r in results if r["scenario"] == "worker_interruption")
+        assert crash["worker_replaced"] and crash["attempts"] == 2
+        duplicate = next(r for r in results if r["scenario"] == "duplicate_delivery")
+        assert duplicate["backend_attempts"] == 2
+        checkpoints = sample["checkpoints_verified"]
+        assert len(checkpoints) == 10
+        assert {c["scenario"] for c in checkpoints} == expected_scenarios
+        assert all(c["matches_worker_report"] for c in checkpoints)
+        assert sample["observability"]["prometheus_queried"]
+        assert sample["observability"]["grafana_provisioned_dashboard"]
+        assert sample["observability"]["dashboard_panels"] == 5
     print(json.dumps({"evidence_valid": True, "checkpoint_complete": evidence["checkpoint_complete"]}))
 
 

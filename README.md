@@ -64,7 +64,29 @@ no effects. These are controlled fixture results, not live model or production p
 [Project 04 evidence](evidence/project04.json) preserves the exact commit, all job conclusions, six
 artifact checksums, parsed JUnit counts, benchmark scores, and regression results. Local clean Windows
 and Linux installations also each passed 30 tests. Raw GitHub artifacts are retained for 14 days.
-**Phase 2 delivery is verified. Project 05 remains planned.**
+**Phase 2 delivery is verified. Project 05 is published with verified remote CI; Project 06 remains planned.**
+
+## Project 05 delivery checkpoint
+
+[05 — Agent Failure & Recovery Lab](https://github.com/texasbredmj/agent-failure-recovery-lab) is
+published as a public repository. [All seven remote CI jobs passed](https://github.com/texasbredmj/agent-failure-recovery-lab/actions/runs/38503053018)
+against commit `404ab9590e16e0f6279cb9d5dff952759c3623bb` on October 13, 2026. Six fixture jobs cover Windows/Linux and
+Python 3.11/3.12/3.14. The seventh builds and runs the complete Docker/Toxiproxy/Prometheus/Grafana lab.
+Downloaded JUnit evidence confirms 25 passing tests, zero failures/errors/skips, and all ten scenarios:
+**eight recovered, one failed safely, one required intervention, zero duplicate side effects**.
+
+Real worker interruption after backend commit recovered with a replacement process and exactly one
+mock effect. Duplicate HTTP delivery also retained one effect. Each of ten downloaded SQLite
+checkpoints was read and matched against its worker JSON report. HTTP failures, rate limits,
+malformed responses, delayed network responses, temporary/permanent outages, and dependency failure
+produce classified evidence. Prometheus scraping and the provisioned five-panel Grafana dashboard
+were verified through their APIs. Clean local Windows and Linux suites each also passed 25 tests.
+
+[Project 05 evidence](evidence/project05.json) preserves the exact commit, all job conclusions,
+artifact checksum, JUnit counts, complete scenario results, checkpoint checks, and observability evidence.
+These are controlled local fixtures; unique mock ledger inserts do not prove exactly-once arbitrary
+external API effects or production reliability. Raw GitHub artifacts are retained for 14 days.
+Project 05 delivery is verified; Project 06 remains planned.
 
 ## Architecture
 
@@ -108,7 +130,7 @@ limitations. Local execution does not imply hostile-code containment or public-s
 | --- | --- | --- |
 | 1 — Foundations | 01 Task Execution Engine; 02 AI Tool Coordination Gateway | Published; remote CI verified on Windows/Linux, Python 3.11/3.12/3.14, plus Docker |
 | 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Both published; remote CI, durability recovery, and evaluation regression evidence verified |
-| 3 — Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Planned |
+| 3 — Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Project 05 published; remote CI and fault/recovery evidence verified. Project 06 planned |
 | 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | Planned |
 
 Planned projects are not advertised as completed repositories. Benchmark numbers, cloud deployment,
