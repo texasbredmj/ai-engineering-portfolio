@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-14",
+  "application_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "raw_evidence_commit": "9a6bffff8fd07579231dbf4659d222ff46e4759c",
+  "raw_evidence_url": "https://github.com/texasbredmj/agent-operations-control-center/tree/9a6bffff8fd07579231dbf4659d222ff46e4759c/docs/evidence/codespaces-2026-10-14",
+  "environment": "Fresh two-core GitHub Codespace, default development image; Docker server 29.8.0-1",
+  "commands": [
+    {"command": "python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.lock .", "result": "passed"},
+    {"command": ".venv/bin/python scripts/init_local.py", "result": "passed; three distinct credentials generated without printing them"},
+    {"command": "docker compose up -d --build --wait (original configuration)", "result": "failed; API exited 3 after PostgreSQL connection timeout"},
+    {"command": "docker compose run --rm --no-deps api python -c '<socket probe for postgres:5432>'", "result": "DNS resolved 172.18.0.2; TCP timed out"},
+    {"command": "docker compose up -d --wait (with retained compose.override.yml)", "result": "passed; API and worker share PostgreSQL network namespace"},
+    {"command": ".venv/bin/python scripts/test_local.py -q --junitxml=.gates/tests-host.xml", "result": "35 passed; zero failures/errors/skips; one upstream deprecation warning"},
+    {"command": ".venv/bin/python scripts/demo.py", "result": "verified_demo=true; scenarios=8; paid_model_calls=0"},
+    {"command": ".venv/bin/python scripts/verify_restart.py", "result": "restart_verified=true; records_preserved=8; duplicate_effects=0"},
+    {"command": "docker compose --profile verification run --build --rm browser", "result": "eight Chromium scenarios passed; zero uncaught page errors"},
+    {"command": ".venv/bin/python scripts/test_container.py (original bridge runner)", "result": "interrupted after bridge connection errors; not counted as a passed run"},
+    {"command": "PYTHONPATH=scripts .venv/bin/python .gates/test_codespaces_wheel.py", "result": "35 passed; zero failures/errors/skips; same suite using container:lab-ops08-postgres-1 and database localhost; one upstream deprecation warning"}
+  ],
+  "wheel_runner_adjustment": "Temporary copy of scripts/test_container.py with only @postgres:5432 changed to @127.0.0.1:5432 and lab-ops08_default changed to container:lab-ops08-postgres-1. The portfolio now includes verify_codespaces_wheel.py for this execution path.",
+  "manual_forwarded_browser": "See codespaces-forwarded-ui.json and the saved screenshots for authenticated task creation, receipt inspection, mismatch investigation and persisted traces.",
+  "automatic_portfolio_devcontainer": "pending; separate from the successful application run",
+  "portfolio_ci": {
+    "commit": "b456998560cc38c3a0099896ab2d37bd4de1361b",
+    "url": "https://github.com/texasbredmj/ai-engineering-portfolio/actions/runs/38581049180",
+    "conclusion": "success",
+    "scope": "Existing portfolio evidence verifier; does not prove Codespaces lifecycle execution"
+  },
+  "limitations": [
+    "Same 35-test suite executed twice, not 70 unique tests.",
+    "Backend application source remained pinned; runtime networking changed.",
+    "Fixture-only database effect, static generated role credentials, zero live model calls.",
+    "No production identity, external API exactly-once claim, or Pages deployment claim."
+  ]
+}
+
