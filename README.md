@@ -109,7 +109,37 @@ not claim live-vendor compatibility or verified invoices. [Project 06 evidence](
 preserves the exact commit, job conclusions, artifact checksum, test counts, full HTTP demo, and restart
 checks. Raw GitHub artifacts are retained for 14 days.
 
-**Phase 3 delivery is verified. Project 07 remains planned.**
+**Phase 3 delivery is verified. Project 07 is published with verified remote CI.**
+
+## Project 07 delivery checkpoint
+
+[07 — AI-Native CI/CD Quality Gates](https://github.com/texasbredmj/ai-native-cicd-gates) is published
+as a public repository. [All seven remote CI jobs passed](https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588)
+against commit `7de27a44bccf67aa0f9ccfec21411d8dcc396665` on October 14, 2026. Six policy jobs cover
+Windows/Linux and Python 3.11/3.12/3.14. The full Linux delivery job's downloaded JUnit confirms
+**31 passing tests, zero failures/errors/skips**. The valid candidate passed all twelve gates;
+all eleven deliberately broken candidates exited with failure at their intended gates.
+
+A [separate intentional regression proof](https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523557595)
+**failed as required**, at the unwrapped required-gate step with exit code 1. Its downloaded report
+shows an incorrect value rejected despite a success claim: task completion and evaluation regression
+failed while the other ten gates passed. This expected red run verifies actual CI rejection and is
+distinct from the successful normal delivery workflow.
+
+The reusable composite action and CLI check tests, strict schemas, dependency snapshots, native and
+Gitleaks secret scans, actual Docker build/run, evaluated task outcomes, latency, fixture cost and policy.
+Both secret scanners rejected the synthetic token and emitted redacted evidence. Fourteen downloaded
+report/trace pairs were checked for matching OpenTelemetry trace IDs and gate states. Actual pip-audit
+snapshots cover the tool's 40 pinned dependencies and the candidate's one dependency, with zero findings
+at the recorded scan time; reviewed snapshots expire after 30 days.
+
+Clean local Windows checks also passed all 31 tests. A clean Linux wheel installation passed 30
+portable tests with the Docker-only test deselected. No live model or paid endpoint was called.
+[Project 07 evidence](evidence/project07.json) preserves the exact commit, job conclusions, both artifact
+checksums, parsed JUnit, measurements, regression results and expected-failure proof. Raw GitHub
+artifacts are retained for 14 days. [Local evidence](evidence/project07-local.json) retains local results.
+These are controlled fixtures, not production SLOs, hostile-code containment or external tool/billing
+attestation. **Project 07 delivery is verified. Project 08 has not started; Phase 4 remains in progress.**
 
 ## Architecture
 
@@ -154,7 +184,7 @@ limitations. Local execution does not imply hostile-code containment or public-s
 | 1 — Foundations | 01 Task Execution Engine; 02 AI Tool Coordination Gateway | Published; remote CI verified on Windows/Linux, Python 3.11/3.12/3.14, plus Docker |
 | 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Both published; remote CI, durability recovery, and evaluation regression evidence verified |
 | 3 — Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Both published; remote CI, fault recovery, model routing, Redis budgets, and streaming evidence verified |
-| 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | Planned |
+| 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | 07 published; passing remote CI and intentional regression rejection verified. 08 planned |
 
 Planned projects are not advertised as completed repositories. Benchmark numbers, cloud deployment,
 production usage, and remote CI success are reported only when supported by confirmed evidence.

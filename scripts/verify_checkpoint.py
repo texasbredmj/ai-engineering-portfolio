@@ -157,6 +157,54 @@ def main():
         assert all(sample["restart"][key] for key in (
             "gateway_restarted", "cached_response_preserved", "usage_unchanged_on_replay",
             "redis_persisted_identity"))
+    project07_path = root / "evidence/project07.json"
+    if project07_path.exists():
+        project = json.loads(project07_path.read_text(encoding="utf-8"))
+        assert project["name"] == "ai-native-cicd-gates"
+        assert project["published"] and project["checkpoint_complete"]
+        assert not project["private"]
+        assert re.fullmatch(r"[0-9a-f]{40}", project["published_sha"])
+        assert project["repository_url"] == "https://github.com/texasbredmj/ai-native-cicd-gates"
+        ci = project["remote_ci"]
+        assert ci["head_sha"] == project["published_sha"]
+        assert ci["status"] == "completed" and ci["conclusion"] == "success"
+        assert len(ci["jobs"]) == 7 and all(j["conclusion"] == "success" for j in ci["jobs"])
+        assert ci["url"].startswith(project["repository_url"] + "/actions/runs/")
+        sample = ci["artifact_verification"]
+        assert re.fullmatch(r"[0-9a-f]{64}", sample["sha256"])
+        assert sample["junit"] == {"tests": 31, "failures": 0, "errors": 0, "skipped": 0}
+        expected_gates = {"unit_tests", "integration_tests", "schema_validation",
+                          "dependency_security", "secret_scan", "gitleaks_scan", "container_build",
+                          "evaluation_regression", "task_completion", "latency", "cost",
+                          "policy_violations"}
+        assert sample["baseline"]["state"] == "PASSED"
+        assert set(sample["baseline"]["gates"]) == expected_gates
+        assert all(state == "PASSED" for state in sample["baseline"]["gates"].values())
+        assert sample["baseline"]["completed_cases"] == 3
+        demo = sample["demo"]
+        assert demo["verified_demo"] and demo["valid_candidate_passed"]
+        assert demo["regressions_rejected"] == 11 and demo["live_model_calls"] == 0
+        results = demo["results"]
+        assert len(results) == 12
+        assert {r["mutation"] for r in results} == {"none", "unit", "integration", "schema",
+              "dependency", "secret", "container", "regression", "completion", "latency", "cost", "policy"}
+        assert all(r["exit_code"] == (0 if r["mutation"] == "none" else 1) for r in results)
+        assert sample["all_mutations_independently_verified"]
+        assert sample["both_secret_scanners_rejected_synthetic_token"]
+        assert sample["all_traces_linked"] and sample["gitleaks_evidence_redacted"]
+        proof = project["remote_regression_proof"]
+        assert proof["head_sha"] == project["published_sha"]
+        assert proof["status"] == "completed" and proof["conclusion"] == "failure"
+        assert proof["expected_failure_verified"] and proof["defect"] == "completion"
+        assert proof["url"].startswith(project["repository_url"] + "/actions/runs/")
+        assert proof["failed_step"] == "Required gate must fail here"
+        rejected = proof["artifact_verification"]
+        assert re.fullmatch(r"[0-9a-f]{64}", rejected["sha256"])
+        assert rejected["state"] == "FAILED" and not rejected["gate_passed"]
+        assert set(rejected["gates"]) == expected_gates
+        assert {k for k, v in rejected["gates"].items() if v == "FAILED"} == {
+            "task_completion", "evaluation_regression"}
+        assert rejected["incorrect_value_rejected_despite_success_claim"]
     print(json.dumps({"evidence_valid": True, "checkpoint_complete": evidence["checkpoint_complete"]}))
 
 
