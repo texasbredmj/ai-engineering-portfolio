@@ -26,7 +26,7 @@ Complete the current section before implementing its successor. A later section 
 | --- | --- | --- | --- |
 | 1 Foundation | Existing repositories, eight-project inventory, evidence mapping, first demo instructions, site skeleton | Existing evidence verifier passes; eight inventory entries match recorded commits and successful runs; local navigation works; gaps listed | Passed locally on October 14, 2026; evidence/foundation-validation.json |
 | 2 Evidence workflow | Uses section 1 inventory; milestone schema, capture command and reviewed example | Reject invalid records and secret-bearing input; validate one captured milestone; establish review ownership | Planned; templates only |
-| 3 Demo environment | Uses Project 08 scripts and section 2 evidence capture; devcontainer, private forwarded port, environment-generated credentials | Fresh Codespaces build, restart, clean startup and actual HTTP/browser checks pass; no secrets in output | Application checks passed in a fresh Codespace with the documented network override; automatic portfolio-devcontainer launch failed during PostgreSQL initialization and remains unverified |
+| 3 Demo environment | Uses Project 08 scripts and section 2 evidence capture; devcontainer, private forwarded port, environment-generated credentials | Fresh Codespaces build, restart, clean startup and actual HTTP/browser checks pass; no secrets in output | Fresh unattended startup, both lifecycle hooks, full runtime checks and private forwarded-URL task/receipt/trace inspection passed at portfolio commit 90ae4dc4; evidence/codespaces-operational/manifest.json |
 | 4 Guided walkthrough | Uses working section 3 environment and these instructions | Employer completes all five actions with expected receipt, roles, retry and trace results | Eight HTTP and eight Chromium scenarios passed; authenticated forwarded creation/receipt, mismatch and trace inspection also passed |
 | 5 Showcase | Uses verified walkthrough; complete pages, eight cards, project README links | Browser, keyboard, mobile, broken-link and public access checks pass | Foundation preview only |
 | 6 Resume | Uses reviewed milestone contributions | Owner reviews personal attribution, AI assistance, tradeoffs and each evidence-backed bullet | Initial draft only |
@@ -40,7 +40,7 @@ Project 01 was private at its recorded checkpoint; source and CI may require emp
 
 ## Hosting boundary
 
-[GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) serves site/ as static HTML, CSS and JavaScript. The application runs separately in [Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces) after its configuration passes section 3. The verification branch provides a configured Codespaces link and a tested application runtime; automatic portfolio-devcontainer startup failed during PostgreSQL initialization and remains unverified. No deployed Pages URL is claimed.
+[GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages) serves site/ as static HTML, CSS and JavaScript at https://texasbredmj.github.io/ai-engineering-portfolio/. The application runs separately in [Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces). Fresh unattended startup and the full working demo passed at portfolio commit 90ae4dc4 on October 14, 2026. The Pages site uses a separate gh-pages branch; the source changes remain in the verification pull request.
 
 ## First demo architecture
 

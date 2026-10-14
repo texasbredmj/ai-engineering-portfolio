@@ -1,0 +1,4 @@
+2026-10-14 19:13:37.677Z: Running the postCreateCommand from devcontainer.json...
+2026-10-14 19:15:08.287Z: Application ready on port 18780. Use the Ports panel; keep visibility Private.
+[?25h2026-10-14 19:15:13.128Z: Application ready on port 18780. Use the Ports panel; keep visibility Private.
+2026-10-14 19:15:13.229Z: Finished configuring codespace.
