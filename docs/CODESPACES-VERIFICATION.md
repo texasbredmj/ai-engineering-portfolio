@@ -41,7 +41,7 @@ Separately open the private forwarded URL, log in, and verify a task/receipt the
 
 The first fresh Codespace resolved `postgres` correctly but timed out on container-to-container TCP. PostgreSQL remained healthy and all 35 tests passed through its published localhost port. The Codespaces Compose override makes the API and worker share PostgreSQL's network namespace and use `127.0.0.1:5432`. PostgreSQL publishes the API at `127.0.0.1:18780`; database port 15438 also remains bound to localhost. This changes networking only; application code and authorization checks remain pinned to the reviewed commit. Trusted fixture services share a network namespace, which is a deployment tradeoff, not a production isolation claim.
 
-The original Project 08 `test_container.py` hard-codes the bridge network and is incompatible with this workaround; use the host suite in the runner. Report installed-wheel verification separately rather than interpreting that runner's network failure as an application test failure.
+The original Project 08 `test_container.py` hard-codes the bridge network and is incompatible with this workaround. The portfolio runner uses `verify_codespaces_wheel.py` to run the same installed-wheel suite in the working PostgreSQL namespace. Report the host and wheel as two runs of the same 35 tests, not 70 unique tests.
 
 To stop the app while preserving its database:
 
@@ -53,4 +53,3 @@ docker compose down
 Then stop the Codespace from GitHub's Codespaces page. A full rebuild may clear nested Docker volumes. Do not delete an environment containing work you need to retain.
 
 GitHub Pages serves the static showcase; Codespaces runs this application. Static role tokens, deterministic database effects, and zero live model calls remain explicit limitations. Pages publication, resume attribution review, and the portfolio evidence-workflow gate are separate work.
-

@@ -20,6 +20,7 @@ def main():
     commands = [
         ['docker', 'compose', 'up', '-d', '--build', '--wait'],
         [python, 'scripts/test_local.py', '-q', '--junitxml=.gates/tests-codespaces.xml'],
+        [sys.executable, str(ROOT / 'scripts' / 'verify_codespaces_wheel.py')],
         [python, 'scripts/demo.py'],
         [python, 'scripts/verify_restart.py'],
         ['docker', 'compose', '--profile', 'verification', 'run', '--build', '--rm', 'browser'],
@@ -51,6 +52,11 @@ def main():
             for key in counts:
                 counts[key] += int(suite.get(key, 0))
         assert counts == {'tests': 35, 'failures': 0, 'errors': 0, 'skipped': 0}, counts
+        wheel_counts = {k: 0 for k in counts}
+        for suite in ET.parse(gates / 'tests-linux.xml').getroot().iter('testsuite'):
+            for key in wheel_counts:
+                wheel_counts[key] += int(suite.get(key, 0))
+        assert wheel_counts == counts, wheel_counts
         demo = json.loads((gates / 'http-demo.json').read_text())
         browser = json.loads((gates / 'browser-check.json').read_text())
         restart = json.loads((gates / 'restart-check.json').read_text())
@@ -59,6 +65,7 @@ def main():
         assert not browser['uncaught_page_errors']
         assert restart['all_records_preserved'] and restart['duplicate_effects'] == 0
         report.update(runtime_checks_passed=True, tests=counts,
+                      installed_wheel_tests=wheel_counts,
                       http_scenarios=8, browser_scenarios=8, restart_verified=True)
         report['artifacts'] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                                for p in gates.iterdir() if p.suffix in ('.json', '.xml', '.png')}
