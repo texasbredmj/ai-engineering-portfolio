@@ -1,0 +1,23 @@
+{
+  "verified_on": "2026-10-14",
+  "environment": "fresh GitHub Codespace; private forwarded HTTPS URL",
+  "application_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "authenticated_operator_login": true,
+  "created_task": "1749ad1e-40e4-453b-b679-862e169ddff7",
+  "task_state": "SUCCEEDED",
+  "expected_quantity": 2,
+  "observed_quantity": 2,
+  "independent_receipt": "9d259f68-ec9a-4792-88b7-b1cb8dacbf83",
+  "mismatch_task": "8d692553-b8b9-43e0-ae68-2a800297efb2",
+  "mismatch_state": "FAILED",
+  "mismatch_expected_quantity": 2,
+  "mismatch_observed_quantity": 3,
+  "mismatch_tool_claimed_completed": true,
+  "mismatch_trace_id": "c9cbe76e5fcb40a4937cf4a2b43ff098",
+  "mismatch_trace_verification_passed": false,
+  "scope": "Forwarded URL: authenticated creation, receipt inspection, mismatch investigation, traces. Approval/rejection and retry independently exercised by the eight Chromium scenarios.",
+  "screenshots": {
+    "forwarded-mismatch.png": "36373472323ff3b38c394caa4d142d8dd4d91bf3b77c265d14ed2968c0223543",
+    "forwarded-receipt.png": "fc9950df2ad6ad0f0ea9d37a654a7f5f84588469554ffb9513be21fef5610629"
+  }
+}
