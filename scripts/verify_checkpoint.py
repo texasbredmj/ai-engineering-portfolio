@@ -205,6 +205,51 @@ def main():
         assert {k for k, v in rejected["gates"].items() if v == "FAILED"} == {
             "task_completion", "evaluation_regression"}
         assert rejected["incorrect_value_rejected_despite_success_claim"]
+    project08_path = root / "evidence/project08.json"
+    if project08_path.exists():
+        project = json.loads(project08_path.read_text(encoding="utf-8"))
+        assert project["name"] == "agent-operations-control-center"
+        assert project["published"] and project["checkpoint_complete"] and not project["private"]
+        assert project["repository_url"] == "https://github.com/texasbredmj/agent-operations-control-center"
+        assert re.fullmatch(r"[0-9a-f]{40}", project["published_sha"])
+        ci = project["remote_ci"]
+        assert ci["head_sha"] == project["published_sha"]
+        assert ci["status"] == "completed" and ci["conclusion"] == "success"
+        assert ci["url"].startswith(project["repository_url"] + "/actions/runs/")
+        assert len(ci["jobs"]) == 7 and all(j["conclusion"] == "success" for j in ci["jobs"])
+        sample = ci["artifact_verification"]
+        assert re.fullmatch(r"[0-9a-f]{64}", sample["sha256"])
+        for name in ("host_junit", "linux_wheel_junit"):
+            assert sample[name] == {"tests": 35, "failures": 0, "errors": 0, "skipped": 0}
+        demo = sample["http_demo"]
+        assert demo["verified_demo"] and demo["scenario_count"] == 8
+        assert demo["paid_model_calls"] == 0
+        assert demo["unauthenticated_read_rejected"] and demo["direct_unauthorized_controls_rejected"]
+        results = demo["results"]
+        assert len(results) == 8 and all(r["passed"] for r in results)
+        by_name = {r["scenario"]: r for r in results}
+        assert set(by_name) == {"verified_completion", "separate_approval", "rejection", "cancellation",
+                               "eligible_retry", "permanent_failure", "verification_mismatch", "pending_approval"}
+        assert all(by_name[name]["state"] == "SUCCEEDED" and by_name[name]["verified"]
+                   for name in ("verified_completion", "separate_approval", "eligible_retry"))
+        assert by_name["eligible_retry"]["attempts"] == 2
+        assert by_name["verification_mismatch"]["state"] == "FAILED"
+        assert not by_name["verification_mismatch"]["verified"]
+        assert by_name["rejection"]["state"] == "REJECTED"
+        assert by_name["cancellation"]["state"] == "CANCELLED"
+        assert by_name["pending_approval"]["state"] == "PENDING_APPROVAL"
+        browser = sample["browser_verification"]
+        assert browser["verified_browser"] and browser["scenario_count"] == 8
+        assert len(browser["results"]) == 8 and all(r["passed"] for r in browser["results"])
+        assert not browser["uncaught_page_errors"] and browser["paid_model_calls"] == 0
+        assert browser["viewport_desktop"] == [1440, 1050] and browser["viewport_mobile"] == [390, 844]
+        restart = sample["restart_verification"]
+        assert restart["api_and_worker_restarted"] and restart["all_records_preserved"]
+        assert restart["duplicate_effects"] == 0 and restart["paid_model_calls"] == 0
+        receipts = restart["database_receipts_verified"]
+        assert len(receipts) == 8 and all(r["receipt_matches"] for r in receipts)
+        assert {r["task_id"] for r in receipts} == {r["task_id"] for r in results}
+        assert sample["desktop_screenshot_verified"] and sample["mobile_screenshot_verified"]
     print(json.dumps({"evidence_valid": True, "checkpoint_complete": evidence["checkpoint_complete"]}))
 
 

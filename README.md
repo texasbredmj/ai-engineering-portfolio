@@ -139,7 +139,38 @@ portable tests with the Docker-only test deselected. No live model or paid endpo
 checksums, parsed JUnit, measurements, regression results and expected-failure proof. Raw GitHub
 artifacts are retained for 14 days. [Local evidence](evidence/project07-local.json) retains local results.
 These are controlled fixtures, not production SLOs, hostile-code containment or external tool/billing
-attestation. **Project 07 delivery is verified. Project 08 has not started; Phase 4 remains in progress.**
+attestation. **Projects 07 and 08 are published with verified remote CI. Phase 4 delivery is complete.**
+
+## Project 08 delivery checkpoint
+
+[08 — Agent Operations Control Center](https://github.com/texasbredmj/agent-operations-control-center)
+is published as a public repository. [All seven remote CI jobs passed](https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319)
+against commit `2147f79a6c2bc5ca89e0134f137ed5ee5e411f17` on October 14, 2026. Six policy jobs cover
+Windows/Linux and Python 3.11/3.12/3.14. Downloaded JUnit from the full-stack job independently confirms
+**35 tests passed on the host and 35 against the installed Linux wheel**, each with zero failures,
+errors or skips. These are two runs of the same suite, not 70 unique tests.
+
+Its React dashboard, FastAPI API, PostgreSQL worker and persisted OpenTelemetry spans provide all
+eleven required operational views and task inspection, approval/rejection, cancellation, eligible
+retry and independent verification evidence. Backend role/project authorization protects every
+operational endpoint; direct unauthorized requests are rejected independently of the UI.
+
+Downloaded evidence confirms eight real HTTP scenarios and eight Chromium scenarios. Browser checks
+exercise all required views and controls, receipt/history/tool/span inspection, viewer restrictions,
+desktop/mobile layout and memory-only login, with zero uncaught page errors. Remote desktop and
+mobile screenshots were inspected. API and worker restart preserved all eight HTTP-demo records,
+history, evidence and spans. Each associated database receipt was checked, with no duplicate effects.
+The deliberately incorrect receipt remains failed despite the tool's success claim and cannot retry.
+
+Clean local Windows and Linux installations also each passed all 35 tests. Local Python and npm
+audits found no known vulnerabilities at the recorded scan time. No paid model endpoint was called.
+[Project 08 evidence](evidence/project08.json) preserves the exact commit, seven job conclusions,
+artifact checksum, parsed JUnit, HTTP/browser outcomes, screenshot checksums and restart/receipt results.
+[Local evidence](evidence/project08-local.json) retains the local checks. Raw GitHub artifacts are
+retained for 14 days. This is an independent fixture runtime, not a live integration with earlier
+projects, a production identity system or an external API exactly-once guarantee.
+
+**Phase 4 delivery is verified. All eight portfolio projects are published with confirmed remote CI.**
 
 ## Architecture
 
@@ -184,7 +215,7 @@ limitations. Local execution does not imply hostile-code containment or public-s
 | 1 — Foundations | 01 Task Execution Engine; 02 AI Tool Coordination Gateway | Published; remote CI verified on Windows/Linux, Python 3.11/3.12/3.14, plus Docker |
 | 2 — Orchestration and evaluation | 03 Autonomous Workflow Orchestrator; 04 Agent Evaluation Harness | Both published; remote CI, durability recovery, and evaluation regression evidence verified |
 | 3 — Reliability and model routing | 05 Agent Failure & Recovery Lab; 06 Multi-Provider Model Gateway | Both published; remote CI, fault recovery, model routing, Redis budgets, and streaming evidence verified |
-| 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | 07 published; passing remote CI and intentional regression rejection verified. 08 planned |
+| 4 — Delivery and operations | 07 AI-Native CI/CD Quality Gates; 08 Agent Operations Control Center | Both published; required remote CI, regression rejection, authorized dashboard controls and PostgreSQL/Chromium evidence verified |
 
 Planned projects are not advertised as completed repositories. Benchmark numbers, cloud deployment,
 production usage, and remote CI success are reported only when supported by confirmed evidence.
