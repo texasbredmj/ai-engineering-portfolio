@@ -53,7 +53,20 @@ def setup():
                     APP / 'docker-compose.override.yml')
     (APP / '.env').chmod(0o600)
     (APP / '.gates').mkdir(exist_ok=True)
-    run('docker', 'compose', 'up', '-d', '--build', '--wait')
+    try:
+        run('docker', 'compose', 'up', '-d', '--build', '--wait')
+    except subprocess.CalledProcessError:
+        # Keep diagnostics on the persistent workspace when Codespaces enters recovery.
+        # Do not collect Compose's resolved configuration: it contains credentials.
+        logs = subprocess.run(
+            ['docker', 'compose', 'logs', '--no-color', '--tail', '100', 'postgres'],
+            cwd=APP, capture_output=True, text=True,
+        )
+        diagnostic = ROOT / '.demo' / 'postgres-startup.log'
+        diagnostic.write_text(logs.stdout + logs.stderr, encoding='utf-8')
+        diagnostic.chmod(0o600)
+        print('Startup failed. Inspect .demo/postgres-startup.log privately; do not publish raw logs.')
+        raise
     if not (APP / '.gates' / 'http-demo.json').exists():
         run(python, 'scripts/demo.py')
     print('Application ready on port 18780. Use the Ports panel; keep visibility Private.')

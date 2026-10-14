@@ -2,7 +2,7 @@
 
 **[Start Here — launch the guided demo in GitHub Codespaces](https://github.com/codespaces/new?repo=texasbredmj/ai-engineering-portfolio&ref=showcase%2Fcodespaces-verification)**
 
-Fresh Codespace application checks passed: 35 host tests, the same 35 tests against the installed wheel, eight HTTP scenarios, eight Chromium scenarios and restart preservation with zero duplicate effects. Authenticated task creation, receipt inspection, mismatch investigation and traces also passed through the private forwarded URL. **Automatic portfolio-devcontainer startup is still being verified.**
+Fresh Codespace application checks passed: 35 host tests, the same 35 tests against the installed wheel, eight HTTP scenarios, eight Chromium scenarios and restart preservation with zero duplicate effects. Authenticated task creation, receipt inspection, mismatch investigation and traces also passed through the private forwarded URL. **Automatic startup is not yet verified:** the latest fresh launch failed when PostgreSQL exited during initialization. [Failed launch record](evidence/codespaces-final/unattended-startup-failed.json).
 
 [Startup and five guided exercises](docs/CODESPACES-VERIFICATION.md) · [Raw execution evidence and hashes](evidence/codespaces-app-2026-10-14.json) · [Forwarded browser check](evidence/codespaces-forwarded-ui.json).
 

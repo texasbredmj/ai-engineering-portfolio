@@ -13,7 +13,7 @@ This launch link selects the verification branch and its **Portfolio guided demo
 
 Expected startup summary: `verified_demo=true`, `scenarios=8`, `paid_model_calls=0`. The dashboard URL is unique to each Codespace; use its Ports entry rather than a hard-coded example URL.
 
-Setup can be rerun with `python scripts/setup_codespaces.py`. It reuses existing credentials and skips seeding when the HTTP report exists. Starting the Codespace again invokes the start-only path. Application startup initializes the current idempotent schema; the pinned fixture has no versioned migration runner.
+Setup can be rerun with `python scripts/setup_codespaces.py`. It reuses existing credentials and skips seeding when the HTTP report exists. Starting the Codespace again invokes the start-only path. Setup and verification share an exclusive file lock, so they cannot create the same Compose services concurrently. The editor waits for post-create setup. Application startup initializes the current idempotent schema; the pinned fixture has no versioned migration runner.
 
 ## Five guided exercises
 
@@ -38,6 +38,10 @@ The runner starts the real services, requires all 35 PostgreSQL-backed tests to 
 Separately open the private forwarded URL, log in, and verify a task/receipt there before recording that route as passed. Preserve reviewed redacted JSON/XML and artifact hashes; never copy `.env` or raw unreviewed logs into evidence.
 
 ## Network decision and boundaries
+
+The initial slim development image could not install its Docker feature because its bundled Yarn repository signing key was unavailable. The launcher now uses the maintained standard Codespaces universal image and its `codespace` user. Its initial image download takes additional time. This image tag can change; the application itself is pinned, and recorded verification applies to the observed environment.
+
+An early verification command in this session overlapped post-create setup and caused a container-name conflict. The final workflow waits for post-create setup and serializes setup/verification with a Linux file lock. This failed attempt is separate from the recorded application passes.
 
 The first fresh Codespace resolved `postgres` correctly but timed out on container-to-container TCP. PostgreSQL remained healthy and all 35 tests passed through its published localhost port. The Codespaces Compose override makes the API and worker share PostgreSQL's network namespace and use `127.0.0.1:5432`. PostgreSQL publishes the API at `127.0.0.1:18780`; database port 15438 also remains bound to localhost. This changes networking only; application code and authorization checks remain pinned to the reviewed commit. Trusted fixture services share a network namespace, which is a deployment tradeoff, not a production isolation claim.
 
