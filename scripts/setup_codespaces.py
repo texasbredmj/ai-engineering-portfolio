@@ -1,9 +1,11 @@
 """Prepare the pinned real application without printing generated credentials."""
 import argparse
+import fcntl
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+from contextlib import contextmanager
 
 ROOT = Path(__file__).resolve().parents[1]
 APP = ROOT / '.demo' / 'agent-operations-control-center'
@@ -15,7 +17,19 @@ def run(*args, cwd=APP):
     subprocess.run(args, cwd=cwd, check=True)
 
 
-def main():
+@contextmanager
+def demo_lock():
+    directory = ROOT / '.demo'
+    directory.mkdir(exist_ok=True)
+    with (directory / 'lifecycle.lock').open('a') as handle:
+        fcntl.flock(handle, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle, fcntl.LOCK_UN)
+
+
+def setup():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--start-only', action='store_true')
     args = parser.parse_args()
@@ -45,6 +59,11 @@ def main():
     print('Application ready on port 18780. Use the Ports panel; keep visibility Private.')
     print('Generated credentials: .demo/agent-operations-control-center/.env (open privately).')
     print('Run python scripts/verify_codespaces.py for backend, restart and browser checks.')
+
+
+def main():
+    with demo_lock():
+        setup()
 
 
 if __name__ == '__main__':

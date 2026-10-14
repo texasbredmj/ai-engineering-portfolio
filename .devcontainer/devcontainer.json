@@ -8,7 +8,7 @@
   },
   "otherPortsAttributes": {"onAutoForward": "ignore"},
   "postCreateCommand": "python scripts/setup_codespaces.py",
+  "waitFor": "postCreateCommand",
   "postStartCommand": "python scripts/setup_codespaces.py --start-only",
   "remoteUser": "codespace"
 }
-

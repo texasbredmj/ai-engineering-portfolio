@@ -8,10 +8,10 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 
-from setup_codespaces import APP, COMMIT, ROOT
+from setup_codespaces import APP, COMMIT, ROOT, demo_lock
 
 
-def main():
+def verify():
     if not (APP / '.env').exists():
         raise SystemExit('Run python scripts/setup_codespaces.py first.')
     python = str(APP / '.venv' / 'bin' / 'python')
@@ -28,6 +28,7 @@ def main():
     report = {
         'checked_at': datetime.now(timezone.utc).isoformat(),
         'environment': 'codespaces' if os.environ.get('CODESPACES') == 'true' else 'other',
+        'compose_project_name': os.environ.get('COMPOSE_PROJECT_NAME', 'lab-ops08'),
         'expected_app_commit': COMMIT,
         'app_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=APP, text=True).strip(),
         'portfolio_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
@@ -79,6 +80,11 @@ def main():
                           'report': '.demo/verification.json',
                           'forwarded_browser_verified': False}))
     return status
+
+
+def main():
+    with demo_lock():
+        return verify()
 
 
 if __name__ == '__main__':

@@ -14,6 +14,10 @@ def main():
                                         cwd=APP, text=True).strip()
     if not postgres:
         raise SystemExit('PostgreSQL container is not running.')
+    image = subprocess.check_output(['docker', 'compose', 'images', '-q', 'api'],
+                                    cwd=APP, text=True).strip()
+    if not image:
+        raise SystemExit('API image has not been built.')
     env = {**os.environ,
            'DATABASE_URL': 'postgresql://ops:' + values['POSTGRES_PASSWORD'] + '@127.0.0.1:5432/ops',
            'OPS_CREDENTIALS': values['OPS_CREDENTIALS']}
@@ -23,7 +27,7 @@ def main():
                '--volume', str(APP / 'tests') + ':/verification/tests:ro',
                '--volume', str(APP / 'pyproject.toml') + ':/verification/pyproject.toml:ro',
                '--volume', str(APP / '.gates') + ':/evidence',
-               '--workdir', '/verification', '--entrypoint', 'python', 'lab-ops08-api',
+               '--workdir', '/verification', '--entrypoint', 'python', image,
                '-m', 'pytest', '-q', '-p', 'no:cacheprovider', '--junitxml=/evidence/tests-linux.xml']
     return subprocess.run(command, cwd=APP, env=env).returncode
 
