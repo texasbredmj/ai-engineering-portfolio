@@ -1,0 +1,120 @@
+{
+  "state": "PASSED",
+  "project": 7,
+  "verified_at_utc": "2026-10-15T07:12:05.628694+00:00",
+  "checks": [
+    {
+      "command": [
+        "scripts/demo.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 29.314,
+      "summaries": [
+        {
+          "mutation": "none",
+          "exit_code": 0,
+          "expected_gate": null,
+          "state": "PASSED",
+          "intended_failure_detected": false
+        },
+        {
+          "mutation": "unit",
+          "exit_code": 1,
+          "expected_gate": "unit_tests",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "integration",
+          "exit_code": 1,
+          "expected_gate": "integration_tests",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "schema",
+          "exit_code": 1,
+          "expected_gate": "schema_validation",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "dependency",
+          "exit_code": 1,
+          "expected_gate": "dependency_security",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "secret",
+          "exit_code": 1,
+          "expected_gate": "secret_scan",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "container",
+          "exit_code": 1,
+          "expected_gate": "container_build",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "regression",
+          "exit_code": 1,
+          "expected_gate": "evaluation_regression",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "completion",
+          "exit_code": 1,
+          "expected_gate": "task_completion",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "latency",
+          "exit_code": 1,
+          "expected_gate": "latency",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "cost",
+          "exit_code": 1,
+          "expected_gate": "cost",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "mutation": "policy",
+          "exit_code": 1,
+          "expected_gate": "policy_violations",
+          "state": "FAILED",
+          "intended_failure_detected": true
+        },
+        {
+          "verified_demo": true,
+          "regressions_rejected": 11,
+          "evidence": "/home/runner/work/ai-engineering-portfolio/ai-engineering-portfolio/projects/ai-native-cicd-gates/.gates/demo-7ea9af84-09a5-4cdf-8924-73f494e05c82"
+        }
+      ]
+    },
+    {
+      "command": [
+        "scripts/check_tool_audit.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.179,
+      "summaries": [
+        {
+          "packages_audited": 40,
+          "audited_at": "2026-10-14T06:25:46.459415+00:00",
+          "vulnerabilities": [],
+          "tool_version": "2.10.1"
+        }
+      ]
+    }
+  ]
+}

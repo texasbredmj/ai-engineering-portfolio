@@ -1,0 +1,22 @@
+{
+  "state": "PASSED",
+  "project": 4,
+  "verified_at_utc": "2026-10-15T07:11:01.933354+00:00",
+  "checks": [
+    {
+      "command": [
+        "scripts/demo.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.253,
+      "summaries": [
+        {
+          "verified_demo": true,
+          "cases": 14,
+          "mutation_candidates_rejected": 4,
+          "evidence": "/home/runner/work/ai-engineering-portfolio/ai-engineering-portfolio/projects/agent-evaluation-harness/.evaluation/demo-25710b4d-c5f3-41dd-b76a-34b581523b87"
+        }
+      ]
+    }
+  ]
+}

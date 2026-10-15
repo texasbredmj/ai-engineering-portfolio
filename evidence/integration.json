@@ -1,0 +1,30 @@
+{
+  "source_commit": "538f651575b133755b04e50a0a0245558337116f",
+  "ci_run": "https://github.com/texasbredmj/ai-engineering-portfolio/actions/runs/38696747656",
+  "ci_conclusion": "success",
+  "artifact_sha256": "265eac06069b561b74bee8ed57fef02ff5367eea9cf9fcb474935fc1e738f107",
+  "all_eight_demonstrations_passed": true,
+  "backend_suite": {
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "acceptance": {
+    "state": "PASSED",
+    "http_scenarios": 8,
+    "browser_scenarios": 9,
+    "real_temporal_workflow": true,
+    "real_tool_gateway": true,
+    "real_model_gateway_local_providers": true,
+    "paid_model_calls": 0,
+    "worker_restart_verified": true,
+    "crashed_after_commit_before_acknowledgement": true,
+    "api_restart_preserved_records": true,
+    "duplicate_reservations": 0,
+    "workflow_id": "ops-78a515e6-111f-4d6d-8a58-4163909db23d-1",
+    "task_id": "78a515e6-111f-4d6d-8a58-4163909db23d"
+  },
+  "fresh_codespaces_verified": false,
+  "codespaces_note": "Initial launch exposed stale Yarn apt signing key; corrected devcontainer is being rebuilt."
+}
