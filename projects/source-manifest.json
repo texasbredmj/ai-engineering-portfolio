@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "task-execution-engine",
+    "source": "https://github.com/texasbredmj/task-execution-engine",
+    "base_commit": "ec66a191091d0ea5ac8de6bad3b80ccc7a96ce94",
+    "path": "projects/task-execution-engine"
+  },
+  {
+    "id": 2,
+    "name": "ai-tool-coordination-gateway",
+    "source": "https://github.com/texasbredmj/ai-tool-coordination-gateway",
+    "base_commit": "4734b4edee612f81f259a60ae67b1c048f94b778",
+    "path": "projects/ai-tool-coordination-gateway"
+  },
+  {
+    "id": 3,
+    "name": "autonomous-workflow-orchestrator",
+    "source": "https://github.com/texasbredmj/autonomous-workflow-orchestrator",
+    "base_commit": "2adc05287b98bb4e6969af19124a99d8bfd73035",
+    "path": "projects/autonomous-workflow-orchestrator"
+  },
+  {
+    "id": 4,
+    "name": "agent-evaluation-harness",
+    "source": "https://github.com/texasbredmj/agent-evaluation-harness",
+    "base_commit": "2f6483442fda112a98e6e322d82f10c89838899d",
+    "path": "projects/agent-evaluation-harness"
+  },
+  {
+    "id": 5,
+    "name": "agent-failure-recovery-lab",
+    "source": "https://github.com/texasbredmj/agent-failure-recovery-lab",
+    "base_commit": "404ab9590e16e0f6279cb9d5dff952759c3623bb",
+    "path": "projects/agent-failure-recovery-lab"
+  },
+  {
+    "id": 6,
+    "name": "multi-provider-model-gateway",
+    "source": "https://github.com/texasbredmj/multi-provider-model-gateway",
+    "base_commit": "22cfd787c8953f42596ce55ebcdb1b95ef9afdf4",
+    "path": "projects/multi-provider-model-gateway"
+  },
+  {
+    "id": 7,
+    "name": "ai-native-cicd-gates",
+    "source": "https://github.com/texasbredmj/ai-native-cicd-gates",
+    "base_commit": "7de27a44bccf67aa0f9ccfec21411d8dcc396665",
+    "path": "projects/ai-native-cicd-gates"
+  },
+  {
+    "id": 8,
+    "name": "agent-operations-control-center",
+    "source": "https://github.com/texasbredmj/agent-operations-control-center",
+    "base_commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+    "path": "projects/agent-operations-control-center"
+  }
+]

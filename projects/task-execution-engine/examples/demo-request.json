@@ -1,0 +1,9 @@
+{
+  "repository": "examples/demo-repository",
+  "operations": ["inspect", "format_check", "lint", "test"],
+  "authorized_operations": ["inspect", "format_check", "lint", "test"],
+  "idempotency_key": "maintenance-checks-v2",
+  "timeout_seconds": 30.0,
+  "max_attempts": 1,
+  "execution_budget_seconds": 60.0
+}

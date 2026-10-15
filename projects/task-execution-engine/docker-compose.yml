@@ -1,0 +1,15 @@
+services:
+  engine:
+    build: .
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    cpus: 1
+    tmpfs:
+      - /tmp:size=64m
+    volumes:
+      - task-data:/data
+volumes:
+  task-data:

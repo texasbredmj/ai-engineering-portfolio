@@ -1,0 +1,93 @@
+{
+  "verified_date": "2026-10-12",
+  "package_version": "0.2.0",
+  "windows_suite": [
+    {
+      "tests": "50",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "23.739"
+    }
+  ],
+  "linux_suite": [
+    {
+      "tests": "50",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "13.569"
+    }
+  ],
+  "windows_demo": {
+    "demo_verified": true,
+    "baseline_state": "FAILED",
+    "final_state": "SUCCEEDED",
+    "task_id": "b9a0e2ea-1d49-4aa5-8054-5fc5b2500b99",
+    "report": "C:\\Users\\matth\\OneDrive\\Documents\\ChatGPT\\AI Systems Engineering Lab\\task-execution-engine\\.task-engine\\demos\\f1aadcb6-d245-4f48-b6d0-d918d88a0fa9\\maintenance-report.json",
+    "patch": "C:\\Users\\matth\\OneDrive\\Documents\\ChatGPT\\AI Systems Engineering Lab\\task-execution-engine\\.task-engine\\demos\\f1aadcb6-d245-4f48-b6d0-d918d88a0fa9\\data\\artifacts\\b9a0e2ea-1d49-4aa5-8054-5fc5b2500b99\\format.patch",
+    "tool_calls": 5
+  },
+  "linux_demo": {
+    "demo_verified": true,
+    "baseline_state": "FAILED",
+    "final_state": "SUCCEEDED",
+    "task_id": "bd4bd303-f760-443b-9ad7-f2a38cc41e87",
+    "report": "/data/demos/a4a47f82-f9d1-4a6d-82a4-783ba39c4d8a/maintenance-report.json",
+    "patch": "/data/demos/a4a47f82-f9d1-4a6d-82a4-783ba39c4d8a/data/artifacts/bd4bd303-f760-443b-9ad7-f2a38cc41e87/format.patch",
+    "tool_calls": 5
+  },
+  "readonly_demo": {
+    "state": "SUCCEEDED",
+    "verified_operations": 4
+  },
+  "corrections": {
+    "changed_files": [
+      {
+        "path": "tests/test_arithmetic.py",
+        "before_sha256": "67dc850317af4bb413b09c01763bb6cd1763262428c904bcf20192f03c30bb09",
+        "after_sha256": "8517e35ccaa34d65877172cfffe88212aa54df1da3b1e908baade3325798bb7f"
+      }
+    ],
+    "scope_valid": true,
+    "semantic_preserved": true,
+    "patch_sha256": "12f00155467e8f29b0235aab9d804a500a65270a24702d4ecee76319c0dbd4b1"
+  },
+  "checks": {
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "pip_check": "passed",
+    "docker_build": "passed",
+    "remote_ci": "not run"
+  },
+  "source_sha256": {
+    ".github/workflows/ci.yml": "c9134583b6381a1b348545ee77a5aac507b7e3fe56a30788d4a574873a91f4e4",
+    "docker-compose.yml": "def5cb92e5639021afc5509e18987a9360b612d3c116220eb9c0d14d40e67deb",
+    "Dockerfile": "cbb7d79ada39d50b903bf2233258807029c40e22441ea406a6e6b90761b698af",
+    "examples/demo-repository/pyproject.toml": "de5ab984b6dfd51dc2e6fbecd1e3884669b5bb303033bfaf40c5ff40183c2503",
+    "examples/demo-repository/tests/test_arithmetic.py": "6cd71f12ee0cf2ca037094e65568fd5274033203efc8f0d10583df4e8cc9bf45",
+    "examples/demo-request.json": "7e371e00ffaef9bc70bfdf432eed44c33e800c81101f23bd34fe20e8bf82c083",
+    "pyproject.toml": "b027b78306935561906b384faba3a37855e9bfc6b267a522a5ccd9b4291e2229",
+    "requirements.lock": "b66cf14de840caae16b740443ab1e2c308a408049cbb88cc855570a184b444e6",
+    "scripts/demo_maintenance.py": "f25a9eb8a5d6ff43a977fdb01c9b15eb0195bebaaa2bbc80c19766ebab3657de",
+    "src/task_execution_engine/__init__.py": "24e39e1e1210b65d8000caf019c69a511a91e8b5a5c4d40185e4a53a8b41c215",
+    "src/task_execution_engine/cli.py": "34b3760f1743dbfcd365d4c6bc04203fea4b61c2b69c3d2ae04f87206cf7ee2a",
+    "src/task_execution_engine/engine.py": "3da5f0979e59504efd064433de1590b99a813d2708a142c38437b66dbba9d991",
+    "src/task_execution_engine/inspect_repo.py": "a60f72f0bf9f22087fcde1c1bb9c86d5549dd696a22aff68e95705c17b276335",
+    "src/task_execution_engine/maintenance.py": "a245d270364b957d0ef4f3e289d397c00dafdf5853054f5c85f8dd495692250a",
+    "src/task_execution_engine/models.py": "fa08262d53e8b5287c1e8135a8b7f983e65b034bf53d0dc0377b4b51f50ec670",
+    "src/task_execution_engine/process_gate.py": "aa6e76205120eecdae75b29289339e7d9ea3cb3388d00144e96105e11d3aaae7",
+    "src/task_execution_engine/runner.py": "27ca4391693a376d452d2cd265f06aac361eeb56632cf4fed9040fd2b24c0fdf",
+    "src/task_execution_engine/store.py": "3ec33dccf02218cc71a1c01d326d3d6503abdad58b754ca06a4813e78f0ed5d0",
+    "src/task_execution_engine/windows_job.py": "a3c7eb313f04c2869c52fbfa2872e108c735135ce74e40e7c97413f85b270abc",
+    "tests/test_cli.py": "80387c07b56d475e36a3cc9d0e477058f4abcda2fa426d72dfe910c575f7b5aa",
+    "tests/test_engine.py": "9fb78e3eb4d25d2901e4e134d25ae447f26f5b04c25c442ee6938c7a44b5962a",
+    "tests/test_maintenance.py": "1457e5c34aa372ed2ac613c203ef602684909f4e467b390891372967c7019e02",
+    "tests/test_models_store.py": "a7169a795ed74c8d6033e060a49f734b9ed03c43fdab3700d37921fe3a99a113"
+  },
+  "limitations": [
+    "Trusted repository code required",
+    "No automatic rollback",
+    "No remote CI or publication"
+  ]
+}

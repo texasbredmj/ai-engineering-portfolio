@@ -1,0 +1,392 @@
+{
+  "name": "ai-native-cicd-gates",
+  "repository_url": "https://github.com/texasbredmj/ai-native-cicd-gates",
+  "private": false,
+  "published": true,
+  "published_sha": "7de27a44bccf67aa0f9ccfec21411d8dcc396665",
+  "verified_at": "2026-10-14T06:43:38.548783+00:00",
+  "checkpoint_complete": true,
+  "local_verification": {
+    "windows": {
+      "tests": 31,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "86e0c005f0c1a5c780545221230260e2dca8d18f5c07fe9b7e889a102c3898ce"
+    },
+    "linux_portable": {
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "sha256": "091795742a1168575a6bb69cf9d3e8663e8393e4e4de8581341bfe89f2ad89c7",
+      "deselected": 1,
+      "full_docker_profile": false
+    }
+  },
+  "remote_ci": {
+    "run_id": 38523537588,
+    "url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588",
+    "head_sha": "7de27a44bccf67aa0f9ccfec21411d8dcc396665",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 115718508059,
+        "name": "required-gates",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588/job/115718508059"
+      },
+      {
+        "id": 115718508378,
+        "name": "policy-tests (ubuntu-latest, 3.14)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588/job/115718508378"
+      },
+      {
+        "id": 115718508407,
+        "name": "policy-tests (ubuntu-latest, 3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588/job/115718508407"
+      },
+      {
+        "id": 115718508476,
+        "name": "policy-tests (windows-latest, 3.11)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588/job/115718508476"
+      },
+      {
+        "id": 115718508498,
+        "name": "policy-tests (windows-latest, 3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588/job/115718508498"
+      },
+      {
+        "id": 115718508558,
+        "name": "policy-tests (ubuntu-latest, 3.11)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588/job/115718508558"
+      },
+      {
+        "id": 115718508676,
+        "name": "policy-tests (windows-latest, 3.14)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588/job/115718508676"
+      }
+    ],
+    "artifact_verification": {
+      "id": 11875176653,
+      "name": "quality-gate-evidence",
+      "size_in_bytes": 53026,
+      "sha256": "b0c9b76b5d38e0a84a19f5904d6a16d3f2f6ac01d1286e7e5b621e9d33f635a3",
+      "github_digest": "sha256:b0c9b76b5d38e0a84a19f5904d6a16d3f2f6ac01d1286e7e5b621e9d33f635a3",
+      "expires_at": "2026-10-28T06:41:10Z",
+      "junit": {
+        "tests": 31,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "baseline": {
+        "state": "PASSED",
+        "gates": {
+          "unit_tests": "PASSED",
+          "integration_tests": "PASSED",
+          "secret_scan": "PASSED",
+          "dependency_security": "PASSED",
+          "gitleaks_scan": "PASSED",
+          "container_build": "PASSED",
+          "schema_validation": "PASSED",
+          "task_completion": "PASSED",
+          "latency": "PASSED",
+          "cost": "PASSED",
+          "policy_violations": "PASSED",
+          "evaluation_regression": "PASSED"
+        },
+        "completed_cases": 3,
+        "policy_sha256": "44a6f8a348b94bd5c87ade0e8a4850607c9e4f5b53d35d484c3b61e7a878cb2e",
+        "suite_sha256": "a222045a8a435dc647a747f668f37282ebc80b9d809a51965ce65a4f911ab6b6",
+        "trace_id": "a3d632b51f2ae5ed01ecaa4ea1cdb5ca",
+        "measurements": [
+          {
+            "case_id": "sum",
+            "latency_ms": 35.89385699999781,
+            "schema_valid": true,
+            "completed": true,
+            "policy_violations": 0,
+            "cost_nusd": 0,
+            "error": null,
+            "output": {
+              "case_id": "sum",
+              "state": "SUCCEEDED",
+              "value": 12,
+              "attempts": 1,
+              "tool_calls": [
+                {
+                  "name": "math.add",
+                  "arguments": {
+                    "a": 7,
+                    "b": 5
+                  }
+                }
+              ],
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "claimed_verified": true
+            },
+            "verification_accurate": true
+          },
+          {
+            "case_id": "stock",
+            "latency_ms": 35.19467000000276,
+            "schema_valid": true,
+            "completed": true,
+            "policy_violations": 0,
+            "cost_nusd": 0,
+            "error": null,
+            "output": {
+              "case_id": "stock",
+              "state": "SUCCEEDED",
+              "value": 7,
+              "attempts": 1,
+              "tool_calls": [
+                {
+                  "name": "inventory.read",
+                  "arguments": {
+                    "sku": "demo-kit"
+                  }
+                }
+              ],
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "claimed_verified": true
+            },
+            "verification_accurate": true
+          },
+          {
+            "case_id": "recovery",
+            "latency_ms": 35.47518399999916,
+            "schema_valid": true,
+            "completed": true,
+            "policy_violations": 0,
+            "cost_nusd": 0,
+            "error": null,
+            "output": {
+              "case_id": "recovery",
+              "state": "SUCCEEDED",
+              "value": 7,
+              "attempts": 3,
+              "tool_calls": [
+                {
+                  "name": "inventory.read",
+                  "arguments": {
+                    "sku": "demo-kit"
+                  }
+                },
+                {
+                  "name": "inventory.read",
+                  "arguments": {
+                    "sku": "demo-kit"
+                  }
+                },
+                {
+                  "name": "inventory.read",
+                  "arguments": {
+                    "sku": "demo-kit"
+                  }
+                }
+              ],
+              "input_tokens": 0,
+              "output_tokens": 0,
+              "claimed_verified": true
+            },
+            "verification_accurate": true
+          }
+        ]
+      },
+      "demo": {
+        "verified_demo": true,
+        "valid_candidate_passed": true,
+        "regressions_rejected": 11,
+        "results": [
+          {
+            "mutation": "none",
+            "exit_code": 0,
+            "expected_gate": null,
+            "state": "PASSED",
+            "intended_failure_detected": false
+          },
+          {
+            "mutation": "unit",
+            "exit_code": 1,
+            "expected_gate": "unit_tests",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "integration",
+            "exit_code": 1,
+            "expected_gate": "integration_tests",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "schema",
+            "exit_code": 1,
+            "expected_gate": "schema_validation",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "dependency",
+            "exit_code": 1,
+            "expected_gate": "dependency_security",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "secret",
+            "exit_code": 1,
+            "expected_gate": "secret_scan",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "container",
+            "exit_code": 1,
+            "expected_gate": "container_build",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "regression",
+            "exit_code": 1,
+            "expected_gate": "evaluation_regression",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "completion",
+            "exit_code": 1,
+            "expected_gate": "task_completion",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "latency",
+            "exit_code": 1,
+            "expected_gate": "latency",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "cost",
+            "exit_code": 1,
+            "expected_gate": "cost",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          },
+          {
+            "mutation": "policy",
+            "exit_code": 1,
+            "expected_gate": "policy_violations",
+            "state": "FAILED",
+            "intended_failure_detected": true
+          }
+        ],
+        "live_model_calls": 0
+      },
+      "all_mutations_independently_verified": true,
+      "all_traces_linked": true,
+      "report_trace_pairs_checked": 13,
+      "both_secret_scanners_rejected_synthetic_token": true,
+      "gitleaks_evidence_redacted": true,
+      "artifact_contains_no_unredacted_synthetic_token": true
+    }
+  },
+  "remote_regression_proof": {
+    "run_id": 38523557595,
+    "url": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523557595",
+    "head_sha": "7de27a44bccf67aa0f9ccfec21411d8dcc396665",
+    "status": "completed",
+    "conclusion": "failure",
+    "defect": "completion",
+    "expected_failure_verified": true,
+    "failed_step": "Required gate must fail here",
+    "exit_code": 1,
+    "artifact_verification": {
+      "id": 11874338607,
+      "name": "intentional-regression-evidence",
+      "size_in_bytes": 3581,
+      "sha256": "7d92a2cbb120dd9c0546858571c1ce22e9014c244187656ca934e4d0911d238c",
+      "github_digest": "sha256:7d92a2cbb120dd9c0546858571c1ce22e9014c244187656ca934e4d0911d238c",
+      "expires_at": "2026-10-28T06:40:28Z",
+      "state": "FAILED",
+      "gate_passed": false,
+      "gates": {
+        "unit_tests": "PASSED",
+        "integration_tests": "PASSED",
+        "secret_scan": "PASSED",
+        "dependency_security": "PASSED",
+        "gitleaks_scan": "PASSED",
+        "container_build": "PASSED",
+        "schema_validation": "PASSED",
+        "task_completion": "FAILED",
+        "latency": "PASSED",
+        "cost": "PASSED",
+        "policy_violations": "PASSED",
+        "evaluation_regression": "FAILED"
+      },
+      "incorrect_value_rejected_despite_success_claim": true,
+      "stock_case": {
+        "case_id": "stock",
+        "latency_ms": 27.22504299998718,
+        "schema_valid": true,
+        "completed": false,
+        "policy_violations": 0,
+        "cost_nusd": 0,
+        "error": null,
+        "output": {
+          "case_id": "stock",
+          "state": "SUCCEEDED",
+          "value": 999,
+          "attempts": 1,
+          "tool_calls": [
+            {
+              "name": "inventory.read",
+              "arguments": {
+                "sku": "demo-kit"
+              }
+            }
+          ],
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "claimed_verified": true
+        },
+        "verification_accurate": false
+      },
+      "trace_id": "3e20445ae87329652a1b45bafd472926",
+      "trace_link_verified": true
+    }
+  },
+  "live_model_calls": 0,
+  "tool_dependency_snapshot": {
+    "packages_audited": 40,
+    "audited_at": "2026-10-14T06:25:46.459415+00:00",
+    "vulnerabilities": [],
+    "tool_version": "2.10.1"
+  },
+  "candidate_dependency_snapshot": {
+    "packages_audited": 1,
+    "audited_at": "2026-10-14T06:25:42.142494+00:00",
+    "vulnerabilities": [],
+    "tool_version": "2.10.1"
+  }
+}

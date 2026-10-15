@@ -1,0 +1,369 @@
+{
+  "name": "agent-operations-control-center",
+  "repository_url": "https://github.com/texasbredmj/agent-operations-control-center",
+  "private": false,
+  "published": true,
+  "published_sha": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+  "verified_at": "2026-10-14T07:21:39.049174+00:00",
+  "checkpoint_complete": true,
+  "local_verification": {
+    "windows": {
+      "python": "3.14.6",
+      "installation": "regular wheel in fresh venv",
+      "junit": {
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "13b7da049db3cf2ce3849838599e5d64826556a930d53a2ef67c0d49fe7d7331"
+      }
+    },
+    "linux": {
+      "python_series": "3.12",
+      "installation": "regular wheel in nonroot Docker container; read-only test source",
+      "junit": {
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "sha256": "e244623776892b0e6f624f09e7390dd2563fef7e6e1cc6d6ce62959d421bbb3a"
+      }
+    },
+    "security_scans": {
+      "python_packages_audited": 30,
+      "python_vulnerabilities": 0,
+      "frontend_vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "python_report_sha256": "75b6a8015a7bd703aaa8416f7a62822e0122422852e885b082b64bf06578de96",
+      "frontend_report_sha256": "f468af221303095ade8cd6553eb1c8b34bfcd80df873bb9a7cfb314105876381"
+    }
+  },
+  "remote_ci": {
+    "run_id": 38527430319,
+    "url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319",
+    "head_sha": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 115730989212,
+        "name": "full-stack",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319/job/115730989212"
+      },
+      {
+        "id": 115730989300,
+        "name": "policy-tests (ubuntu-latest, 3.11)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319/job/115730989300"
+      },
+      {
+        "id": 115730989315,
+        "name": "policy-tests (windows-latest, 3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319/job/115730989315"
+      },
+      {
+        "id": 115730989369,
+        "name": "policy-tests (windows-latest, 3.14)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319/job/115730989369"
+      },
+      {
+        "id": 115730989415,
+        "name": "policy-tests (windows-latest, 3.11)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319/job/115730989415"
+      },
+      {
+        "id": 115730989420,
+        "name": "policy-tests (ubuntu-latest, 3.12)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319/job/115730989420"
+      },
+      {
+        "id": 115730989526,
+        "name": "policy-tests (ubuntu-latest, 3.14)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319/job/115730989526"
+      }
+    ],
+    "artifact_verification": {
+      "id": 11876731675,
+      "name": "operations-evidence",
+      "size_in_bytes": 260937,
+      "sha256": "ff933ab490a8c113275715cc8a2f72a9fbd0077e499d13a5aa1d059176c5436a",
+      "github_digest": "sha256:ff933ab490a8c113275715cc8a2f72a9fbd0077e499d13a5aa1d059176c5436a",
+      "expires_at": "2026-10-28T07:20:16Z",
+      "host_junit": {
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "linux_wheel_junit": {
+        "tests": 35,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "http_demo": {
+        "verified_demo": true,
+        "scenario_count": 8,
+        "results": [
+          {
+            "scenario": "verified_completion",
+            "passed": true,
+            "task_id": "77b104b2-95b9-4e60-9c20-3e18f9d57645",
+            "state": "SUCCEEDED",
+            "attempts": 1,
+            "verified": true,
+            "tool_calls": 1,
+            "trace_id": "4c41b0366a3741689f723528e2f816a7"
+          },
+          {
+            "scenario": "separate_approval",
+            "passed": true,
+            "task_id": "0c98b44d-1519-403c-9e70-90c7df0138cb",
+            "state": "SUCCEEDED",
+            "attempts": 1,
+            "verified": true,
+            "tool_calls": 1,
+            "trace_id": "66f781989a644065bac2df1005b1e3a6"
+          },
+          {
+            "scenario": "rejection",
+            "passed": true,
+            "task_id": "c65f1a34-e854-4312-b406-2c911f3435a0",
+            "state": "REJECTED",
+            "attempts": 0,
+            "verified": false,
+            "tool_calls": 0,
+            "trace_id": "aa2850de8c9b443d85017ffc5a67b218"
+          },
+          {
+            "scenario": "cancellation",
+            "passed": true,
+            "task_id": "55180b97-73a4-4ec8-851a-c7abcaf800a8",
+            "state": "CANCELLED",
+            "attempts": 0,
+            "verified": false,
+            "tool_calls": 0,
+            "trace_id": "ef0af3a4d577431299f240067c05d67c"
+          },
+          {
+            "scenario": "eligible_retry",
+            "passed": true,
+            "task_id": "58ad0946-6391-42e4-b33e-6450bd9811c8",
+            "state": "SUCCEEDED",
+            "attempts": 2,
+            "verified": true,
+            "tool_calls": 2,
+            "trace_id": "b869143fa2b242d59a6227fd6dea2268"
+          },
+          {
+            "scenario": "permanent_failure",
+            "passed": true,
+            "task_id": "a3fe0280-3880-41ec-ac42-01df89cc4afe",
+            "state": "FAILED",
+            "attempts": 1,
+            "verified": false,
+            "tool_calls": 1,
+            "trace_id": "43556519e0f14f14898916579c0d2338"
+          },
+          {
+            "scenario": "verification_mismatch",
+            "passed": true,
+            "task_id": "060f29ed-e25e-409b-9501-389d9597d307",
+            "state": "FAILED",
+            "attempts": 1,
+            "verified": false,
+            "tool_calls": 1,
+            "trace_id": "b75309cc81684ebfbb71f1fe1f1c342e"
+          },
+          {
+            "scenario": "pending_approval",
+            "passed": true,
+            "task_id": "77d8afb4-68f0-4436-8046-d6381223a696",
+            "state": "PENDING_APPROVAL",
+            "attempts": 0,
+            "verified": false,
+            "tool_calls": 0,
+            "trace_id": "867c0b1e914549cf9b73f480a59a81d1"
+          }
+        ],
+        "overview": {
+          "counts": {
+            "CANCELLED": 1,
+            "FAILED": 2,
+            "PENDING_APPROVAL": 1,
+            "REJECTED": 1,
+            "SUCCEEDED": 3
+          },
+          "usage": {
+            "tool_calls": 6,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cost_nusd": 0,
+            "mean_tool_ms": 0.8185683333342316
+          },
+          "verification": {
+            "checked": 4,
+            "passed": 3
+          },
+          "agents": [
+            {
+              "id": "fixture-worker",
+              "heartbeat": "2026-10-14T07:19:16.049559+00:00",
+              "processed": 6,
+              "rss_bytes": 61030400,
+              "cpu_seconds": 1.04,
+              "online": true
+            }
+          ],
+          "reliability": {
+            "terminal_executions": 5,
+            "verified_success_rate": 0.6
+          },
+          "accounting": "deterministic fixtures; zero model calls; shared worker resource counters"
+        },
+        "paid_model_calls": 0,
+        "unauthenticated_read_rejected": true,
+        "direct_unauthorized_controls_rejected": true
+      },
+      "browser_verification": {
+        "verified_browser": true,
+        "browser": "Chromium / Playwright 1.58.0",
+        "scenario_count": 8,
+        "results": [
+          {
+            "scenario": "invalid_login_rejected",
+            "passed": true
+          },
+          {
+            "scenario": "create_and_inspect_verified_task",
+            "passed": true
+          },
+          {
+            "scenario": "inspect_workflow_tools_and_real_spans",
+            "passed": true
+          },
+          {
+            "scenario": "cancel_from_dashboard",
+            "passed": true
+          },
+          {
+            "scenario": "retry_eligible_failure_from_dashboard",
+            "passed": true
+          },
+          {
+            "scenario": "approve_and_reject_from_dashboard",
+            "passed": true
+          },
+          {
+            "scenario": "all_required_views_and_viewer_restrictions",
+            "passed": true
+          },
+          {
+            "scenario": "responsive_layout_and_memory_only_session",
+            "passed": true
+          }
+        ],
+        "uncaught_page_errors": [],
+        "viewport_desktop": [
+          1440,
+          1050
+        ],
+        "viewport_mobile": [
+          390,
+          844
+        ],
+        "paid_model_calls": 0
+      },
+      "restart_verification": {
+        "api_and_worker_restarted": true,
+        "all_records_preserved": true,
+        "database_receipts_verified": [
+          {
+            "task_id": "77b104b2-95b9-4e60-9c20-3e18f9d57645",
+            "state": "SUCCEEDED",
+            "effect_count": 1,
+            "receipt_matches": true
+          },
+          {
+            "task_id": "0c98b44d-1519-403c-9e70-90c7df0138cb",
+            "state": "SUCCEEDED",
+            "effect_count": 1,
+            "receipt_matches": true
+          },
+          {
+            "task_id": "c65f1a34-e854-4312-b406-2c911f3435a0",
+            "state": "REJECTED",
+            "effect_count": 0,
+            "receipt_matches": true
+          },
+          {
+            "task_id": "55180b97-73a4-4ec8-851a-c7abcaf800a8",
+            "state": "CANCELLED",
+            "effect_count": 0,
+            "receipt_matches": true
+          },
+          {
+            "task_id": "58ad0946-6391-42e4-b33e-6450bd9811c8",
+            "state": "SUCCEEDED",
+            "effect_count": 1,
+            "receipt_matches": true
+          },
+          {
+            "task_id": "a3fe0280-3880-41ec-ac42-01df89cc4afe",
+            "state": "FAILED",
+            "effect_count": 0,
+            "receipt_matches": true
+          },
+          {
+            "task_id": "060f29ed-e25e-409b-9501-389d9597d307",
+            "state": "FAILED",
+            "effect_count": 1,
+            "receipt_matches": true
+          },
+          {
+            "task_id": "77d8afb4-68f0-4436-8046-d6381223a696",
+            "state": "PENDING_APPROVAL",
+            "effect_count": 0,
+            "receipt_matches": true
+          }
+        ],
+        "duplicate_effects": 0,
+        "paid_model_calls": 0
+      },
+      "screenshots": {
+        "desktop": {
+          "sha256": "ee662e12236346f43fee45988f84c21e69b6302d87a13045ced6e5ad07bb8192",
+          "width": 1440,
+          "height": 1496
+        },
+        "mobile": {
+          "sha256": "2f984dc46999bd25baad111865c4a68b582a34c81c507a103c1ed6700578ea23",
+          "width": 390,
+          "height": 1863
+        }
+      },
+      "desktop_screenshot_verified": true,
+      "mobile_screenshot_verified": true
+    }
+  },
+  "paid_model_calls": 0
+}

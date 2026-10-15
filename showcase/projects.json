@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "inventory_date": "2026-10-14",
+  "claim_scope": "Recorded delivery checkpoints; not a fresh remote CI check",
+  "projects": [
+    {
+      "id": "01",
+      "name": "task-execution-engine",
+      "title": "Task Execution Engine",
+      "problem": "Task completion can be claimed without a verified result.",
+      "implementation": "Strict task contracts, bounded commands, SQLite audit and independent checks.",
+      "skills": [
+        "Python",
+        "Task execution",
+        "Idempotency"
+      ],
+      "limitation": "Private source and CI require access. Fixed commands are not hostile-code containment.",
+      "source": "https://github.com/texasbredmj/task-execution-engine",
+      "private": true,
+      "commit": "ec66a191091d0ea5ac8de6bad3b80ccc7a96ce94",
+      "ci": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942",
+      "verified_at": "2026-10-13",
+      "evidence": "evidence/phase1.json",
+      "record_index": 0,
+      "gaps": [
+        "Project README Start Here link pending publication",
+        "Individual contribution and AI assistance attribution needs owner review",
+        "Employer source and CI access requires explicit arrangement",
+        "Employer walkthrough not yet authored"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/task-execution-engine"
+    },
+    {
+      "id": "02",
+      "name": "ai-tool-coordination-gateway",
+      "title": "AI Tool Coordination Gateway",
+      "problem": "Tools need permissions and approval before side effects.",
+      "implementation": "Typed adapters, separate approval, durable claims and receipt verification.",
+      "skills": [
+        "FastAPI",
+        "Authorization",
+        "Tool integration"
+      ],
+      "limitation": "Controlled adapters and fixture effects; not arbitrary external API guarantees.",
+      "source": "https://github.com/texasbredmj/ai-tool-coordination-gateway",
+      "private": false,
+      "commit": "4734b4edee612f81f259a60ae67b1c048f94b778",
+      "ci": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323",
+      "verified_at": "2026-10-13",
+      "evidence": "evidence/phase1.json",
+      "record_index": 1,
+      "gaps": [
+        "Project README Start Here link pending publication",
+        "Individual contribution and AI assistance attribution needs owner review",
+        "Employer walkthrough not yet authored"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/ai-tool-coordination-gateway"
+    },
+    {
+      "id": "03",
+      "name": "autonomous-workflow-orchestrator",
+      "title": "Autonomous Workflow Orchestrator",
+      "problem": "Multi-step work must survive worker interruption.",
+      "implementation": "Temporal workflows, PostgreSQL reservations, bounded retries and compensation.",
+      "skills": [
+        "Temporal",
+        "PostgreSQL",
+        "Durability"
+      ],
+      "limitation": "Fixture recovery demonstrates one reservation; not external API exactly-once delivery.",
+      "source": "https://github.com/texasbredmj/autonomous-workflow-orchestrator",
+      "private": false,
+      "commit": "2adc05287b98bb4e6969af19124a99d8bfd73035",
+      "ci": "https://github.com/texasbredmj/autonomous-workflow-orchestrator/actions/runs/38466787806",
+      "verified_at": "2026-10-13T20:59:13.700207+00:00",
+      "evidence": "evidence/project03.json",
+      "record_index": null,
+      "gaps": [
+        "Project README Start Here link pending publication",
+        "Individual contribution and AI assistance attribution needs owner review",
+        "Employer walkthrough not yet authored"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/autonomous-workflow-orchestrator"
+    },
+    {
+      "id": "04",
+      "name": "agent-evaluation-harness",
+      "title": "Agent Evaluation Harness",
+      "problem": "An agent success claim can hide an incorrect outcome.",
+      "implementation": "Independent outcome scoring, budget checks and paired regression evaluation.",
+      "skills": [
+        "Evaluation",
+        "OpenTelemetry",
+        "Regression gates"
+      ],
+      "limitation": "Offline fixture baselines do not establish live model performance.",
+      "source": "https://github.com/texasbredmj/agent-evaluation-harness",
+      "private": false,
+      "commit": "2f6483442fda112a98e6e322d82f10c89838899d",
+      "ci": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891",
+      "verified_at": "2026-10-14T00:47:06.573121+00:00",
+      "evidence": "evidence/project04.json",
+      "record_index": null,
+      "gaps": [
+        "Project README Start Here link pending publication",
+        "Individual contribution and AI assistance attribution needs owner review",
+        "Employer walkthrough not yet authored"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/agent-evaluation-harness"
+    },
+    {
+      "id": "05",
+      "name": "agent-failure-recovery-lab",
+      "title": "Agent Failure and Recovery Lab",
+      "problem": "Transient failures can cause duplicate effects or unsafe retries.",
+      "implementation": "Fault injection, durable checkpoints and observable recovery scenarios.",
+      "skills": [
+        "Recovery",
+        "Prometheus",
+        "Grafana"
+      ],
+      "limitation": "Controlled local faults and mock ledger effects; not production reliability statistics.",
+      "source": "https://github.com/texasbredmj/agent-failure-recovery-lab",
+      "private": false,
+      "commit": "404ab9590e16e0f6279cb9d5dff952759c3623bb",
+      "ci": "https://github.com/texasbredmj/agent-failure-recovery-lab/actions/runs/38503053018",
+      "verified_at": "2026-10-14T02:52:02.741975+00:00",
+      "evidence": "evidence/project05.json",
+      "record_index": null,
+      "gaps": [
+        "Project README Start Here link pending publication",
+        "Individual contribution and AI assistance attribution needs owner review",
+        "Employer walkthrough not yet authored"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/agent-failure-recovery-lab"
+    },
+    {
+      "id": "06",
+      "name": "multi-provider-model-gateway",
+      "title": "Multi-Provider Model Gateway",
+      "problem": "Provider incompatibility and partial streams complicate safe fallback.",
+      "implementation": "Typed provider adapters, Redis budgets, replay handling and streaming controls.",
+      "skills": [
+        "Redis",
+        "Model routing",
+        "Streaming"
+      ],
+      "limitation": "Mock providers and fixture prices; no paid provider compatibility or invoice claims.",
+      "source": "https://github.com/texasbredmj/multi-provider-model-gateway",
+      "private": false,
+      "commit": "22cfd787c8953f42596ce55ebcdb1b95ef9afdf4",
+      "ci": "https://github.com/texasbredmj/multi-provider-model-gateway/actions/runs/38520600333",
+      "verified_at": "2026-10-14T06:12:30.611072+00:00",
+      "evidence": "evidence/project06.json",
+      "record_index": null,
+      "gaps": [
+        "Project README Start Here link pending publication",
+        "Individual contribution and AI assistance attribution needs owner review",
+        "Employer walkthrough not yet authored"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/multi-provider-model-gateway"
+    },
+    {
+      "id": "07",
+      "name": "ai-native-cicd-gates",
+      "title": "AI-Native CI/CD Quality Gates",
+      "problem": "A green build can overlook incorrect task outcomes.",
+      "implementation": "Reusable gates check outcomes, security, budgets and intentional regressions.",
+      "skills": [
+        "GitHub Actions",
+        "Security",
+        "Quality gates"
+      ],
+      "limitation": "Recorded dependency scans age; deliberate regression proof is expected to fail.",
+      "source": "https://github.com/texasbredmj/ai-native-cicd-gates",
+      "private": false,
+      "commit": "7de27a44bccf67aa0f9ccfec21411d8dcc396665",
+      "ci": "https://github.com/texasbredmj/ai-native-cicd-gates/actions/runs/38523537588",
+      "verified_at": "2026-10-14T06:43:38.548783+00:00",
+      "evidence": "evidence/project07.json",
+      "record_index": null,
+      "gaps": [
+        "Project README Start Here link pending publication",
+        "Individual contribution and AI assistance attribution needs owner review",
+        "Employer walkthrough not yet authored"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/ai-native-cicd-gates"
+    },
+    {
+      "id": "08",
+      "name": "agent-operations-control-center",
+      "title": "Agent Operations Control Center",
+      "problem": "Operators need to control and independently inspect task execution.",
+      "implementation": "React dashboard, FastAPI authorization, PostgreSQL ledger and persisted traces.",
+      "skills": [
+        "React",
+        "FastAPI",
+        "Operations"
+      ],
+      "limitation": "Deterministic PostgreSQL fixture with no live model calls. Complete employer walkthrough verified locally; new Codespaces setup awaits publication and remote validation. Other project runtimes remain independent.",
+      "source": "https://github.com/texasbredmj/agent-operations-control-center",
+      "private": false,
+      "commit": "2147f79a6c2bc5ca89e0134f137ed5ee5e411f17",
+      "ci": "https://github.com/texasbredmj/agent-operations-control-center/actions/runs/38527430319",
+      "verified_at": "2026-10-14T07:21:39.049174+00:00",
+      "evidence": "evidence/project08.json",
+      "record_index": null,
+      "gaps": [
+        "Fresh remote Codespaces launch",
+        "Publication of new local configuration",
+        "Production identity and live external integrations"
+      ],
+      "employer_source": "https://github.com/texasbredmj/ai-engineering-portfolio/tree/main/projects/agent-operations-control-center"
+    }
+  ]
+}

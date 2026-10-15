@@ -1,0 +1,581 @@
+{
+  "name": "agent-evaluation-harness",
+  "repository_url": "https://github.com/texasbredmj/agent-evaluation-harness",
+  "private": false,
+  "published": true,
+  "published_sha": "2f6483442fda112a98e6e322d82f10c89838899d",
+  "verified_at": "2026-10-14T00:47:06.573121+00:00",
+  "checkpoint_complete": true,
+  "local_verification": {
+    "windows": {
+      "python": "3.14.6",
+      "installation": "regular wheel in fresh venv",
+      "junit": {
+        "tests": 30,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    "linux": {
+      "python_series": "3.12",
+      "installation": "regular wheel in Docker",
+      "junit": {
+        "tests": 30,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "non_root": true,
+      "network": "none",
+      "root_filesystem": "read-only",
+      "source_mount": "read-only"
+    },
+    "source_sha256": {
+      "src/agent_evaluation/candidates.py": "87a61fcdd95290df7d53c47044987ee75219b90f8f87edd62c369e51a621a251",
+      "src/agent_evaluation/cli.py": "3c40b2e91994cd9bcde762a0e1ead5eb5d196c952c2d4dba6edf58d5c623fe73",
+      "src/agent_evaluation/runner.py": "ed55eaec88bd013e7fb8a7b105abc826161b99630bae63b35f3e857a0f2fe7ad",
+      "src/agent_evaluation/schemas.py": "5105fb3b9074e7e8888dd828af2ce99375821a83cb887bede5015341cdfe718e",
+      "src/agent_evaluation/telemetry.py": "259309428a964477298576597a552ae50d1182ddd0f457702741d5b65cc47a89",
+      "src/agent_evaluation/tools.py": "47cc02fcf431160c3d0826b9c56dfb9935d53de8b79e677e8787ca67dfe2ca19",
+      "src/agent_evaluation/__init__.py": "35098c26cabd1cde5cc5b544b91aa21c86f5e073d906976e3a4da93c18d256fc",
+      "tests/test_harness.py": "1841e6c493131bafbdb428209641c314f59bc57c941d1bb40b6bbb345a7af7b8",
+      "scripts/demo.py": "de4f98146185d541832a2a5600285757e58881ccde6968b51b004e49519ec3e9",
+      "pyproject.toml": "8494b0424a9453d81aaf49dcccdfdc5fca0e7090dae2e523716bc4042c52c5a7",
+      "requirements.lock": "ae88211eba6801f1d9e24ae82d4e5b8b7222a76e19bc75d833b96de1f711fd80",
+      "Dockerfile": "dde97d80ece8306aaafad9d16134698f11664fb7b8d24665d142d55bc25d9aae",
+      ".github/workflows/ci.yml": "f7ada18646fd4409bc42c1f6fd41e0ab8078e611ce4152cd55863c40814ba641",
+      "benchmarks/baseline-v1.jsonl": "0981587b7ea7559184c9be77a216f04984d4cf6f0ba6fc9eafc42d6170cb84ab"
+    },
+    "source_hash_basis": "UTF-8 text with LF newlines, matching Git normalized files"
+  },
+  "remote_ci": {
+    "id": 38491909891,
+    "url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891",
+    "head_sha": "2f6483442fda112a98e6e322d82f10c89838899d",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 115618836012,
+        "name": "container",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891/job/115618836012"
+      },
+      {
+        "id": 115618836196,
+        "name": "evaluation (windows-latest, 3.14)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891/job/115618836196"
+      },
+      {
+        "id": 115618836200,
+        "name": "evaluation (ubuntu-latest, 3.11)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891/job/115618836200"
+      },
+      {
+        "id": 115618836317,
+        "name": "evaluation (ubuntu-latest, 3.12)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891/job/115618836317"
+      },
+      {
+        "id": 115618836332,
+        "name": "evaluation (windows-latest, 3.11)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891/job/115618836332"
+      },
+      {
+        "id": 115618836429,
+        "name": "evaluation (windows-latest, 3.12)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891/job/115618836429"
+      },
+      {
+        "id": 115618836923,
+        "name": "evaluation (ubuntu-latest, 3.14)",
+        "conclusion": "success",
+        "html_url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491909891/job/115618836923"
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 11862342045,
+        "name": "evaluation-windows-latest-3.12",
+        "size_in_bytes": 24039,
+        "expired": false
+      },
+      {
+        "id": 11862152398,
+        "name": "evaluation-ubuntu-latest-3.14",
+        "size_in_bytes": 25653,
+        "expired": false
+      },
+      {
+        "id": 11861948018,
+        "name": "evaluation-windows-latest-3.11",
+        "size_in_bytes": 24033,
+        "expired": false
+      },
+      {
+        "id": 11861937581,
+        "name": "evaluation-ubuntu-latest-3.11",
+        "size_in_bytes": 25590,
+        "expired": false
+      },
+      {
+        "id": 11861788370,
+        "name": "evaluation-ubuntu-latest-3.12",
+        "size_in_bytes": 25640,
+        "expired": false
+      },
+      {
+        "id": 11861199408,
+        "name": "evaluation-windows-latest-3.14",
+        "size_in_bytes": 25286,
+        "expired": false
+      }
+    ],
+    "artifact_verification": [
+      {
+        "artifact_id": 11862342045,
+        "artifact_name": "evaluation-windows-latest-3.12",
+        "sha256": "03aadf2f5c83491cf673347661a436b9effcd451261f0df3d4a0f83d8ef943f4",
+        "junit": {
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "benchmark": {
+          "suite_sha256": "034c7252c77539ecb4211345a60ca490e2605c9d37415939fa3ebaadb580b79b",
+          "decisions_sha256": "8d88e34a39acee875d776349c9c89c57d58ab41bc94282d72095874c4b2a930a",
+          "case_count": 14,
+          "baseline_gate_passed": true,
+          "metrics": {
+            "task_completion": 1.0,
+            "tool_selection": 1.0,
+            "argument_correctness": 1.0,
+            "authorization": 1.0,
+            "recovery": 1.0,
+            "latency": 1.0,
+            "tokens": 1.0,
+            "cost": 1.0,
+            "failure_rate": 1.0,
+            "verification_accuracy": 1.0
+          },
+          "metric_denominators": {
+            "task_completion": 14,
+            "tool_selection": 14,
+            "argument_correctness": 14,
+            "authorization": 14,
+            "recovery": 3,
+            "latency": 14,
+            "tokens": 14,
+            "cost": 14,
+            "failure_rate": 14,
+            "verification_accuracy": 14
+          },
+          "summary": {
+            "unauthorized_attempts": 2,
+            "unexpected_failure_rate": 0.0,
+            "observed_failure_rate": 0.21428571428571427,
+            "tokens": 0,
+            "cost_usd": 0.0,
+            "p95_latency_ms": 0.469199999997727
+          },
+          "root_trace_count": 14,
+          "regressions_rejected": [
+            {
+              "candidate_version": "wrong-tool-v2",
+              "passed": false,
+              "regression_count": 79
+            },
+            {
+              "candidate_version": "wrong-arguments-v2",
+              "passed": false,
+              "regression_count": 53
+            },
+            {
+              "candidate_version": "no-recovery-v2",
+              "passed": false,
+              "regression_count": 8
+            },
+            {
+              "candidate_version": "false-verifier-v2",
+              "passed": false,
+              "regression_count": 14
+            }
+          ]
+        }
+      },
+      {
+        "artifact_id": 11862152398,
+        "artifact_name": "evaluation-ubuntu-latest-3.14",
+        "sha256": "a470fe8cef7f2f61ca22db82c5fd2383f5f6cc8ec387c3602bd94b9955753f48",
+        "junit": {
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "benchmark": {
+          "suite_sha256": "034c7252c77539ecb4211345a60ca490e2605c9d37415939fa3ebaadb580b79b",
+          "decisions_sha256": "8d88e34a39acee875d776349c9c89c57d58ab41bc94282d72095874c4b2a930a",
+          "case_count": 14,
+          "baseline_gate_passed": true,
+          "metrics": {
+            "task_completion": 1.0,
+            "tool_selection": 1.0,
+            "argument_correctness": 1.0,
+            "authorization": 1.0,
+            "recovery": 1.0,
+            "latency": 1.0,
+            "tokens": 1.0,
+            "cost": 1.0,
+            "failure_rate": 1.0,
+            "verification_accuracy": 1.0
+          },
+          "metric_denominators": {
+            "task_completion": 14,
+            "tool_selection": 14,
+            "argument_correctness": 14,
+            "authorization": 14,
+            "recovery": 3,
+            "latency": 14,
+            "tokens": 14,
+            "cost": 14,
+            "failure_rate": 14,
+            "verification_accuracy": 14
+          },
+          "summary": {
+            "unauthorized_attempts": 2,
+            "unexpected_failure_rate": 0.0,
+            "observed_failure_rate": 0.21428571428571427,
+            "tokens": 0,
+            "cost_usd": 0.0,
+            "p95_latency_ms": 0.1972880000096211
+          },
+          "root_trace_count": 14,
+          "regressions_rejected": [
+            {
+              "candidate_version": "wrong-tool-v2",
+              "passed": false,
+              "regression_count": 79
+            },
+            {
+              "candidate_version": "wrong-arguments-v2",
+              "passed": false,
+              "regression_count": 53
+            },
+            {
+              "candidate_version": "no-recovery-v2",
+              "passed": false,
+              "regression_count": 8
+            },
+            {
+              "candidate_version": "false-verifier-v2",
+              "passed": false,
+              "regression_count": 14
+            }
+          ]
+        }
+      },
+      {
+        "artifact_id": 11861948018,
+        "artifact_name": "evaluation-windows-latest-3.11",
+        "sha256": "355bbe4e4892ae01c83fe70136c64a81eccc3e0233e2d2f6f4de6e723642cbf1",
+        "junit": {
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "benchmark": {
+          "suite_sha256": "034c7252c77539ecb4211345a60ca490e2605c9d37415939fa3ebaadb580b79b",
+          "decisions_sha256": "8d88e34a39acee875d776349c9c89c57d58ab41bc94282d72095874c4b2a930a",
+          "case_count": 14,
+          "baseline_gate_passed": true,
+          "metrics": {
+            "task_completion": 1.0,
+            "tool_selection": 1.0,
+            "argument_correctness": 1.0,
+            "authorization": 1.0,
+            "recovery": 1.0,
+            "latency": 1.0,
+            "tokens": 1.0,
+            "cost": 1.0,
+            "failure_rate": 1.0,
+            "verification_accuracy": 1.0
+          },
+          "metric_denominators": {
+            "task_completion": 14,
+            "tool_selection": 14,
+            "argument_correctness": 14,
+            "authorization": 14,
+            "recovery": 3,
+            "latency": 14,
+            "tokens": 14,
+            "cost": 14,
+            "failure_rate": 14,
+            "verification_accuracy": 14
+          },
+          "summary": {
+            "unauthorized_attempts": 2,
+            "unexpected_failure_rate": 0.0,
+            "observed_failure_rate": 0.21428571428571427,
+            "tokens": 0,
+            "cost_usd": 0.0,
+            "p95_latency_ms": 1.0649000000171327
+          },
+          "root_trace_count": 14,
+          "regressions_rejected": [
+            {
+              "candidate_version": "wrong-tool-v2",
+              "passed": false,
+              "regression_count": 79
+            },
+            {
+              "candidate_version": "wrong-arguments-v2",
+              "passed": false,
+              "regression_count": 53
+            },
+            {
+              "candidate_version": "no-recovery-v2",
+              "passed": false,
+              "regression_count": 8
+            },
+            {
+              "candidate_version": "false-verifier-v2",
+              "passed": false,
+              "regression_count": 14
+            }
+          ]
+        }
+      },
+      {
+        "artifact_id": 11861937581,
+        "artifact_name": "evaluation-ubuntu-latest-3.11",
+        "sha256": "3a537999176cdafbb16422e64884fd96a902ef9dd6653da18eb1841118a6a51c",
+        "junit": {
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "benchmark": {
+          "suite_sha256": "034c7252c77539ecb4211345a60ca490e2605c9d37415939fa3ebaadb580b79b",
+          "decisions_sha256": "8d88e34a39acee875d776349c9c89c57d58ab41bc94282d72095874c4b2a930a",
+          "case_count": 14,
+          "baseline_gate_passed": true,
+          "metrics": {
+            "task_completion": 1.0,
+            "tool_selection": 1.0,
+            "argument_correctness": 1.0,
+            "authorization": 1.0,
+            "recovery": 1.0,
+            "latency": 1.0,
+            "tokens": 1.0,
+            "cost": 1.0,
+            "failure_rate": 1.0,
+            "verification_accuracy": 1.0
+          },
+          "metric_denominators": {
+            "task_completion": 14,
+            "tool_selection": 14,
+            "argument_correctness": 14,
+            "authorization": 14,
+            "recovery": 3,
+            "latency": 14,
+            "tokens": 14,
+            "cost": 14,
+            "failure_rate": 14,
+            "verification_accuracy": 14
+          },
+          "summary": {
+            "unauthorized_attempts": 2,
+            "unexpected_failure_rate": 0.0,
+            "observed_failure_rate": 0.21428571428571427,
+            "tokens": 0,
+            "cost_usd": 0.0,
+            "p95_latency_ms": 0.1653830000023504
+          },
+          "root_trace_count": 14,
+          "regressions_rejected": [
+            {
+              "candidate_version": "wrong-tool-v2",
+              "passed": false,
+              "regression_count": 79
+            },
+            {
+              "candidate_version": "wrong-arguments-v2",
+              "passed": false,
+              "regression_count": 53
+            },
+            {
+              "candidate_version": "no-recovery-v2",
+              "passed": false,
+              "regression_count": 8
+            },
+            {
+              "candidate_version": "false-verifier-v2",
+              "passed": false,
+              "regression_count": 14
+            }
+          ]
+        }
+      },
+      {
+        "artifact_id": 11861788370,
+        "artifact_name": "evaluation-ubuntu-latest-3.12",
+        "sha256": "504d721a3a6de49bb642eb87b4d3ec127737c1c6883b53d7a1938eb5ce052ef6",
+        "junit": {
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "benchmark": {
+          "suite_sha256": "034c7252c77539ecb4211345a60ca490e2605c9d37415939fa3ebaadb580b79b",
+          "decisions_sha256": "8d88e34a39acee875d776349c9c89c57d58ab41bc94282d72095874c4b2a930a",
+          "case_count": 14,
+          "baseline_gate_passed": true,
+          "metrics": {
+            "task_completion": 1.0,
+            "tool_selection": 1.0,
+            "argument_correctness": 1.0,
+            "authorization": 1.0,
+            "recovery": 1.0,
+            "latency": 1.0,
+            "tokens": 1.0,
+            "cost": 1.0,
+            "failure_rate": 1.0,
+            "verification_accuracy": 1.0
+          },
+          "metric_denominators": {
+            "task_completion": 14,
+            "tool_selection": 14,
+            "argument_correctness": 14,
+            "authorization": 14,
+            "recovery": 3,
+            "latency": 14,
+            "tokens": 14,
+            "cost": 14,
+            "failure_rate": 14,
+            "verification_accuracy": 14
+          },
+          "summary": {
+            "unauthorized_attempts": 2,
+            "unexpected_failure_rate": 0.0,
+            "observed_failure_rate": 0.21428571428571427,
+            "tokens": 0,
+            "cost_usd": 0.0,
+            "p95_latency_ms": 0.2727490000040689
+          },
+          "root_trace_count": 14,
+          "regressions_rejected": [
+            {
+              "candidate_version": "wrong-tool-v2",
+              "passed": false,
+              "regression_count": 79
+            },
+            {
+              "candidate_version": "wrong-arguments-v2",
+              "passed": false,
+              "regression_count": 53
+            },
+            {
+              "candidate_version": "no-recovery-v2",
+              "passed": false,
+              "regression_count": 8
+            },
+            {
+              "candidate_version": "false-verifier-v2",
+              "passed": false,
+              "regression_count": 14
+            }
+          ]
+        }
+      },
+      {
+        "artifact_id": 11861199408,
+        "artifact_name": "evaluation-windows-latest-3.14",
+        "sha256": "1805b644b56356a481e17ada5178040b60dc09d0cd2f70cf9dfad4e5d503cbd1",
+        "junit": {
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "benchmark": {
+          "suite_sha256": "034c7252c77539ecb4211345a60ca490e2605c9d37415939fa3ebaadb580b79b",
+          "decisions_sha256": "8d88e34a39acee875d776349c9c89c57d58ab41bc94282d72095874c4b2a930a",
+          "case_count": 14,
+          "baseline_gate_passed": true,
+          "metrics": {
+            "task_completion": 1.0,
+            "tool_selection": 1.0,
+            "argument_correctness": 1.0,
+            "authorization": 1.0,
+            "recovery": 1.0,
+            "latency": 1.0,
+            "tokens": 1.0,
+            "cost": 1.0,
+            "failure_rate": 1.0,
+            "verification_accuracy": 1.0
+          },
+          "metric_denominators": {
+            "task_completion": 14,
+            "tool_selection": 14,
+            "argument_correctness": 14,
+            "authorization": 14,
+            "recovery": 3,
+            "latency": 14,
+            "tokens": 14,
+            "cost": 14,
+            "failure_rate": 14,
+            "verification_accuracy": 14
+          },
+          "summary": {
+            "unauthorized_attempts": 2,
+            "unexpected_failure_rate": 0.0,
+            "observed_failure_rate": 0.21428571428571427,
+            "tokens": 0,
+            "cost_usd": 0.0,
+            "p95_latency_ms": 0.45269999998254207
+          },
+          "root_trace_count": 14,
+          "regressions_rejected": [
+            {
+              "candidate_version": "wrong-tool-v2",
+              "passed": false,
+              "regression_count": 79
+            },
+            {
+              "candidate_version": "wrong-arguments-v2",
+              "passed": false,
+              "regression_count": 53
+            },
+            {
+              "candidate_version": "no-recovery-v2",
+              "passed": false,
+              "regression_count": 8
+            },
+            {
+              "candidate_version": "false-verifier-v2",
+              "passed": false,
+              "regression_count": 14
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Mock fixtures, not live model or production performance",
+    "Two expected policy probes are counted as unauthorized attempts and rejected without effects",
+    "Model usage in imported decisions is caller-supplied",
+    "GitHub raw artifacts are retained for 14 days"
+  ]
+}
