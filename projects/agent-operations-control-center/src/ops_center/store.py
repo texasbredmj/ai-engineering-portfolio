@@ -37,6 +37,9 @@ class Store:
         from importlib.resources import files
 
         with self.connect() as db:
+            # CREATE TABLE IF NOT EXISTS alone does not serialize PostgreSQL catalog inserts.
+            db.execute("SELECT pg_advisory_xact_lock(hashtextextended(%s,0))",
+                       ('ops_center.schema.' + self.settings.schema,))
             db.execute(files("ops_center").joinpath("schema.sql").read_text(encoding="utf-8"))
 
     @staticmethod

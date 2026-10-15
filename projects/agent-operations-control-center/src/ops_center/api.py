@@ -74,6 +74,16 @@ def create_app(settings=None):
         # Deliberately exposes only readiness, no operational data or credentials.
         with store.connect() as db:
             db.execute("SELECT 1")
+        if os.environ.get('OPS_PLATFORM') == '1':
+            import httpx
+            services = [os.environ['TOOL_GATEWAY_URL'], os.environ['MODEL_GATEWAY_URL'],
+                        os.environ['GATEWAY_UPSTREAM_URL']]
+            try:
+                with httpx.Client(timeout=1, trust_env=False) as client:
+                    for service in services:
+                        client.get(service + '/health').raise_for_status()
+            except httpx.HTTPError:
+                raise HTTPException(503, 'platform dependencies are not ready') from None
         return {"ready": True}
 
     @app.get("/api/me")

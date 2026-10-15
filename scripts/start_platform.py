@@ -59,7 +59,19 @@ def access_guide():
 
 
 def compose(*args):
-    subprocess.run(['docker','compose',*args], cwd=ROOT, check=True)
+    try:
+        subprocess.run(['docker','compose',*args], cwd=ROOT, check=True)
+    except subprocess.CalledProcessError:
+        diagnostic=subprocess.run(['docker','compose','logs','--no-color','--tail','35','api','dispatcher','orchestrator','bridge'],
+                                  cwd=ROOT,capture_output=True,text=True,check=False).stdout
+        values=credentials()
+        sensitive=[value for value in values.values() if len(value)>=20]
+        sensitive.extend(row['token'] for row in json.loads(values['OPS_CREDENTIALS']))
+        for value in sensitive:
+            diagnostic=diagnostic.replace(value,'[REDACTED]')
+        (ROOT/'.platform/startup-diagnostic.log').write_text(diagnostic)
+        print(diagnostic[-6000:],file=sys.stderr)
+        raise
 
 
 def main():

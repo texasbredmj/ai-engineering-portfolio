@@ -28,6 +28,12 @@ def bridge_app():
         db.execute("CREATE TABLE IF NOT EXISTS platform_requests(workflow_id text PRIMARY KEY, request jsonb NOT NULL)")
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
+    @app.get('/health')
+    def health():
+        with ledger.connect() as db:
+            db.execute('SELECT 1 FROM inventory LIMIT 1')
+        return {'ready': True}
+
     def auth(authorization: str = Header(default="")):
         import secrets
         if not secrets.compare_digest(authorization, "Bearer " + os.environ['GATEWAY_UPSTREAM_TOKEN']):

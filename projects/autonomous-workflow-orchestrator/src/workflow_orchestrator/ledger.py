@@ -21,6 +21,8 @@ class Ledger:
 
     def initialize(self):
         with self.connect() as db:
+            db.execute("SELECT pg_advisory_xact_lock(hashtextextended(%s,0))",
+                       ('workflow_orchestrator.schema',))
             db.execute("""
                 CREATE TABLE IF NOT EXISTS inventory (sku TEXT PRIMARY KEY, stock INT NOT NULL
                     CHECK(stock>=0), unit_price INT NOT NULL);
