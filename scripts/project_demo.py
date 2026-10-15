@@ -67,6 +67,12 @@ def run(number):
                             'exit_code':value.returncode,'elapsed_seconds':round(time.monotonic()-started,3),
                             'summaries':summaries})
             if value.returncode:
+                diagnostic=(value.stdout+'\n'+value.stderr)[-5000:]
+                for secret in env.values():
+                    if len(secret)>=20:
+                        diagnostic=diagnostic.replace(secret,'[REDACTED]')
+                results[-1]['redacted_diagnostic']=diagnostic
+                print(diagnostic,file=sys.stderr)
                 print('Project '+str(number)+' command failed; inspect the local command separately.',file=sys.stderr)
                 raise RuntimeError('demonstration failed')
         report = {'state':'PASSED','project':number,'verified_at_utc':datetime.now(timezone.utc).isoformat(),'checks':results}
