@@ -1,8 +1,21 @@
 name: Integrated employer experience
 on:
   pull_request:
+    paths: &runtime-paths
+      - '.github/workflows/integrated-platform.yml'
+      - '.devcontainer/**'
+      - 'projects/**'
+      - 'portfolio_platform/**'
+      - 'integration_tests/**'
+      - 'compose.yaml'
+      - 'platform*'
+      - 'scripts/project_demo.py'
+      - 'scripts/start_platform.py'
+      - 'scripts/verify_platform.py'
+      - 'scripts/test_components.py'
   push:
     branches: [main]
+    paths: *runtime-paths
   workflow_dispatch:
 permissions:
   contents: read

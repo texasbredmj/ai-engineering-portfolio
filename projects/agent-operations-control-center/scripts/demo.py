@@ -104,7 +104,12 @@ pending = create("approval", "Review next inventory allocation")
 record("pending_approval", wait(pending, "PENDING_APPROVAL"))
 overview = request("GET", "/api/overview", "viewer")
 assert overview["agents"] and overview["agents"][0]["online"]
-assert overview["usage"]["cost_nusd"] == 0
+if os.environ.get('OPS_PLATFORM') == '1':
+    assert overview['usage']['input_tokens'] > 0
+    assert overview['usage']['output_tokens'] > 0
+    assert overview['usage']['cost_nusd'] > 0  # Simulated local-provider prices, never paid spend.
+else:
+    assert overview["usage"]["cost_nusd"] == 0
 out = Path(".gates")
 out.mkdir(exist_ok=True)
 summary = {

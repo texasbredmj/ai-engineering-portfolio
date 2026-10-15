@@ -16,6 +16,7 @@ from ops_center.worker import Worker as DashboardWorker
 from workflow_orchestrator.ledger import Ledger
 from workflow_orchestrator.policy import Order, sign_decision
 from workflow_orchestrator.workflow import FulfillmentWorkflow
+from portfolio_platform.metrics import call_metrics
 
 
 class Dispatcher:
@@ -81,12 +82,13 @@ class Dispatcher:
                      ('inventory.reserve', outputs.get('reservation', {}).get('gateway'))]
             for name, result in calls:
                 if result:
-                    db.execute('INSERT INTO tool_calls(task_id,attempt,tool,state,duration_ms,details) VALUES(%s,%s,%s,%s,%s,%s)',
+                    metrics=call_metrics(name,result)
+                    db.execute('INSERT INTO tool_calls(task_id,attempt,tool,state,duration_ms,input_tokens,output_tokens,cost_nusd,details) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)',
                         (task['id'], task['attempts'], name, result.get('state', 'SUCCEEDED'),
-                         result.get('metrics', {}).get('duration_ms', 0), Jsonb(result)))
+                         metrics['duration_ms'],metrics['input_tokens'],metrics['output_tokens'],metrics['cost_nusd'],Jsonb(result)))
                     db.execute('INSERT INTO spans(span_id,task_id,trace_id,name,duration_ms,attributes) VALUES(%s,%s,%s,%s,%s,%s)',
                         (uuid.uuid4().hex[:16], task['id'], task['trace_id'], 'platform.' + name,
-                         result.get('metrics', {}).get('duration_ms', 0), Jsonb({'workflow_id': run['workflow_id'], 'source': name, 'duration_scope': 'gateway-reported; zero when not supplied'})))
+                         metrics['duration_ms'], Jsonb({'workflow_id': run['workflow_id'], 'source': name, 'duration_scope': 'gateway-reported; zero when not supplied'})))
             self.store.event(db, task['id'], state, self.worker.id, {'verified': verified, 'retryable': retryable, 'workflow_id': run['workflow_id']})
             error = None if verified else 'orchestrator failed; inspect independent verification and workflow history'
             db.execute('UPDATE tasks SET state=%s,retryable=%s,error=%s,version=version+1,claim=NULL,lease_until=NULL,updated_at=now() WHERE id=%s',

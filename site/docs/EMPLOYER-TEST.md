@@ -8,7 +8,7 @@ Start at [the GitHub portfolio](https://github.com/texasbredmj/ai-engineering-po
 2. **Approve or reject:** create Reservation requiring approval as operator. It remains PENDING_APPROVAL. Sign out and sign in as approver. Approve with a reason; expect verified completion. Create a second task to try rejection; expect REJECTED without a reservation.
 3. **Retry:** as operator create Temporary failure. Wait for FAILED, inspect and retry with a reason. Expect success on dashboard attempt 2. The prior Temporal execution failed before reservation; the explicit retry runs a new bounded attempt.
 4. **Investigate mismatch:** create Receipt mismatch with quantity 2. The deliberately corrupted fixture ledger stores 3; independent verification fails and the orchestrator compensates it. Expect FAILED, observed_quantity=3 and no retry control. Compare Tools with Evidence; a tool execution claim is not verified completion.
-5. **Inspect operations:** as viewer inspect Workflow, Tools, Traces, Reliability metrics, Resource usage, Cost reports and Project evidence. Viewer cannot create, approve or retry. Model provider traffic is local; paid model calls are zero. Model gateway reports retain hypothetical token and cost accounting.
+5. **Inspect operations:** as viewer inspect Workflow, Tools, Traces, Reliability metrics, Resource usage, Cost reports and Project evidence. Viewer cannot create, approve or retry. Model provider traffic is local; paid model calls are zero. Model gateway reports and Cost reports retain measured mock-provider token usage and hypothetical fixture cost, separately from zero paid model calls.
 
 ## Independent demonstrations
 

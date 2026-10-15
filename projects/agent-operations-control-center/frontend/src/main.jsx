@@ -435,7 +435,7 @@ function App() {
                     <div className="big-stat">
                       {money(overview?.usage.cost_nusd || 0)}
                     </div>
-                    <p>Accounted model cost · fixture lifetime</p>
+                    <p>{overview?.platform?.enabled ? "Simulated model cost · local-provider fixture" : "Accounted model cost · fixture lifetime"}</p>
                     <dl>
                       <dt>Input tokens</dt>
                       <dd>{overview?.usage.input_tokens || 0}</dd>
@@ -447,9 +447,9 @@ function App() {
                       <dd>0</dd>
                     </dl>
                     <p className="muted">
-                      This worker uses deterministic database tools. Zero cost
-                      is a measured fixture outcome, not a live-provider billing
-                      claim.
+                      Local mock provider usage and fixture prices are reported when the
+                      model gateway participates. Paid model calls remain zero;
+                      these counters are not a live-provider invoice.
                     </p>
                   </>
                 ) : (
