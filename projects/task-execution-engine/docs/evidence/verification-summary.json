@@ -1,0 +1,85 @@
+{
+  "verified_date": "2026-10-12",
+  "windows": {
+    "python": "3.14.6",
+    "installation": "non-editable in fresh venv",
+    "test_suites": [
+      {
+        "tests": "34",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "time": "11.188"
+      }
+    ]
+  },
+  "linux_container": {
+    "python": "3.12",
+    "docker_version": "29.8.2",
+    "test_count": 34,
+    "test_failures": 0,
+    "suite_seconds_observed": 7.98,
+    "network": "disabled",
+    "root_filesystem": "read-only",
+    "user": "non-root"
+  },
+  "demo_reports": [
+    {
+      "task_id": "9d385111-ab09-4e8a-be37-400e064a301a",
+      "state": "SUCCEEDED",
+      "execution_success": true,
+      "verified_completion": true,
+      "completion_status": "VERIFIED",
+      "metrics": {
+        "tool_calls": 2,
+        "cost_usd": 0,
+        "tokens": 0,
+        "duration_seconds": 1.7086811999906786
+      }
+    },
+    {
+      "task_id": "48c52891-f2ed-4b11-80f4-5ea5bf033456",
+      "state": "SUCCEEDED",
+      "execution_success": true,
+      "verified_completion": true,
+      "completion_status": "VERIFIED",
+      "metrics": {
+        "tool_calls": 2,
+        "cost_usd": 0,
+        "tokens": 0,
+        "duration_seconds": 0.5535997849983687
+      }
+    }
+  ],
+  "checks": {
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "pip_check": "passed",
+    "docker_build": "passed",
+    "remote_ci": "not run"
+  },
+  "source_sha256": {
+    ".github/workflows/ci.yml": "d1280b0f62a809f2ee0430996ae060a24aa6b67a0fe35bc4d6b6e565da536036",
+    "docker-compose.yml": "def5cb92e5639021afc5509e18987a9360b612d3c116220eb9c0d14d40e67deb",
+    "Dockerfile": "1b31687357cbefa340d8ff762afbf8172732bcbd329b44b0554b473be9d4d4fe",
+    "pyproject.toml": "ee86e1386fe0f301049576e2b92fca22d5792eee3ef2965b4d044cbcd01c73c2",
+    "requirements.lock": "b66cf14de840caae16b740443ab1e2c308a408049cbb88cc855570a184b444e6",
+    "src/task_execution_engine/__init__.py": "24e39e1e1210b65d8000caf019c69a511a91e8b5a5c4d40185e4a53a8b41c215",
+    "src/task_execution_engine/cli.py": "34b3760f1743dbfcd365d4c6bc04203fea4b61c2b69c3d2ae04f87206cf7ee2a",
+    "src/task_execution_engine/engine.py": "3311770256a7dca92a7945e129167a637b5420e627f3477304d40a002f73628b",
+    "src/task_execution_engine/inspect_repo.py": "a60f72f0bf9f22087fcde1c1bb9c86d5549dd696a22aff68e95705c17b276335",
+    "src/task_execution_engine/models.py": "1e0ed1637c83cdc73171b8b33d81f83e9781e24bd414313f287a96622e8a67df",
+    "src/task_execution_engine/process_gate.py": "aa6e76205120eecdae75b29289339e7d9ea3cb3388d00144e96105e11d3aaae7",
+    "src/task_execution_engine/runner.py": "831c59fddcb3edd8af989673de57129046ed198a88d91f5101885bf8243e234e",
+    "src/task_execution_engine/store.py": "3ec33dccf02218cc71a1c01d326d3d6503abdad58b754ca06a4813e78f0ed5d0",
+    "src/task_execution_engine/windows_job.py": "a3c7eb313f04c2869c52fbfa2872e108c735135ce74e40e7c97413f85b270abc",
+    "tests/test_cli.py": "619f76e2fa37cac53c33519e8e2002fb8c8fecf9ac4ba65dfb3566bc2099e07f",
+    "tests/test_engine.py": "9fb78e3eb4d25d2901e4e134d25ae447f26f5b04c25c442ee6938c7a44b5962a",
+    "tests/test_models_store.py": "a7169a795ed74c8d6033e060a49f734b9ed03c43fdab3700d37921fe3a99a113"
+  },
+  "limitations": [
+    "Single observed runs, not performance guarantees",
+    "Local executor requires trusted repository code",
+    "No publication or cloud deployment"
+  ]
+}

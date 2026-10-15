@@ -1,0 +1,244 @@
+{
+  "checked_date": "2026-10-13",
+  "checkpoint_complete": true,
+  "project03_allowed": true,
+  "projects": [
+    {
+      "name": "task-execution-engine",
+      "repository_url": "https://github.com/texasbredmj/task-execution-engine",
+      "private": true,
+      "published": true,
+      "published_sha": "ec66a191091d0ea5ac8de6bad3b80ccc7a96ce94",
+      "local_tests_passed": 50,
+      "local_tests_failed": 0,
+      "remote_ci": {
+        "id": 38367464942,
+        "url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942",
+        "head_sha": "ec66a191091d0ea5ac8de6bad3b80ccc7a96ce94",
+        "status": "completed",
+        "conclusion": "success",
+        "run_started_at": "2026-10-13T08:10:25Z",
+        "updated_at": "2026-10-13T08:11:57Z",
+        "jobs": [
+          {
+            "id": 115195924761,
+            "name": "test (ubuntu-latest, 3.11)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942/job/115195924761"
+          },
+          {
+            "id": 115195924901,
+            "name": "test (ubuntu-latest, 3.12)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942/job/115195924901"
+          },
+          {
+            "id": 115195925015,
+            "name": "test (windows-latest, 3.11)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942/job/115195925015"
+          },
+          {
+            "id": 115195925137,
+            "name": "test (ubuntu-latest, 3.14)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942/job/115195925137"
+          },
+          {
+            "id": 115195925203,
+            "name": "test (windows-latest, 3.12)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942/job/115195925203"
+          },
+          {
+            "id": 115195925302,
+            "name": "test (windows-latest, 3.14)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942/job/115195925302"
+          },
+          {
+            "id": 115195925409,
+            "name": "container",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/task-execution-engine/actions/runs/38367464942/job/115195925409"
+          }
+        ],
+        "artifacts": [
+          {
+            "id": 11797775004,
+            "name": "evidence-ubuntu-latest-3.12",
+            "size_in_bytes": 39087,
+            "expires_at": "2026-10-27T08:10:51Z"
+          },
+          {
+            "id": 11797134988,
+            "name": "evidence-windows-latest-3.12",
+            "size_in_bytes": 39257,
+            "expires_at": "2026-10-27T08:11:15Z"
+          },
+          {
+            "id": 11797054922,
+            "name": "evidence-ubuntu-latest-3.11",
+            "size_in_bytes": 39150,
+            "expires_at": "2026-10-27T08:11:01Z"
+          },
+          {
+            "id": 11796609188,
+            "name": "evidence-ubuntu-latest-3.14",
+            "size_in_bytes": 39085,
+            "expires_at": "2026-10-27T08:10:52Z"
+          },
+          {
+            "id": 11796449670,
+            "name": "evidence-windows-latest-3.11",
+            "size_in_bytes": 39580,
+            "expires_at": "2026-10-27T08:11:44Z"
+          },
+          {
+            "id": 11796424660,
+            "name": "evidence-windows-latest-3.14",
+            "size_in_bytes": 39733,
+            "expires_at": "2026-10-27T08:11:36Z"
+          }
+        ],
+        "sampled_remote_junit": [
+          {
+            "tests": "50",
+            "failures": "0",
+            "errors": "0",
+            "skipped": "0",
+            "time": "7.664"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ai-tool-coordination-gateway",
+      "repository_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway",
+      "private": false,
+      "published": true,
+      "published_sha": "4734b4edee612f81f259a60ae67b1c048f94b778",
+      "local_tests_passed": 30,
+      "local_tests_failed": 0,
+      "remote_ci": {
+        "id": 38367470323,
+        "url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323",
+        "head_sha": "4734b4edee612f81f259a60ae67b1c048f94b778",
+        "status": "completed",
+        "conclusion": "success",
+        "run_started_at": "2026-10-13T08:10:28Z",
+        "updated_at": "2026-10-13T08:11:27Z",
+        "jobs": [
+          {
+            "id": 115195942422,
+            "name": "container",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323/job/115195942422"
+          },
+          {
+            "id": 115195942425,
+            "name": "tests (ubuntu-latest, 3.11)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323/job/115195942425"
+          },
+          {
+            "id": 115195942503,
+            "name": "tests (ubuntu-latest, 3.12)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323/job/115195942503"
+          },
+          {
+            "id": 115195942613,
+            "name": "tests (windows-latest, 3.12)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323/job/115195942613"
+          },
+          {
+            "id": 115195942665,
+            "name": "tests (ubuntu-latest, 3.14)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323/job/115195942665"
+          },
+          {
+            "id": 115195942681,
+            "name": "tests (windows-latest, 3.14)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323/job/115195942681"
+          },
+          {
+            "id": 115195943090,
+            "name": "tests (windows-latest, 3.11)",
+            "status": "completed",
+            "conclusion": "success",
+            "html_url": "https://github.com/texasbredmj/ai-tool-coordination-gateway/actions/runs/38367470323/job/115195943090"
+          }
+        ],
+        "artifacts": [
+          {
+            "id": 11797795248,
+            "name": "gateway-evidence-windows-latest-3.14",
+            "size_in_bytes": 7738,
+            "expires_at": "2026-10-27T08:11:08Z"
+          },
+          {
+            "id": 11797670759,
+            "name": "gateway-evidence-ubuntu-latest-3.11",
+            "size_in_bytes": 8223,
+            "expires_at": "2026-10-27T08:10:48Z"
+          },
+          {
+            "id": 11797502906,
+            "name": "gateway-evidence-ubuntu-latest-3.14",
+            "size_in_bytes": 8231,
+            "expires_at": "2026-10-27T08:10:49Z"
+          },
+          {
+            "id": 11797313496,
+            "name": "gateway-evidence-windows-latest-3.11",
+            "size_in_bytes": 7614,
+            "expires_at": "2026-10-27T08:11:08Z"
+          },
+          {
+            "id": 11797248772,
+            "name": "gateway-evidence-windows-latest-3.12",
+            "size_in_bytes": 7615,
+            "expires_at": "2026-10-27T08:11:22Z"
+          },
+          {
+            "id": 11796783838,
+            "name": "gateway-evidence-ubuntu-latest-3.12",
+            "size_in_bytes": 8235,
+            "expires_at": "2026-10-27T08:10:43Z"
+          }
+        ],
+        "sampled_remote_junit": [
+          {
+            "tests": "30",
+            "failures": "0",
+            "errors": "0",
+            "skipped": "0",
+            "time": "1.211"
+          }
+        ]
+      }
+    }
+  ],
+  "verified_at_utc": "2026-10-13T08:16:13.730171+00:00",
+  "credential_pattern_scan": {
+    "tracked_files_and_git_history": "no GitHub-token or private-key signatures found",
+    "limitation": "limited pattern check, not comprehensive security certification"
+  }
+}

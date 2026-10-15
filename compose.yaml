@@ -1,0 +1,83 @@
+name: portfolio-employer
+x-app: &app
+  image: portfolio-platform:local
+  build:
+    context: .
+    dockerfile: platform.Dockerfile
+  env_file: .platform/.env
+  restart: unless-stopped
+  volumes:
+    - platform-data:/portfolio/.platform
+  depends_on:
+    postgres:
+      condition: service_healthy
+    temporal:
+      condition: service_started
+services:
+  postgres:
+    image: postgres:16-alpine
+    env_file: .platform/.env
+    environment:
+      POSTGRES_USER: ops
+      POSTGRES_DB: ops
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./platform-init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: [CMD, pg_isready, -U, ops, -d, ops]
+      interval: 2s
+      timeout: 2s
+      retries: 40
+  temporal:
+    image: temporalio/auto-setup:1.29.1
+    env_file: .platform/.env
+    environment:
+      DB: postgres12
+      DB_PORT: 5432
+      POSTGRES_USER: ops
+      POSTGRES_SEEDS: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+  redis:
+    image: redis:7.4-alpine
+    command: [redis-server, --appendonly, 'yes', --appendfsync, always, --maxmemory, 128mb, --maxmemory-policy, noeviction]
+    volumes: [redis-data:/data]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 2s
+      timeout: 2s
+      retries: 40
+  providers:
+    <<: *app
+    command: [python, -m, uvicorn, 'model_gateway.fixtures:app', --host, 0.0.0.0, --port, '8080']
+  model-gateway:
+    <<: *app
+    command: [python, -m, uvicorn, 'model_gateway.app:configured_app', --factory, --host, 0.0.0.0, --port, '8080']
+    depends_on:
+      redis:
+        condition: service_healthy
+  bridge:
+    <<: *app
+    command: [python, -m, uvicorn, 'portfolio_platform.runtime:bridge_app', --factory, --host, 0.0.0.0, --port, '8080']
+  tool-gateway:
+    <<: *app
+    command: [python, -m, uvicorn, 'portfolio_platform.runtime:tool_app', --factory, --host, 0.0.0.0, --port, '8080']
+  orchestrator:
+    <<: *app
+    command: [python, -m, portfolio_platform.orchestrator_worker]
+  dispatcher:
+    <<: *app
+    command: [python, -m, portfolio_platform.dispatcher]
+  api:
+    <<: *app
+    ports: [127.0.0.1:18780:8080]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8080/healthz',timeout=2)"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+volumes:
+  postgres-data:
+  redis-data:
+  platform-data:

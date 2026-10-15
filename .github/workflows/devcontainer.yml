@@ -1,0 +1,39 @@
+name: Clean employer devcontainer
+on:
+  pull_request:
+    paths:
+      - '.devcontainer/**'
+      - '.github/workflows/devcontainer.yml'
+      - 'scripts/setup_codespace.py'
+      - 'scripts/start_platform.py'
+      - 'scripts/verify_platform.py'
+      - 'projects/**'
+      - 'portfolio_platform/**'
+      - 'compose.yaml'
+      - 'platform*'
+  push:
+    branches: [main]
+    paths:
+      - '.devcontainer/**'
+      - '.github/workflows/devcontainer.yml'
+      - 'scripts/setup_codespace.py'
+      - 'scripts/start_platform.py'
+      - 'scripts/verify_platform.py'
+      - 'projects/**'
+      - 'portfolio_platform/**'
+      - 'compose.yaml'
+      - 'platform*'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  codespaces-environment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the actual employer devcontainer and exercise its integrated walkthrough
+        uses: devcontainers/ci@v0.3
+        with:
+          push: never
+          runCmd: .venv/bin/python scripts/start_platform.py --verify

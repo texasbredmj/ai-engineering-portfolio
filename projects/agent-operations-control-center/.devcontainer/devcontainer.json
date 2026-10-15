@@ -1,0 +1,17 @@
+{
+  "name": "Employer demo — Relay",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {}
+  },
+  "forwardPorts": [18780],
+  "portsAttributes": {
+    "18780": {"label": "Relay employer demo", "onAutoForward": "notify"}
+  },
+  "otherPortsAttributes": {"onAutoForward": "ignore"},
+  "postCreateCommand": "python -m venv .venv && .venv/bin/python -m pip install -r requirements.lock .",
+  "postStartCommand": ".venv/bin/python scripts/start_demo.py",
+  "remoteUser": "vscode",
+  "hostRequirements": {"cpus": 2, "memory": "8gb", "storage": "16gb"},
+  "customizations": {"vscode": {"settings": {"remote.portsAttributes": {"18780": {"label": "Relay employer demo", "onAutoForward": "notify"}}}}}
+}

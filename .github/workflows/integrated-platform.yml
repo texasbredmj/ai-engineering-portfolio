@@ -1,0 +1,67 @@
+name: Integrated employer experience
+on:
+  pull_request:
+    paths: &runtime-paths
+      - '.github/workflows/integrated-platform.yml'
+      - '.devcontainer/**'
+      - 'projects/**'
+      - 'portfolio_platform/**'
+      - 'integration_tests/**'
+      - 'compose.yaml'
+      - 'platform*'
+      - 'scripts/project_demo.py'
+      - 'scripts/start_platform.py'
+      - 'scripts/verify_platform.py'
+      - 'scripts/test_components.py'
+  push:
+    branches: [main]
+    paths: *runtime-paths
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  employer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install all eight source packages into a clean environment
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r platform-requirements.lock playwright==1.64.0
+          .venv/bin/python -m pip install --no-deps ./projects/*/
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Check portable component contracts
+        run: |
+          python scripts/test_components.py
+          python -m pytest integration_tests -q
+      - name: Build and start the complete stack
+        run: python scripts/start_platform.py
+      - name: Run every project demonstration and the integrated employer walkthrough
+        run: python scripts/project_demo.py all
+      - name: Verify dashboard backend against real PostgreSQL
+        run: docker compose exec -T api python -m pytest projects/agent-operations-control-center/tests -q --junitxml=.platform/reports/backend-tests.xml
+      - name: Collect redacted verification evidence
+        if: always()
+        run: |
+          mkdir -p .platform/export
+          docker compose cp api:/portfolio/.platform/reports/. .platform/export/ || true
+          cp .platform/reports/*.json .platform/export/ 2>/dev/null || true
+          cp projects/agent-operations-control-center/.gates/browser-check.json .platform/export/ 2>/dev/null || true
+          cp projects/agent-operations-control-center/.gates/http-demo.json .platform/export/ 2>/dev/null || true
+          docker compose ps > .platform/export/services.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: employer-integration-evidence
+          path: .platform/export/
+          include-hidden-files: true
+          retention-days: 14
+      - name: Stop the disposable test stack
+        if: always()
+        run: docker compose down

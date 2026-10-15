@@ -1,0 +1,11 @@
+NAME                                 IMAGE                          COMMAND                  SERVICE         CREATED         STATUS                    PORTS
+portfolio-employer-api-1             portfolio-platform:local       "python -m uvicorn o…"   api             3 minutes ago   Up 16 seconds (healthy)   127.0.0.1:18780->8080/tcp
+portfolio-employer-bridge-1          portfolio-platform:local       "python -m uvicorn p…"   bridge          3 minutes ago   Up 3 minutes              
+portfolio-employer-dispatcher-1      portfolio-platform:local       "python -m portfolio…"   dispatcher      3 minutes ago   Up 6 seconds              
+portfolio-employer-model-gateway-1   portfolio-platform:local       "python -m uvicorn m…"   model-gateway   3 minutes ago   Up 3 minutes              
+portfolio-employer-orchestrator-1    portfolio-platform:local       "python -m portfolio…"   orchestrator    3 minutes ago   Up 6 seconds              
+portfolio-employer-postgres-1        postgres:16-alpine             "docker-entrypoint.s…"   postgres        3 minutes ago   Up 3 minutes (healthy)    5432/tcp
+portfolio-employer-providers-1       portfolio-platform:local       "python -m uvicorn m…"   providers       3 minutes ago   Up 3 minutes              
+portfolio-employer-redis-1           redis:7.4-alpine               "docker-entrypoint.s…"   redis           3 minutes ago   Up 3 minutes (healthy)    6379/tcp
+portfolio-employer-temporal-1        temporalio/auto-setup:1.29.1   "/etc/temporal/entry…"   temporal        3 minutes ago   Up 3 minutes              6933-6935/tcp, 6939/tcp, 7233-7235/tcp, 7239/tcp
+portfolio-employer-tool-gateway-1    portfolio-platform:local       "python -m uvicorn p…"   tool-gateway    3 minutes ago   Up 3 minutes              

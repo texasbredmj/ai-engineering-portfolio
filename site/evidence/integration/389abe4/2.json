@@ -1,0 +1,23 @@
+{
+  "state": "PASSED",
+  "project": 2,
+  "verified_at_utc": "2026-10-15T07:57:37.499017+00:00",
+  "checks": [
+    {
+      "command": [
+        "scripts/demo.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.451,
+      "summaries": []
+    },
+    {
+      "command": [
+        "scripts/smoke_server.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.909,
+      "summaries": []
+    }
+  ]
+}

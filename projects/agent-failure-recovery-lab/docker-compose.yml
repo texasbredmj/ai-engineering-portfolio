@@ -1,0 +1,30 @@
+services:
+  backend:
+    build: .
+    ports: [127.0.0.1:18660:8080]
+    volumes: [backend-data:/home/lab]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+  toxiproxy:
+    image: ghcr.io/shopify/toxiproxy:2.12.0
+    ports: [127.0.0.1:18474:8474, 127.0.0.1:18661:8666]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    ports: [127.0.0.1:19090:9090]
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+  grafana:
+    image: grafana/grafana:12.1.0
+    ports: [127.0.0.1:13000:3000]
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: 'true'
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_AUTH_DISABLE_LOGIN_FORM: 'true'
+    volumes:
+      - ./observability/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/dashboards:/var/lib/grafana/dashboards:ro
+volumes:
+  backend-data:

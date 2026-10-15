@@ -1,0 +1,671 @@
+{
+  "verified_at": "2026-10-14T02:46:17.298900+00:00",
+  "version": "0.1.0",
+  "windows": {
+    "python": "3.14.6",
+    "installation": "regular wheel in fresh venv",
+    "junit": {
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "scenarios": {
+      "schema_version": 1,
+      "verified_demo": true,
+      "scenario_count": 10,
+      "results": [
+        {
+          "scenario": "api_timeout",
+          "task_id": "lab-a67fc8e4-99b3-406c-af8e-58cf7e98ee91",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.1218858000356704,
+          "time_to_recovery_seconds": 1.1218858000356704,
+          "worker_cpu_seconds": 0.078125,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-a67fc8e4-99b3-406c-af8e-58cf7e98ee91",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "http_failures",
+          "task_id": "lab-b7b2c3da-c048-4198-ae1c-b60f23481452",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 3,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.521516899985727,
+          "time_to_recovery_seconds": 1.521516899985727,
+          "worker_cpu_seconds": 0.21875,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "http_500",
+            "http_500"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-b7b2c3da-c048-4198-ae1c-b60f23481452",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 3
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "rate_limit",
+          "task_id": "lab-952b87e7-49d4-415a-8e6c-363ad959fd06",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 3,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.2607693999889307,
+          "time_to_recovery_seconds": 1.2607693999889307,
+          "worker_cpu_seconds": 0.203125,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "http_429",
+            "http_429"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-952b87e7-49d4-415a-8e6c-363ad959fd06",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 3
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "malformed_response",
+          "task_id": "lab-6426aed0-4cf1-45ae-a224-15b6b5c00c85",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.1759060000185855,
+          "time_to_recovery_seconds": 1.1759060000185855,
+          "worker_cpu_seconds": 0.109375,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "malformed_response"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-6426aed0-4cf1-45ae-a224-15b6b5c00c85",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "temporary_outage",
+          "task_id": "lab-6d2e1166-f76b-4fd4-9c8c-e8827b73cff9",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 2,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.1280629000393674,
+          "time_to_recovery_seconds": 1.1280629000393674,
+          "worker_cpu_seconds": 0.125,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-6d2e1166-f76b-4fd4-9c8c-e8827b73cff9",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "worker_interruption",
+          "task_id": "lab-1b6620c1-116a-4e76-8f7f-db60e59f7a9b",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 2,
+          "backend_attempts": 2,
+          "effect_count": 1,
+          "worker_replaced": true,
+          "duration_seconds": 2.0842247999971732,
+          "time_to_recovery_seconds": 2.0842247999971732,
+          "worker_cpu_seconds": 0.109375,
+          "checkpoint_bytes": 16384,
+          "errors": [],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-1b6620c1-116a-4e76-8f7f-db60e59f7a9b",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 2
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "delayed_response",
+          "task_id": "lab-122f2b2e-4aaf-4a3d-b845-fe0c6ac67f97",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.2044261999544688,
+          "time_to_recovery_seconds": 1.2044261999544688,
+          "worker_cpu_seconds": 0.09375,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-122f2b2e-4aaf-4a3d-b845-fe0c6ac67f97",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "duplicate_delivery",
+          "task_id": "lab-5a06e39d-5926-425c-8d4c-d5f1dcfd1594",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 2,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.8261389000108466,
+          "time_to_recovery_seconds": 1.8261389000108466,
+          "worker_cpu_seconds": 0.09375,
+          "checkpoint_bytes": 16384,
+          "errors": [],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-5a06e39d-5926-425c-8d4c-d5f1dcfd1594",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 2
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "dependency_failure",
+          "task_id": "lab-30871a47-e5a1-400d-a799-ff4fd5bacb7d",
+          "outcome": "FAILED_SAFELY",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 3,
+          "effect_count": 0,
+          "worker_replaced": false,
+          "duration_seconds": 1.512777800031472,
+          "time_to_recovery_seconds": null,
+          "worker_cpu_seconds": 0.21875,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "http_503",
+            "http_503",
+            "http_503"
+          ],
+          "verification": {
+            "receipt": null,
+            "backend_attempts": 3
+          },
+          "worker_state": "FAILED"
+        },
+        {
+          "scenario": "permanent_outage",
+          "task_id": "lab-42590072-0fdf-4b4d-82a9-58040775269f",
+          "outcome": "HUMAN_REQUIRED",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 0,
+          "effect_count": 0,
+          "worker_replaced": false,
+          "duration_seconds": 1.454886500025168,
+          "time_to_recovery_seconds": null,
+          "worker_cpu_seconds": 0.265625,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport",
+            "transport",
+            "transport"
+          ],
+          "verification": {
+            "receipt": null,
+            "backend_attempts": 0
+          },
+          "worker_state": "HUMAN_REQUIRED"
+        }
+      ],
+      "metrics": {
+        "recovered": 8,
+        "failed_safely": 1,
+        "human_required": 1,
+        "duplicate_side_effects": 0,
+        "retries": 10,
+        "recovery_success_rate": 1.0,
+        "retry_effectiveness": 0.6666666666666666
+      }
+    }
+  },
+  "linux": {
+    "python_series": "3.12",
+    "installation": "regular wheel in non-root Docker container",
+    "junit": {
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "scenarios": {
+      "schema_version": 1,
+      "verified_demo": true,
+      "scenario_count": 10,
+      "results": [
+        {
+          "scenario": "api_timeout",
+          "task_id": "lab-0ec7f45a-bb0f-441f-988d-c3ff18d5c278",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 0.6493195679940982,
+          "time_to_recovery_seconds": 0.6493195679940982,
+          "worker_cpu_seconds": 0.0372227,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-0ec7f45a-bb0f-441f-988d-c3ff18d5c278",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "http_failures",
+          "task_id": "lab-805f914a-a241-407c-8d98-1ced9d7d9349",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 3,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 1.0370490569912363,
+          "time_to_recovery_seconds": 1.0370490569912363,
+          "worker_cpu_seconds": 0.12460609999999994,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "http_500",
+            "http_500"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-805f914a-a241-407c-8d98-1ced9d7d9349",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 3
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "rate_limit",
+          "task_id": "lab-d6cd7736-76a8-4a9c-813b-da8c5eb105fd",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 3,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 0.9432453580084257,
+          "time_to_recovery_seconds": 0.9432453580084257,
+          "worker_cpu_seconds": 0.14329350000000002,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "http_429",
+            "http_429"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-d6cd7736-76a8-4a9c-813b-da8c5eb105fd",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 3
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "malformed_response",
+          "task_id": "lab-695abbeb-9091-4a96-9992-463d78576aa9",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 0.7365699700021651,
+          "time_to_recovery_seconds": 0.7365699700021651,
+          "worker_cpu_seconds": 0.05297160000000001,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "malformed_response"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-695abbeb-9091-4a96-9992-463d78576aa9",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "temporary_outage",
+          "task_id": "lab-d3396f70-8c0a-4b4b-8a39-0ece56b8345e",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 2,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 0.7560117240063846,
+          "time_to_recovery_seconds": 0.7560117240063846,
+          "worker_cpu_seconds": 0.09939809999999999,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-d3396f70-8c0a-4b4b-8a39-0ece56b8345e",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "worker_interruption",
+          "task_id": "lab-4d5d31d3-ea57-4b21-8664-87b809746a07",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 2,
+          "backend_attempts": 2,
+          "effect_count": 1,
+          "worker_replaced": true,
+          "duration_seconds": 0.7940966970054433,
+          "time_to_recovery_seconds": 0.7940966970054433,
+          "worker_cpu_seconds": 0.04571259999999999,
+          "checkpoint_bytes": 16384,
+          "errors": [],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-4d5d31d3-ea57-4b21-8664-87b809746a07",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 2
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "delayed_response",
+          "task_id": "lab-9c74821b-6f6a-49d1-9783-f5f1c5f6d31e",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 1,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 0.6259393049986102,
+          "time_to_recovery_seconds": 0.6259393049986102,
+          "worker_cpu_seconds": 0.04277540000000002,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport"
+          ],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-9c74821b-6f6a-49d1-9783-f5f1c5f6d31e",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 1
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "duplicate_delivery",
+          "task_id": "lab-5cd1def3-675f-4b83-9e97-e9b8c06f9ba8",
+          "outcome": "RECOVERED",
+          "passed": true,
+          "attempts": 1,
+          "backend_attempts": 2,
+          "effect_count": 1,
+          "worker_replaced": false,
+          "duration_seconds": 0.8679016470123315,
+          "time_to_recovery_seconds": 0.8679016470123315,
+          "worker_cpu_seconds": 0.03220110000000001,
+          "checkpoint_bytes": 16384,
+          "errors": [],
+          "verification": {
+            "receipt": {
+              "task_id": "lab-5cd1def3-675f-4b83-9e97-e9b8c06f9ba8",
+              "quantity": 2,
+              "effect_count": 1
+            },
+            "backend_attempts": 2
+          },
+          "worker_state": "SUCCEEDED"
+        },
+        {
+          "scenario": "dependency_failure",
+          "task_id": "lab-2523d85b-8a34-4f28-a40e-373bdbdc828a",
+          "outcome": "FAILED_SAFELY",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 3,
+          "effect_count": 0,
+          "worker_replaced": false,
+          "duration_seconds": 0.9310538169956999,
+          "time_to_recovery_seconds": null,
+          "worker_cpu_seconds": 0.10183439999999999,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "http_503",
+            "http_503",
+            "http_503"
+          ],
+          "verification": {
+            "receipt": null,
+            "backend_attempts": 3
+          },
+          "worker_state": "FAILED"
+        },
+        {
+          "scenario": "permanent_outage",
+          "task_id": "lab-70f82362-dc6c-483d-b8bf-087173042235",
+          "outcome": "HUMAN_REQUIRED",
+          "passed": true,
+          "attempts": 3,
+          "backend_attempts": 0,
+          "effect_count": 0,
+          "worker_replaced": false,
+          "duration_seconds": 0.8822352080023848,
+          "time_to_recovery_seconds": null,
+          "worker_cpu_seconds": 0.09655940000000002,
+          "checkpoint_bytes": 16384,
+          "errors": [
+            "transport",
+            "transport",
+            "transport"
+          ],
+          "verification": {
+            "receipt": null,
+            "backend_attempts": 0
+          },
+          "worker_state": "HUMAN_REQUIRED"
+        }
+      ],
+      "metrics": {
+        "recovered": 8,
+        "failed_safely": 1,
+        "human_required": 1,
+        "duplicate_side_effects": 0,
+        "retries": 10,
+        "recovery_success_rate": 1.0,
+        "retry_effectiveness": 0.6666666666666666
+      }
+    }
+  },
+  "observability": {
+    "prometheus_queried": true,
+    "scraped_scenario_count": 30.0,
+    "grafana_provisioned_dashboard": true,
+    "dashboard_panels": 5
+  },
+  "service_versions": {
+    "toxiproxy": {
+      "version": "2.12.0"
+    },
+    "prometheus": "3.5.0",
+    "grafana": "12.1.0"
+  },
+  "checks": {
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "pip_check": "passed",
+    "cli": "passed",
+    "docker_build": "passed",
+    "credential_pattern_scan": "passed; limited source/config token/private-key patterns",
+    "remote_ci": "passed; implementation publication snapshot below"
+  },
+  "source_hash_basis": "UTF-8 text with LF newlines",
+  "source_sha256": {
+    "src/recovery_lab/backend.py": "86352634c7b016a020430decf432f1e3fb6dd383afdb2023e3633be27c36e673",
+    "src/recovery_lab/cli.py": "2922e9c4fa9b418b4ec93c988bab6ea8a885d1afa29834d21044d9b6e316bfc7",
+    "src/recovery_lab/contracts.py": "1ad93adbe539342433e0edbf72eac3503832a5028622d92316f1b4d7e0bd6d58",
+    "src/recovery_lab/experiment.py": "9690b784dc4ba2928700d40d20048eed78350d4b728b710c7f682cf54de6971a",
+    "src/recovery_lab/store.py": "7d0da9acb1026e7ce7bfb8f9ea4b4fa0e2f1758dde4d4288610dd41a4451e8a4",
+    "src/recovery_lab/worker.py": "0fde399f739511defd51fddcebfd8477643e64d148f94cc2a5c3920b7c746ceb",
+    "src/recovery_lab/__init__.py": "0c219f367d27e337bafb905b3ec3b2f71337d0f4873b4bcead571e66b058b8a2",
+    "tests/test_lab.py": "2851bf562039936e98e09a141fc07c97e622078891ed0764991cb3d2b41c678d",
+    "scripts/verify_observability.py": "11677c9ae4b80260aea7323007b05d76895119e7f19da3e30316099fc866dbc8",
+    "pyproject.toml": "9714bd0ed12df0226318d910dcf57e9baff7dad8d457186e28c3d4d3e263c07a",
+    "requirements.lock": "cba609222fe574083ea925ab45cf54e4c3cbcf4da26db6eab3f00a006497ab21",
+    "Dockerfile": "ca84659d600b8c866af6d543e25915786c3bee26271efc4cf08b7aa3d6ef4f45",
+    "docker-compose.yml": "16adbb52cca09b1bacc3872999eff85eaf325f2bd85f113e64b15e23bca87a51",
+    ".github/workflows/ci.yml": "d569df41baf0c13aa75c68953fd131c696f984dc73bfde3dd72726dae2036f24",
+    "observability/prometheus.yml": "ec1a6fccc3a7465e56e4018c604e8dedca366d79b490ae2f6906a70e253b4dd4",
+    "observability/dashboards/lab.json": "e0a5213e315be347ec612dda5170e9e9cdea3eb23cb590c7b2a76a773e2e14aa",
+    "observability/provisioning/dashboards/lab.yml": "dd6281cc5687cfd541eb299ad9cd1d8be76495c49a4476cf5ea7c9f410b89874",
+    "observability/provisioning/datasources/prometheus.yml": "f55549f0d39e5852f316ec176cedcfa0a4c75f8912348ddabc3a408bb09924e5"
+  },
+  "limitations": [
+    "Single-operator local fixtures, no production reliability claim",
+    "Unique mock ledger inserts do not prove arbitrary API exactly-once semantics",
+    "CPU covers execution in final worker only; checkpoint bytes exclude WAL",
+    "No storage-loss or distributed worker recovery test"
+  ],
+  "remote_ci_snapshot": {
+    "id": 38501915496,
+    "url": "https://github.com/texasbredmj/agent-failure-recovery-lab/actions/runs/38501915496",
+    "head_sha": "614f137e31cdffe31cfb557b4c9e29024c8a787d",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 115650614856,
+        "name": "fault-stack",
+        "conclusion": "success"
+      },
+      {
+        "id": 115650615237,
+        "name": "fixture-tests (ubuntu-latest, 3.12)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115650615249,
+        "name": "fixture-tests (ubuntu-latest, 3.14)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115650615267,
+        "name": "fixture-tests (ubuntu-latest, 3.11)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115650615285,
+        "name": "fixture-tests (windows-latest, 3.14)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115650615319,
+        "name": "fixture-tests (windows-latest, 3.11)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115650615352,
+        "name": "fixture-tests (windows-latest, 3.12)",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "remote_ci_followup": {
+    "run_id": 38502168720,
+    "head_sha": "14614e4c3267a070bd3ea1e533fe2a335571041f",
+    "conclusion": "failure",
+    "issue": "Short normal-request/verification deadline caused unintended transport ambiguity; fault suite lacked retained reports.",
+    "resolution": "Use one-second normal requests, independent two-second verification, explicit short fault timeouts, wider interruption window, and retained CI diagnostics.",
+    "corrected_remote_ci": "pending; current results are recorded in the portfolio delivery evidence",
+    "ci_directory_fix": {
+      "run_id": 38502781411,
+      "conclusion": "failure",
+      "issue": "Explicit pytest basetemp requires its .lab parent to exist in a clean checkout.",
+      "resolution": "Create .lab in each CI job before pytest; rehearsed in a fresh Linux working directory, 24 fixture tests passed."
+    }
+  }
+}

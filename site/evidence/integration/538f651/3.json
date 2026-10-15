@@ -1,0 +1,26 @@
+{
+  "state": "PASSED",
+  "project": 3,
+  "verified_at_utc": "2026-10-15T07:11:01.601963+00:00",
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "/home/runner/work/ai-engineering-portfolio/ai-engineering-portfolio/compose.yaml",
+        "exec",
+        "-T",
+        "-w",
+        "/portfolio/.platform",
+        "api",
+        "python",
+        "-m",
+        "workflow_orchestrator.demo"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 30.436,
+      "summaries": []
+    }
+  ]
+}

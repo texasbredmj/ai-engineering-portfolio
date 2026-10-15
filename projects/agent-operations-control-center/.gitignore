@@ -1,0 +1,14 @@
+.venv*/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.env
+.env.*
+!.env.example
+.gates/
+.runtime/
+frontend/node_modules/
+frontend/dist/
+build/
+dist/

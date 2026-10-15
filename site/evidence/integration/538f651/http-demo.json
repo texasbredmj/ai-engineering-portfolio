@@ -1,0 +1,129 @@
+{
+  "verified_demo": true,
+  "scenario_count": 8,
+  "results": [
+    {
+      "scenario": "verified_completion",
+      "passed": true,
+      "task_id": "6988bd2c-ac0f-4a56-836f-3f44cdffef7d",
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "verified": true,
+      "tool_calls": 3,
+      "trace_id": "9a11b3d992d546aa9530f5abe6777fa5"
+    },
+    {
+      "scenario": "separate_approval",
+      "passed": true,
+      "task_id": "48d6f4b2-40b1-4946-bd5a-59847dcc89c8",
+      "state": "SUCCEEDED",
+      "attempts": 1,
+      "verified": true,
+      "tool_calls": 3,
+      "trace_id": "7fca1ed27099427fa78c22af039c48a6"
+    },
+    {
+      "scenario": "rejection",
+      "passed": true,
+      "task_id": "228ea7a1-32cd-40c7-acfc-892893fdc7a1",
+      "state": "REJECTED",
+      "attempts": 0,
+      "verified": false,
+      "tool_calls": 0,
+      "trace_id": "141afe42eaf845cc97c926e0e17738cc"
+    },
+    {
+      "scenario": "cancellation",
+      "passed": true,
+      "task_id": "79349e31-c50a-4dea-8d36-cfb3e1b75fe1",
+      "state": "CANCELLED",
+      "attempts": 0,
+      "verified": false,
+      "tool_calls": 0,
+      "trace_id": "f7b3e659c5634a3b95278703c6fc28a8"
+    },
+    {
+      "scenario": "eligible_retry",
+      "passed": true,
+      "task_id": "a76fde8b-80b4-4e9a-870b-2335f08ca0d0",
+      "state": "SUCCEEDED",
+      "attempts": 2,
+      "verified": true,
+      "tool_calls": 3,
+      "trace_id": "00cdf63aad2944ab90a2231a149b8f4b"
+    },
+    {
+      "scenario": "permanent_failure",
+      "passed": true,
+      "task_id": "0fe4cf92-7676-41a3-8b5b-3052b4c15726",
+      "state": "FAILED",
+      "attempts": 1,
+      "verified": false,
+      "tool_calls": 0,
+      "trace_id": "9810972af4fa446b8b637ef60ce4d250"
+    },
+    {
+      "scenario": "verification_mismatch",
+      "passed": true,
+      "task_id": "e115ad55-98d8-4e69-866c-7cd2e4cb32a0",
+      "state": "FAILED",
+      "attempts": 1,
+      "verified": false,
+      "tool_calls": 3,
+      "trace_id": "c298d2b9401342af9d94bbb29e201850"
+    },
+    {
+      "scenario": "pending_approval",
+      "passed": true,
+      "task_id": "269de786-6087-448b-8fd1-d4c47617c4ed",
+      "state": "PENDING_APPROVAL",
+      "attempts": 0,
+      "verified": false,
+      "tool_calls": 0,
+      "trace_id": "40c6db6a5dff4e6e9392816d3f29d0d0"
+    }
+  ],
+  "overview": {
+    "counts": {
+      "CANCELLED": 1,
+      "FAILED": 2,
+      "PENDING_APPROVAL": 1,
+      "REJECTED": 1,
+      "SUCCEEDED": 3
+    },
+    "usage": {
+      "tool_calls": 12,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cost_nusd": 0,
+      "mean_tool_ms": 0.0
+    },
+    "verification": {
+      "checked": 4,
+      "passed": 3
+    },
+    "agents": [
+      {
+        "id": "temporal-dispatcher",
+        "heartbeat": "2026-10-15T07:12:18.673963+00:00",
+        "processed": 6,
+        "rss_bytes": 88981504,
+        "cpu_seconds": 4.3,
+        "online": true
+      }
+    ],
+    "reliability": {
+      "terminal_executions": 5,
+      "verified_success_rate": 0.6
+    },
+    "accounting": "deterministic fixtures; zero paid model calls; model gateway uses local mock providers; shared worker resource counters",
+    "platform": {
+      "enabled": true,
+      "path": "Dashboard \u2192 Temporal orchestrator \u2192 tool gateway \u2192 independently verified PostgreSQL reservation",
+      "model": "Project 06 local mock providers; hypothetical gateway accounting is in the model report"
+    }
+  },
+  "paid_model_calls": 0,
+  "unauthenticated_read_rejected": true,
+  "direct_unauthorized_controls_rejected": true
+}

@@ -1,0 +1,38 @@
+name: deterministic-ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.12', '3.14']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements.lock .
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: python -m pytest -q --junitxml=.task-engine/tests.xml
+      - run: task-engine submit examples/demo-request.json --report-file .task-engine/demo-report.json
+      - run: python scripts/demo_maintenance.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-${{ matrix.os }}-${{ matrix.python }}
+          path: .task-engine/
+          include-hidden-files: true
+          retention-days: 14
+  container:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose build
+      - run: docker compose run --rm engine
+      - run: docker compose run --rm --entrypoint python engine scripts/demo_maintenance.py --output-dir /data/demos

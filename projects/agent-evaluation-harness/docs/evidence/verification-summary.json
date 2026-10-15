@@ -1,0 +1,162 @@
+{
+  "verified_at": "2026-10-14T00:40:53.379774+00:00",
+  "version": "0.1.0",
+  "windows": {
+    "python": "3.14.6",
+    "installation": "regular wheel in fresh venv",
+    "junit": {
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "linux": {
+    "python_series": "3.12",
+    "installation": "regular wheel in Docker",
+    "junit": {
+      "tests": 30,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "non_root": true,
+    "network": "none",
+    "root_filesystem": "read-only",
+    "source_mount": "read-only"
+  },
+  "benchmark": {
+    "suite_sha256": "034c7252c77539ecb4211345a60ca490e2605c9d37415939fa3ebaadb580b79b",
+    "case_count": 14,
+    "baseline_gate_passed": true,
+    "metrics": {
+      "task_completion": 1.0,
+      "tool_selection": 1.0,
+      "argument_correctness": 1.0,
+      "authorization": 1.0,
+      "recovery": 1.0,
+      "latency": 1.0,
+      "tokens": 1.0,
+      "cost": 1.0,
+      "failure_rate": 1.0,
+      "verification_accuracy": 1.0
+    },
+    "metric_denominators": {
+      "task_completion": 14,
+      "tool_selection": 14,
+      "argument_correctness": 14,
+      "authorization": 14,
+      "recovery": 3,
+      "latency": 14,
+      "tokens": 14,
+      "cost": 14,
+      "failure_rate": 14,
+      "verification_accuracy": 14
+    },
+    "summary": {
+      "unauthorized_attempts": 2,
+      "unexpected_failure_rate": 0.0,
+      "observed_failure_rate": 0.21428571428571427,
+      "tokens": 0,
+      "cost_usd": 0.0,
+      "p95_latency_ms": 8.441300014965236
+    },
+    "regressions_rejected": [
+      {
+        "candidate_version": "wrong-tool-v2",
+        "passed": false,
+        "regression_count": 79
+      },
+      {
+        "candidate_version": "wrong-arguments-v2",
+        "passed": false,
+        "regression_count": 53
+      },
+      {
+        "candidate_version": "no-recovery-v2",
+        "passed": false,
+        "regression_count": 8
+      },
+      {
+        "candidate_version": "false-verifier-v2",
+        "passed": false,
+        "regression_count": 14
+      }
+    ]
+  },
+  "checks": {
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "pip_check": "passed",
+    "cli": "passed",
+    "docker_build": "passed",
+    "remote_ci": "passed at the recorded implementation commit",
+    "credential_pattern_scan": "passed; limited tracked-file token/private-key patterns"
+  },
+  "source_sha256": {
+    "src/agent_evaluation/candidates.py": "87a61fcdd95290df7d53c47044987ee75219b90f8f87edd62c369e51a621a251",
+    "src/agent_evaluation/cli.py": "3c40b2e91994cd9bcde762a0e1ead5eb5d196c952c2d4dba6edf58d5c623fe73",
+    "src/agent_evaluation/runner.py": "ed55eaec88bd013e7fb8a7b105abc826161b99630bae63b35f3e857a0f2fe7ad",
+    "src/agent_evaluation/schemas.py": "5105fb3b9074e7e8888dd828af2ce99375821a83cb887bede5015341cdfe718e",
+    "src/agent_evaluation/telemetry.py": "259309428a964477298576597a552ae50d1182ddd0f457702741d5b65cc47a89",
+    "src/agent_evaluation/tools.py": "47cc02fcf431160c3d0826b9c56dfb9935d53de8b79e677e8787ca67dfe2ca19",
+    "src/agent_evaluation/__init__.py": "35098c26cabd1cde5cc5b544b91aa21c86f5e073d906976e3a4da93c18d256fc",
+    "tests/test_harness.py": "1841e6c493131bafbdb428209641c314f59bc57c941d1bb40b6bbb345a7af7b8",
+    "scripts/demo.py": "de4f98146185d541832a2a5600285757e58881ccde6968b51b004e49519ec3e9",
+    "pyproject.toml": "8494b0424a9453d81aaf49dcccdfdc5fca0e7090dae2e523716bc4042c52c5a7",
+    "requirements.lock": "ae88211eba6801f1d9e24ae82d4e5b8b7222a76e19bc75d833b96de1f711fd80",
+    "Dockerfile": "dde97d80ece8306aaafad9d16134698f11664fb7b8d24665d142d55bc25d9aae",
+    ".github/workflows/ci.yml": "f7ada18646fd4409bc42c1f6fd41e0ab8078e611ce4152cd55863c40814ba641",
+    "benchmarks/baseline-v1.jsonl": "0981587b7ea7559184c9be77a216f04984d4cf6f0ba6fc9eafc42d6170cb84ab"
+  },
+  "limitations": [
+    "Controlled mock fixtures, not production or live model performance",
+    "Imported model usage is caller-supplied, not a provider billing attestation",
+    "Wall-clock latency varies; logical scores and decisions are reproducible"
+  ],
+  "source_hash_basis": "UTF-8 text with LF newlines, matching Git normalized files",
+  "remote_ci": {
+    "id": 38491693842,
+    "url": "https://github.com/texasbredmj/agent-evaluation-harness/actions/runs/38491693842",
+    "head_sha": "5946703101fcb880e9e5764c5c57c8964cbf656f",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 115618133604,
+        "name": "container",
+        "conclusion": "success"
+      },
+      {
+        "id": 115618133965,
+        "name": "evaluation (windows-latest, 3.11)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115618133969,
+        "name": "evaluation (ubuntu-latest, 3.12)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115618133981,
+        "name": "evaluation (ubuntu-latest, 3.11)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115618133987,
+        "name": "evaluation (windows-latest, 3.12)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115618133997,
+        "name": "evaluation (ubuntu-latest, 3.14)",
+        "conclusion": "success"
+      },
+      {
+        "id": 115618134037,
+        "name": "evaluation (windows-latest, 3.14)",
+        "conclusion": "success"
+      }
+    ]
+  }
+}
