@@ -77,7 +77,7 @@ def create_app(settings=None):
         if os.environ.get('OPS_PLATFORM') == '1':
             import httpx
             services = [os.environ['TOOL_GATEWAY_URL'], os.environ['MODEL_GATEWAY_URL'],
-                        os.environ['GATEWAY_UPSTREAM_URL']]
+                        os.environ['GATEWAY_UPSTREAM_URL'], os.environ['PROVIDER_ORIGIN']]
             try:
                 with httpx.Client(timeout=1, trust_env=False) as client:
                     for service in services:
