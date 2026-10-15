@@ -76,6 +76,9 @@ def run(number):
                 print('Project '+str(number)+' command failed; inspect the local command separately.',file=sys.stderr)
                 raise RuntimeError('demonstration failed')
         report = {'state':'PASSED','project':number,'verified_at_utc':datetime.now(timezone.utc).isoformat(),'checks':results}
+    except KeyboardInterrupt:
+        report = {'state':'CANCELLED','project':number,'error':'KeyboardInterrupt','checks':results}
+        raise
     except Exception as error:
         report = {'state':'FAILED','project':number,'error':type(error).__name__,'checks':results}
         raise

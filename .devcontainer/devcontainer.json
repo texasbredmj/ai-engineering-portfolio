@@ -10,5 +10,10 @@
   "postAttachCommand": ".venv/bin/python scripts/open_demo_guide.py",
   "remoteUser": "vscode",
   "remoteEnv": {"PATH": "${containerWorkspaceFolder}/.venv/bin:${containerEnv:PATH}"},
+  "customizations": {"vscode": {"settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": false,
+    "python-envs.terminal.autoActivationType": "off"
+  }}},
   "hostRequirements": {"cpus": 2, "memory": "8gb", "storage": "32gb"}
 }
