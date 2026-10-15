@@ -7,7 +7,7 @@
   "otherPortsAttributes": {"onAutoForward": "ignore"},
   "postCreateCommand": "python scripts/setup_codespace.py",
   "postStartCommand": ".venv/bin/python scripts/start_platform.py",
-  "postAttachCommand": "code .platform/DEMO-ACCESS.md",
+  "postAttachCommand": "if command -v code >/dev/null 2>&1; then code .platform/DEMO-ACCESS.md; fi",
   "remoteUser": "vscode",
   "remoteEnv": {"PATH": "${containerWorkspaceFolder}/.venv/bin:${containerEnv:PATH}"},
   "hostRequirements": {"cpus": 2, "memory": "8gb", "storage": "32gb"}
