@@ -8,15 +8,35 @@
   "ai_assistance": "Codex implemented and executed the reproduction and fix; personal attribution remains for owner review.",
   "before_source_commit": "666614df452ed77f40782b545477a2abed471024",
   "checks": [
-    {"command": "work/reproduce_schema_startup.py before locking", "concurrent_initializers": 8, "successful": 1, "unique_violations": 7},
-    {"command": "work/reproduce_schema_startup.py after locking", "concurrent_initializers": 8, "successful": 8, "failures": 0}
+    {
+      "command": "work/reproduce_schema_startup.py before locking",
+      "concurrent_initializers": 8,
+      "successful": 1,
+      "unique_violations": 7
+    },
+    {
+      "command": "work/reproduce_schema_startup.py after locking",
+      "concurrent_initializers": 8,
+      "successful": 8,
+      "failures": 0
+    }
   ],
   "regression_test": "projects/agent-operations-control-center/tests/test_startup.py",
-  "outcome": "All eight concurrent initializers completed after the lock was added. The clean devcontainer and integrated acceptance checks are rerunning against the corrected startup path.",
+  "outcome": "All eight concurrent initializers completed after the lock was added. The corrected clean devcontainer and all integrated acceptance checks passed at commit 389abe41fec22a07a520ebbe3f1ffba29476b1f4.",
   "tradeoffs": [
-    {"decision": "Use a transaction-scoped PostgreSQL advisory lock for schema initialization", "benefit": "Serialize catalog writes across API and worker startup without a separate migration service", "cost": "This fixture still uses application bootstrap DDL; production migrations should be managed separately"},
-    {"decision": "Require gateway and ledger bridge readiness before API readiness", "benefit": "The launcher no longer advertises a usable platform before required dependencies respond", "cost": "A dependency outage intentionally makes platform health fail"}
+    {
+      "decision": "Use a transaction-scoped PostgreSQL advisory lock for schema initialization",
+      "benefit": "Serialize catalog writes across API and worker startup without a separate migration service",
+      "cost": "This fixture still uses application bootstrap DDL; production migrations should be managed separately"
+    },
+    {
+      "decision": "Require gateway and ledger bridge readiness before API readiness",
+      "benefit": "The launcher no longer advertises a usable platform before required dependencies respond",
+      "cost": "A dependency outage intentionally makes platform health fail"
+    }
   ],
-  "limitations": ["Controlled fixture verification; production database migration and identity work remain separate"],
+  "limitations": [
+    "Controlled fixture verification; production database migration and identity work remain separate"
+  ],
   "review_status": "draft"
 }

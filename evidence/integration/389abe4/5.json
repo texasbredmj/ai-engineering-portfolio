@@ -1,0 +1,46 @@
+{
+  "state": "PASSED",
+  "project": 5,
+  "verified_at_utc": "2026-10-15T07:58:23.099226+00:00",
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "up",
+        "-d",
+        "--build",
+        "backend",
+        "toxiproxy"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 8.285,
+      "summaries": []
+    },
+    {
+      "command": [
+        "-m",
+        "recovery_lab.cli",
+        "run",
+        "--output",
+        ".lab/employer-1792051088805979863"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 6.008,
+      "summaries": [
+        {
+          "verified_demo": true,
+          "metrics": {
+            "recovered": 8,
+            "failed_safely": 1,
+            "human_required": 1,
+            "duplicate_side_effects": 0,
+            "retries": 10,
+            "recovery_success_rate": 1.0,
+            "retry_effectiveness": 0.6666666666666666
+          }
+        }
+      ]
+    }
+  ]
+}

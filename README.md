@@ -38,6 +38,6 @@ To run every demonstration, use `python scripts/project_demo.py all`. These chec
 
 [Integrated architecture](docs/INTEGRATED-ARCHITECTURE.md) · [Employer instructions](docs/EMPLOYER-TEST.md) · [Delivery checks](https://github.com/texasbredmj/ai-engineering-portfolio/actions/workflows/integrated-platform.yml) · [Original source commits](projects/source-manifest.json) · [Preserved project CI evidence](evidence/)
 
-Integration delivery is undergoing clean-environment validation. Passing earlier component CI does not establish that the new integration works. The integration workflow runs the actual stack, all eight demonstrations, authorization checks, Chromium interactions and service/worker restart verification.
+Verified in a fresh GitHub Codespace and clean GitHub Actions environments: all eight demonstrations, 202 portable component tests, four integration adapter/accounting tests, 36 PostgreSQL backend tests, eight HTTP scenarios and nine Chromium scenarios passed. Crash recovery preserved work with zero duplicate reservations. See [integration results](evidence/integration.json) and [fresh Codespace evidence](evidence/codespaces-integration.json).
 
 This is a deterministic engineering fixture with generated role tokens and local providers. Production managed identity, hostile-code isolation and general external API exactly-once guarantees are outside its scope.

@@ -1,0 +1,48 @@
+{
+  "state": "PASSED",
+  "project": 6,
+  "verified_at_utc": "2026-10-15T07:58:38.201462+00:00",
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "compose",
+        "up",
+        "-d",
+        "--build"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.12,
+      "summaries": []
+    },
+    {
+      "command": [
+        "scripts/demo.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.757,
+      "summaries": [
+        {
+          "verified_demo": true,
+          "scenarios": 9,
+          "evidence": "/home/runner/work/ai-engineering-portfolio/ai-engineering-portfolio/projects/multi-provider-model-gateway/.gateway/demo-4086ffef-a224-46e9-8a94-acdc8725fd88"
+        }
+      ]
+    },
+    {
+      "command": [
+        "scripts/verify_restart.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.15,
+      "summaries": [
+        {
+          "gateway_restarted": true,
+          "cached_response_preserved": true,
+          "usage_unchanged_on_replay": true,
+          "redis_persisted_identity": true
+        }
+      ]
+    }
+  ]
+}
